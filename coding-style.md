@@ -54,7 +54,7 @@ public class LineBreaks
     }
 }
 ```
-16.  Ak je hlavička metódy príliš dlhá, zalamujú sa jej parametre, pričom sú zalomenú buď všetky (aj prvý), alebo žiaden (ak sa zmenstí na riadok).
+16.  Ak je hlavička metódy príliš dlhá, zalamujú sa jej parametre, pričom sú zalomenú buď všetky (aj prvý), alebo žiaden (ak sa zmestí na riadok).
 ```csharp
 private void Foo(int param1, string param2, string param3)
 {
