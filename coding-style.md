@@ -18,7 +18,7 @@ Základné pravidlo formátovanie je "použi predvolený štýl Visual Studia".
 12. Vždy keď je to relevantné, používame `nameof(...)` namiesto reťazca `"..."`.
 13. Definície všetkých privátnych členov sú na začiatku triedy (typu).
 14. Dĺžka riadku je obmedzená na 130 znakov. Ak je to dlhšie (aj o jeden znak), treba to rozumne zalomiť na dva riadky. _Výnimka sú zdrojáky v unit testových knižniciach, kde sa relatívne často stane že sú dlhé riadky (napríklad kvôli informačným textom ak by test neprešiel). Tam je možné nechať riadky dlhšie, ak by zalamovanie len zhoršilo čitateľnosť._
-15. Pri zalamovaní riadkov operátory `.`, `=>`, `?:`, `:` dávame na začiatok ďalšieho riadku a nie na koniec predošlého.
+15. Pri zalamovaní riadkov operátory `.`, `=>`, `?:`, `:` dávame na začiatok ďalšieho riadku a nie na koniec predošlého. Výnimka je pri operátore `=>` ak je použitý v parametre metódy, ktorý je lambda funkciou. Ak takáto funkcia má telo na viac riadkov (jej telo je blok `{ ... }`), tak operátor je na konci.
 ```csharp
 public class LineBreaks
 {
@@ -36,6 +36,14 @@ public class LineBreaks
     private override void FooWithNameTooLongForOneLine()
         => base.FooWithNameTooLongForOneLine();
 
+    private void LambdaAsMethodArgument(IWebHostBuilder builder) {
+        builder.ConfigureServices(services =>
+        {
+            services.AddSingleton<IEmailSender, SmtpEmailSender>();
+            services.AddTransient<ILogger>(serviceProvider => new Logger());
+        });
+    }
+    
     private void Bar()
     {
         services.AddIdentityServer()
