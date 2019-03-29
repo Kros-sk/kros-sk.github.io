@@ -1,0 +1,905 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class MsAccessBulkInsert
+   | Kros.Utils.MsAccess </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class MsAccessBulkInsert
+   | Kros.Utils.MsAccess ">
+    <meta name="generator" content="docfx 2.40.12.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/Kros.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert">
+  
+  
+  <h1 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert" class="text-break">Class MsAccessBulkInsert
+  </h1>
+  <div class="markdown level0 summary"><p>The calss for fast bulk insert big amount of data into Microsoft Access database.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">MsAccessBulkInsert</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">Kros.Data.BulkActions.IBulkInsert</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Kros.Data.BulkActions.MsAccess.html">Kros.Data.BulkActions.MsAccess</a></h6>
+  <h6><strong>Assembly</strong>: Kros.Utils.MsAccess.dll</h6>
+  <h5 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class MsAccessBulkInsert : IBulkInsert, IDisposable</code></pre>
+  </div>
+  <h5 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>In the background, it creates a text CSV file with data which are inserted.</p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert__ctor_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.#ctor*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert__ctor_System_Data_OleDb_OleDbConnection_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.#ctor(System.Data.OleDb.OleDbConnection)">MsAccessBulkInsert(OleDbConnection)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance with database connection <code data-dev-comment-type="paramref" class="paramref">connection</code> and default settings for CSV file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MsAccessBulkInsert(OleDbConnection connection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.OleDb.OleDbConnection</span></td>
+        <td><span class="parametername">connection</span></td>
+        <td><p>Database connection where the data will be inserted. The connection mus be opened.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Value of <code data-dev-comment-type="paramref" class="paramref">connection</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert__ctor_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.#ctor*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert__ctor_System_Data_OleDb_OleDbConnection_System_Data_OleDb_OleDbTransaction_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.#ctor(System.Data.OleDb.OleDbConnection,System.Data.OleDb.OleDbTransaction)">MsAccessBulkInsert(OleDbConnection, OleDbTransaction)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance with database connection <code data-dev-comment-type="paramref" class="paramref">connection</code>, transaction
+<code data-dev-comment-type="paramref" class="paramref">externalTransaction</code> and default settings for CSV file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MsAccessBulkInsert(OleDbConnection connection, OleDbTransaction externalTransaction)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.OleDb.OleDbConnection</span></td>
+        <td><span class="parametername">connection</span></td>
+        <td><p>Database connection where the data will be inserted. The connection mus be opened.
+If there already is running transaction in this connection, it must be specified in
+<code data-dev-comment-type="paramref" class="paramref">externalTransaction</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Data.OleDb.OleDbTransaction</span></td>
+        <td><span class="parametername">externalTransaction</span></td>
+        <td><p>Transaction in which the bulk insert will be performed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Value of <code data-dev-comment-type="paramref" class="paramref">connection</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert__ctor_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.#ctor*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert__ctor_System_Data_OleDb_OleDbConnection_System_Data_OleDb_OleDbTransaction_System_Int32_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.#ctor(System.Data.OleDb.OleDbConnection,System.Data.OleDb.OleDbTransaction,System.Int32)">MsAccessBulkInsert(OleDbConnection, OleDbTransaction, Int32)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance with database connection <code data-dev-comment-type="paramref" class="paramref">connection</code>, transaction
+<code data-dev-comment-type="paramref" class="paramref">externalTransaction</code> and CSV file code page <code data-dev-comment-type="paramref" class="paramref">csvFileCodePage</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MsAccessBulkInsert(OleDbConnection connection, OleDbTransaction externalTransaction, int csvFileCodePage)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.OleDb.OleDbConnection</span></td>
+        <td><span class="parametername">connection</span></td>
+        <td><p>Database connection where the data will be inserted. The connection mus be opened.
+If there already is running transaction in this connection, it must be specified in
+<code data-dev-comment-type="paramref" class="paramref">externalTransaction</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Data.OleDb.OleDbTransaction</span></td>
+        <td><span class="parametername">externalTransaction</span></td>
+        <td><p>Transaction in which the bulk insert will be performed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">csvFileCodePage</span></td>
+        <td><p>Code page for generated CSV file.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Value of <code data-dev-comment-type="paramref" class="paramref">connection</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert__ctor_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.#ctor*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert__ctor_System_Data_OleDb_OleDbConnection_System_Data_OleDb_OleDbTransaction_System_Int32_System_Char_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.#ctor(System.Data.OleDb.OleDbConnection,System.Data.OleDb.OleDbTransaction,System.Int32,System.Char)">MsAccessBulkInsert(OleDbConnection, OleDbTransaction, Int32, Char)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance with database connection <code data-dev-comment-type="paramref" class="paramref">connection</code>, transaction
+<code data-dev-comment-type="paramref" class="paramref">externalTransaction</code> and CSV file settings <code data-dev-comment-type="paramref" class="paramref">csvFileCodePage</code>
+and <code data-dev-comment-type="paramref" class="paramref">valueDelimiter</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MsAccessBulkInsert(OleDbConnection connection, OleDbTransaction externalTransaction, int csvFileCodePage, char valueDelimiter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.OleDb.OleDbConnection</span></td>
+        <td><span class="parametername">connection</span></td>
+        <td><p>Database connection where the data will be inserted. The connection mus be opened.
+If there already is running transaction in this connection, it must be specified in
+<code data-dev-comment-type="paramref" class="paramref">externalTransaction</code>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Data.OleDb.OleDbTransaction</span></td>
+        <td><span class="parametername">externalTransaction</span></td>
+        <td><p>Transaction in which the bulk insert will be performed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">csvFileCodePage</span></td>
+        <td><p>Code page for generated CSV file.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Char</span></td>
+        <td><span class="parametername">valueDelimiter</span></td>
+        <td><p>Value delimiter for generated CSV file.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Value of <code data-dev-comment-type="paramref" class="paramref">connection</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert__ctor_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.#ctor*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert__ctor_System_String_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.#ctor(System.String)">MsAccessBulkInsert(String)</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance with database connection specifiend in <code data-dev-comment-type="paramref" class="paramref">connectionString</code>
+and default settings for CSV file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MsAccessBulkInsert(string connectionString)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">connectionString</span></td>
+        <td><p>Connection string for the database connection where the data will be inserted.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_AnsiCodePage" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.AnsiCodePage">AnsiCodePage</h4>
+  <div class="markdown level1 summary"><p>ANSI code page.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int AnsiCodePage = 2147483647</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_DefaultCodePage" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.DefaultCodePage">DefaultCodePage</h4>
+  <div class="markdown level1 summary"><p>Default code page: <a class="xref" href="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.html#Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_Utf8CodePage">Utf8CodePage</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int DefaultCodePage = 65001</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_DefaultValueDelimiter" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.DefaultValueDelimiter">DefaultValueDelimiter</h4>
+  <div class="markdown level1 summary"><p>Default value separator for CSV file: comma (<strong>,</strong>).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const char DefaultValueDelimiter = ','</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Char</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_OemCodePage" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.OemCodePage">OemCodePage</h4>
+  <div class="markdown level1 summary"><p>OEM code page.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int OemCodePage = 2147483646</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_Utf8CodePage" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.Utf8CodePage">Utf8CodePage</h4>
+  <div class="markdown level1 summary"><p>UTF-8 code page: 65001.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int Utf8CodePage = 65001</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_WindowsCentralEuropeCodePage" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.WindowsCentralEuropeCodePage">WindowsCentralEuropeCodePage</h4>
+  <div class="markdown level1 summary"><p>Windows Central Europe code page: <strong>1250</strong>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int WindowsCentralEuropeCodePage = 1250</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_BatchSize_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.BatchSize*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_BatchSize" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.BatchSize">BatchSize</h4>
+  <div class="markdown level1 summary"><p>This setting is not used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int BatchSize { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_BulkInsertTimeout_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.BulkInsertTimeout*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_BulkInsertTimeout" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.BulkInsertTimeout">BulkInsertTimeout</h4>
+  <div class="markdown level1 summary"><p>This setting is not used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int BulkInsertTimeout { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_CodePage_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.CodePage*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_CodePage" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.CodePage">CodePage</h4>
+  <div class="markdown level1 summary"><p>Code page used for CSV file and bulk insert. Default value is 65001 <a class="xref" href="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.html#Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_Utf8CodePage">Utf8CodePage</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CodePage { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>Number of code page.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_ColumnMappings_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.ColumnMappings*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_ColumnMappings" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.ColumnMappings">ColumnMappings</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BulkInsertColumnMappingCollection ColumnMappings { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kros.Data.BulkActions.BulkInsertColumnMappingCollection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_DestinationTableName_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.DestinationTableName*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_DestinationTableName" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.DestinationTableName">DestinationTableName</h4>
+  <div class="markdown level1 summary"><p>Destination table name in database.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DestinationTableName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_ExternalTransaction_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.ExternalTransaction*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_ExternalTransaction" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.ExternalTransaction">ExternalTransaction</h4>
+  <div class="markdown level1 summary"><p>External transaction, in which bulk insert is executed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OleDbTransaction ExternalTransaction { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.OleDb.OleDbTransaction</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_ValueDelimiter_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.ValueDelimiter*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_ValueDelimiter" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.ValueDelimiter">ValueDelimiter</h4>
+  <div class="markdown level1 summary"><p>Value separator in generated CSV file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public char ValueDelimiter { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Char</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_Dispose_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.Dispose*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_Dispose" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_Insert_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.Insert*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_Insert_Kros_Data_BulkActions_IBulkActionDataReader_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.Insert(Kros.Data.BulkActions.IBulkActionDataReader)">Insert(IBulkActionDataReader)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Insert(IBulkActionDataReader reader)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kros.Data.BulkActions.IBulkActionDataReader</span></td>
+        <td><span class="parametername">reader</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_Insert_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.Insert*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_Insert_System_Data_DataTable_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.Insert(System.Data.DataTable)">Insert(DataTable)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Insert(DataTable table)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.DataTable</span></td>
+        <td><span class="parametername">table</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_Insert_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.Insert*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_Insert_System_Data_IDataReader_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.Insert(System.Data.IDataReader)">Insert(IDataReader)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Insert(IDataReader reader)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.IDataReader</span></td>
+        <td><span class="parametername">reader</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_InsertAsync_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.InsertAsync*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_InsertAsync_Kros_Data_BulkActions_IBulkActionDataReader_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.InsertAsync(Kros.Data.BulkActions.IBulkActionDataReader)">InsertAsync(IBulkActionDataReader)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task InsertAsync(IBulkActionDataReader reader)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kros.Data.BulkActions.IBulkActionDataReader</span></td>
+        <td><span class="parametername">reader</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_InsertAsync_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.InsertAsync*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_InsertAsync_System_Data_DataTable_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.InsertAsync(System.Data.DataTable)">InsertAsync(DataTable)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task InsertAsync(DataTable table)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.DataTable</span></td>
+        <td><span class="parametername">table</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_InsertAsync_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.InsertAsync*"></a>
+  <h4 id="Kros_Data_BulkActions_MsAccess_MsAccessBulkInsert_InsertAsync_System_Data_IDataReader_" data-uid="Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.InsertAsync(System.Data.IDataReader)">InsertAsync(IDataReader)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task InsertAsync(IDataReader reader)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.IDataReader</span></td>
+        <td><span class="parametername">reader</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">Kros.Data.BulkActions.IBulkInsert</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            KROS a.s.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
