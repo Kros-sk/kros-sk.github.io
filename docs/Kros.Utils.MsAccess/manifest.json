@@ -1,0 +1,501 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/_Projekty/GitHub/Kros.Utils.MsAccess/documentation",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.BulkActions.MsAccess.BulkInsertColumnType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.BulkActions.MsAccess.BulkInsertColumnType.html",
+          "hash": "kqhmq4iIC6FNt4WH8ifYSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.BulkActions.MsAccess.MsAccessBulkActionFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.BulkActions.MsAccess.MsAccessBulkActionFactory.html",
+          "hash": "vhf+lTxnDYkqfOeyggyOgg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.BulkActions.MsAccess.MsAccessBulkInsert.html",
+          "hash": "ulcCyjqVyy10VGi6YEEPzQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.BulkActions.MsAccess.MsAccessBulkUpdate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.BulkActions.MsAccess.MsAccessBulkUpdate.html",
+          "hash": "YUi/wpXWQoDrxezZ55NBjw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.BulkActions.MsAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.BulkActions.MsAccess.html",
+          "hash": "lY+7DUyTHpQmxD9KcngFrQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.MsAccess.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.MsAccess.Extensions.html",
+          "hash": "ZhowhBc/d4L+nJPHCYlyfA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.MsAccess.MsAccessDataHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.MsAccess.MsAccessDataHelper.html",
+          "hash": "bWYiktxTGhY3w7Z51AtlHQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.MsAccess.MsAccessErrorCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.MsAccess.MsAccessErrorCode.html",
+          "hash": "RTbFkNXhnXWZttXsWGSK1A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.MsAccess.MsAccessIdGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.MsAccess.MsAccessIdGenerator.html",
+          "hash": "BuhgkAhGBrx9BMpstrDrYQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.MsAccess.MsAccessIdGeneratorFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.MsAccess.MsAccessIdGeneratorFactory.html",
+          "hash": "z2/6kQ+NpyKD6bsH4xFFKQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.MsAccess.ProviderType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.MsAccess.ProviderType.html",
+          "hash": "FeYyV2wb6rkVIHlR+1w6xg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.MsAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.MsAccess.html",
+          "hash": "dypV8/sjxYrNTNb5HG3vFQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessCacheKeyGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessCacheKeyGenerator.html",
+          "hash": "XO+4VH8XdKsfIlq30rKZjQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessColumnSchema.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessColumnSchema.html",
+          "hash": "ZOt0NkW15ePP1f8IAr5F3Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessParseDefaultValueEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessParseDefaultValueEventArgs.html",
+          "hash": "xMJOsxg7R7HDpLlOsy439A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessSchemaLoader.ColumnsSchemaNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessSchemaLoader.ColumnsSchemaNames.html",
+          "hash": "Qgd88BSy/trZI5Qtzpo1tw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessSchemaLoader.IndexesSchemaNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessSchemaLoader.IndexesSchemaNames.html",
+          "hash": "oazrNg2elB1Y7OsGgrBxuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessSchemaLoader.ProceduresSchemaNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessSchemaLoader.ProceduresSchemaNames.html",
+          "hash": "hMsFDmXzftoKIh1/EsyYNw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessSchemaLoader.SchemaNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessSchemaLoader.SchemaNames.html",
+          "hash": "uqRYcbdniAu1MUbQUhsOwA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessSchemaLoader.TableTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessSchemaLoader.TableTypes.html",
+          "hash": "x7IVEcve7ZXizeig2FkcHw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessSchemaLoader.TablesSchemaNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessSchemaLoader.TablesSchemaNames.html",
+          "hash": "Z0bxwWWmKNYhzJhXuMbNGA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessSchemaLoader.ViewsSchemaNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessSchemaLoader.ViewsSchemaNames.html",
+          "hash": "wR7pr2zh9BdBsJ0MdBAHDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessSchemaLoader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.Schema.MsAccess.MsAccessSchemaLoader.html",
+          "hash": "TgY/k0S91qRJlhNaa+sibQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Data.Schema.MsAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Data.Schema.MsAccess.html",
+          "hash": "LGTpUfBtI3t4SH9yX8fzMw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.UnitTests.MsAccessTestHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.UnitTests.MsAccessTestHelper.html",
+          "hash": "Fp4L3migkZ3BhfNhAte+CQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.UnitTests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.UnitTests.html",
+          "hash": "TYaNk8t+J38X9j6Ale6UYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Utils.MsAccess.LibraryInitializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Utils.MsAccess.LibraryInitializer.html",
+          "hash": "vlTj999jJ1eMgPNv5uUe4g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Kros.Utils.MsAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Kros.Utils.MsAccess.html",
+          "hash": "yctlYHEd7lTbtI6tuXxjSQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "oFlsj3RVeeW6BrHIpxxXxQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "gIw8Xi70C44Ede2Rwt5seg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "t7iiFrmuYmrKWisdq+lN6Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "favicon.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/Kros.ico",
+      "output": {
+        "resource": {
+          "relative_path": "images/Kros.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/Kros.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/Kros.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "e0l9AgwThTFjcailOVmrVQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "7jnGRsJ1GaH9tShj2O32aw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 28,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 2,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
