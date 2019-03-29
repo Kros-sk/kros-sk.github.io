@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class PathHelper
+   | Kros.Utils </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class PathHelper
+   | Kros.Utils ">
+    <meta name="generator" content="docfx 2.40.12.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/Kros.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Kros.IO.PathHelper">
+  
+  
+  <h1 id="Kros_IO_PathHelper" data-uid="Kros.IO.PathHelper" class="text-break">Class PathHelper
+  </h1>
+  <div class="markdown level0 summary"><p>Helpers for working with file/folder paths.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">PathHelper</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Kros.IO.html">Kros.IO</a></h6>
+  <h6><strong>Assembly</strong>: Kros.Utils.dll</h6>
+  <h5 id="Kros_IO_PathHelper_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class PathHelper</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Kros_IO_PathHelper_BuildPath_" data-uid="Kros.IO.PathHelper.BuildPath*"></a>
+  <h4 id="Kros_IO_PathHelper_BuildPath_System_String___" data-uid="Kros.IO.PathHelper.BuildPath(System.String[])">BuildPath(String[])</h4>
+  <div class="markdown level1 summary"><p>Joins parts <code data-dev-comment-type="paramref" class="paramref">parts</code> to one string, representing path to a file/folder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string BuildPath(params string[] parts)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">parts</span></td>
+        <td><p>Path parts.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>Created path.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Kros_IO_PathHelper_BuildPath_System_String____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The method works similarly as standard .NET method <span class="xref">System.IO.Path.Combine(System.String[])</span>,
+with some different details:
+<ul><li></li><li></li></ul>
+</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>The value of <code data-dev-comment-type="paramref" class="paramref">parts</code> or any of its item is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Any of the item in <code data-dev-comment-type="paramref" class="paramref">parts</code> contains invalid characters
+defined in <span class="xref">System.IO.Path.GetInvalidPathChars</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_IO_PathHelper_GetTempPath_" data-uid="Kros.IO.PathHelper.GetTempPath*"></a>
+  <h4 id="Kros_IO_PathHelper_GetTempPath" data-uid="Kros.IO.PathHelper.GetTempPath">GetTempPath()</h4>
+  <div class="markdown level1 summary"><p>Returns path to system temporary folder (<span class="xref">System.IO.Path.GetTempPath</span>) <strong>without</strong> trailing directory separator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetTempPath()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_IO_PathHelper_IsNetworkPath_" data-uid="Kros.IO.PathHelper.IsNetworkPath*"></a>
+  <h4 id="Kros_IO_PathHelper_IsNetworkPath_System_String_" data-uid="Kros.IO.PathHelper.IsNetworkPath(System.String)">IsNetworkPath(String)</h4>
+  <div class="markdown level1 summary"><p>Checks, if specified <code data-dev-comment-type="paramref" class="paramref">path</code> is network share path. The path is considered network share path,
+if it begins with <code>\</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsNetworkPath(string path)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
+        <td><p>Checked path.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if <code data-dev-comment-type="paramref" class="paramref">path</code> is network share path, <span class="xref">false</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_IO_PathHelper_ReplaceInvalidPathChars_" data-uid="Kros.IO.PathHelper.ReplaceInvalidPathChars*"></a>
+  <h4 id="Kros_IO_PathHelper_ReplaceInvalidPathChars_System_String_" data-uid="Kros.IO.PathHelper.ReplaceInvalidPathChars(System.String)">ReplaceInvalidPathChars(String)</h4>
+  <div class="markdown level1 summary"><p>Replaces invalid characters in <code data-dev-comment-type="paramref" class="paramref">pathName</code> with dash (<code>-</code>). If there are
+several succesive invalid characters, they all are replaced only by one dash.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ReplaceInvalidPathChars(string pathName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">pathName</span></td>
+        <td><p>Input path.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p><inheritdoc cref="M:Kros.IO.PathHelper.ReplaceInvalidPathChars(System.String,System.String)"></inheritdoc></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Kros_IO_PathHelper_ReplaceInvalidPathChars_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><inheritdoc cref="M:Kros.IO.PathHelper.ReplaceInvalidPathChars(System.String,System.String)"></inheritdoc></p>
+</div>
+  <a id="Kros_IO_PathHelper_ReplaceInvalidPathChars_" data-uid="Kros.IO.PathHelper.ReplaceInvalidPathChars*"></a>
+  <h4 id="Kros_IO_PathHelper_ReplaceInvalidPathChars_System_String_System_String_" data-uid="Kros.IO.PathHelper.ReplaceInvalidPathChars(System.String,System.String)">ReplaceInvalidPathChars(String, String)</h4>
+  <div class="markdown level1 summary"><p>Replaces invalid characters in <code data-dev-comment-type="paramref" class="paramref">pathName</code> with <code data-dev-comment-type="paramref" class="paramref">replacement</code>. If there are
+several succesive invalid characters, they all are replaced only by one <code data-dev-comment-type="paramref" class="paramref">replacement</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ReplaceInvalidPathChars(string pathName, string replacement)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">pathName</span></td>
+        <td><p>Input path.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">replacement</span></td>
+        <td><p>Value, by which are replaced invalid path charactes. If the value is <span class="xref">null</span>,
+empty stirng is used, so invalid characters are removed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>String with invalid path characters replaced. If input <code data-dev-comment-type="paramref" class="paramref">pathName</code> is <span class="xref">null</span>,
+empty string is returned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Kros_IO_PathHelper_ReplaceInvalidPathChars_System_String_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Replaced are all characters in <span class="xref">System.IO.Path.GetInvalidFileNameChars</span> and <span class="xref">System.IO.Path.GetInvalidPathChars</span>.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            KROS a.s.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

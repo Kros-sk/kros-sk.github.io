@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class HttpResponseMessageExtensions
+   | Kros.Utils </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class HttpResponseMessageExtensions
+   | Kros.Utils ">
+    <meta name="generator" content="docfx 2.40.12.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/Kros.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Kros.Net.HttpResponseMessageExtensions">
+  
+  
+  <h1 id="Kros_Net_HttpResponseMessageExtensions" data-uid="Kros.Net.HttpResponseMessageExtensions" class="text-break">Class HttpResponseMessageExtensions
+  </h1>
+  <div class="markdown level0 summary"><p>Extensions method for <span class="xref">System.Net.Http.HttpResponseMessage</span> class.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">HttpResponseMessageExtensions</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Kros.Net.html">Kros.Net</a></h6>
+  <h6><strong>Assembly</strong>: Kros.Utils.dll</h6>
+  <h5 id="Kros_Net_HttpResponseMessageExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class HttpResponseMessageExtensions</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Kros_Net_HttpResponseMessageExtensions_GetAntiForgeryTokenAsync_" data-uid="Kros.Net.HttpResponseMessageExtensions.GetAntiForgeryTokenAsync*"></a>
+  <h4 id="Kros_Net_HttpResponseMessageExtensions_GetAntiForgeryTokenAsync_System_Net_Http_HttpResponseMessage_" data-uid="Kros.Net.HttpResponseMessageExtensions.GetAntiForgeryTokenAsync(System.Net.Http.HttpResponseMessage)">GetAntiForgeryTokenAsync(HttpResponseMessage)</h4>
+  <div class="markdown level1 summary"><p>Extracts anti-forgery token from the HTTP response.
+Z HTTP odpovede získa hodnotu anti-forgery tokenu. Ten sa získa iba v prípade, že odpoveď je úspešná, tzn. jej
+<code>StatusCode</code> má hodnotu 2xx.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; GetAntiForgeryTokenAsync(this HttpResponseMessage response)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Net.Http.HttpResponseMessage</span></td>
+        <td><span class="parametername">response</span></td>
+        <td><p>HTTP response from which the anti-forgery token is extracted.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>Value of the anti-forgery token or <span class="xref">null</span>, if the token was not found or the response
+is not successful.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Kros_Net_HttpResponseMessageExtensions_GetAntiForgeryTokenAsync_System_Net_Http_HttpResponseMessage__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The token is extracted only if the respons was successful (<span class="xref">System.Net.Http.HttpResponseMessage.IsSuccessStatusCode</span>).
+The response's content is searched for form's field with the name
+<a class="xref" href="Kros.Net.HttpClientExtensions.html#Kros_Net_HttpClientExtensions_AntiForgeryTokenFieldName">AntiForgeryTokenFieldName</a>. If that field is found, it's value is returned.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            KROS a.s.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

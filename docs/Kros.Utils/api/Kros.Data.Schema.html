@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace Kros.Data.Schema
+   | Kros.Utils </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace Kros.Data.Schema
+   | Kros.Utils ">
+    <meta name="generator" content="docfx 2.40.12.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/Kros.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Kros.Data.Schema">
+  
+  <h1 id="Kros_Data_Schema" data-uid="Kros.Data.Schema" class="text-break">Namespace Kros.Data.Schema
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="Kros.Data.Schema.ColumnSchema.html">ColumnSchema</a></h4>
+      <section><p>Schema of a database table column.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.ColumnSchema.DefaultValues.html">ColumnSchema.DefaultValues</a></h4>
+      <section><p>Columns' default values for individual data types.</p>
+<ul><li></li><li></li><li></li><li></li><li></li></ul>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.ColumnSchemaCollection.html">ColumnSchemaCollection</a></h4>
+      <section><p>List of columns for table <a class="xref" href="Kros.Data.Schema.TableSchema.html">TableSchema</a>.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.DatabaseSchema.html">DatabaseSchema</a></h4>
+      <section><p>Database schema.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.DatabaseSchemaCache.html">DatabaseSchemaCache</a></h4>
+      <section><p>Implementation of <a class="xref" href="Kros.Data.Schema.IDatabaseSchemaCache.html">IDatabaseSchemaCache</a>. It allows to load database schemas after adding appropriate
+loaders (<a class="xref" href="Kros.Data.Schema.DatabaseSchemaCache.html#Kros_Data_Schema_DatabaseSchemaCache_AddSchemaLoader_Kros_Data_Schema_IDatabaseSchemaLoader_Kros_Data_Schema_ISchemaCacheKeyGenerator_">AddSchemaLoader(IDatabaseSchemaLoader, ISchemaCacheKeyGenerator)</a>). Loading of a database
+schema is quite slow, that's why loaded schemas are cached. On next request for the same schema, it is not
+loaded from database, but returned from cache.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.DatabaseSchemaLoader.html">DatabaseSchemaLoader</a></h4>
+      <section><p>Helper class for simple loading of database schemas. It contains inner list of different loaders, so it can be used
+for loading database schema for different databases. Fresh database schema is loaded for every request,
+it means, loaded schemas are not cached.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.DefaultValueParsers.html">DefaultValueParsers</a></h4>
+      <section><p>Standard parsers for columns' default values. The default values in database are stored as string and it is
+necessary to convert them to the specific column's type. If conversion to desired type fails, the returned
+value is always <span class="xref">null</span>.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.ForeignKeySchema.html">ForeignKeySchema</a></h4>
+      <section><p>The schema of the foreign key of the database table.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.ForeignKeySchemaCollection.html">ForeignKeySchemaCollection</a></h4>
+      <section><p>List of foreign keys for table <a class="xref" href="Kros.Data.Schema.TableSchema.html">TableSchema</a>.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.IndexColumnSchema.html">IndexColumnSchema</a></h4>
+      <section><p>Schema of a column of an index.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.IndexColumnSchemaCollection.html">IndexColumnSchemaCollection</a></h4>
+      <section><p>List of index columns.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.IndexSchema.html">IndexSchema</a></h4>
+      <section><p>Schema of a table's index.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.IndexSchemaCollection.html">IndexSchemaCollection</a></h4>
+      <section><p>List of indexes for table <a class="xref" href="Kros.Data.Schema.TableSchema.html">TableSchema</a>.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.TableSchema.html">TableSchema</a></h4>
+      <section><p>Schema of a database table.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.TableSchemaCollection.html">TableSchemaCollection</a></h4>
+      <section><p>List of tables for <a class="xref" href="Kros.Data.Schema.DatabaseSchema.html">DatabaseSchema</a>.</p>
+</section>
+    <h3 id="interfaces">Interfaces
+  </h3>
+      <h4><a class="xref" href="Kros.Data.Schema.IDatabaseSchemaCache.html">IDatabaseSchemaCache</a></h4>
+      <section><p>Interface for classes which loads and caches database schema.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.IDatabaseSchemaLoader.html">IDatabaseSchemaLoader</a></h4>
+      <section><p>Interface for loading database schema.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.IDatabaseSchemaLoader-1.html">IDatabaseSchemaLoader&lt;T&gt;</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Kros.Data.Schema.ISchemaCacheKeyGenerator.html">ISchemaCacheKeyGenerator</a></h4>
+      <section><p>Cache key generator for <a class="xref" href="Kros.Data.Schema.DatabaseSchemaCache.html">DatabaseSchemaCache</a>.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.ISchemaCacheKeyGenerator-1.html">ISchemaCacheKeyGenerator&lt;T&gt;</a></h4>
+      <section></section>
+    <h3 id="enums">Enums
+  </h3>
+      <h4><a class="xref" href="Kros.Data.Schema.ForeignKeyRule.html">ForeignKeyRule</a></h4>
+      <section><p>Foreign key rule. Defines what to do with child records when the value of parent record changes or is deleted.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.IndexType.html">IndexType</a></h4>
+      <section><p>Table index type.</p>
+</section>
+      <h4><a class="xref" href="Kros.Data.Schema.SortOrder.html">SortOrder</a></h4>
+      <section><p>Sort order of an index column.</p>
+</section>
+    <h3 id="delegates">Delegates
+  </h3>
+      <h4><a class="xref" href="Kros.Data.Schema.DefaultValueParsers.ParseDefaultValueFunction.html">DefaultValueParsers.ParseDefaultValueFunction</a></h4>
+      <section><p>Delegate for function which parses default value.</p>
+</section>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            KROS a.s.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
