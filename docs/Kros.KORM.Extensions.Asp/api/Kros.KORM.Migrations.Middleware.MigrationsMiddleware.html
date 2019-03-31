@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class MigrationsMiddleware
+   | Kros.KORM.Extensions.Asp </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class MigrationsMiddleware
+   | Kros.KORM.Extensions.Asp ">
+    <meta name="generator" content="docfx 2.40.12.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/Kros.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Kros.KORM.Migrations.Middleware.MigrationsMiddleware">
+  
+  
+  <h1 id="Kros_KORM_Migrations_Middleware_MigrationsMiddleware" data-uid="Kros.KORM.Migrations.Middleware.MigrationsMiddleware" class="text-break">Class MigrationsMiddleware
+  </h1>
+  <div class="markdown level0 summary"><p>Middleware for executing database migration.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">MigrationsMiddleware</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Kros.KORM.Migrations.Middleware.html">Kros.KORM.Migrations.Middleware</a></h6>
+  <h6><strong>Assembly</strong>: Kros.KORM.Extensions.Asp.dll</h6>
+  <h5 id="Kros_KORM_Migrations_Middleware_MigrationsMiddleware_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class MigrationsMiddleware</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Kros_KORM_Migrations_Middleware_MigrationsMiddleware__ctor_" data-uid="Kros.KORM.Migrations.Middleware.MigrationsMiddleware.#ctor*"></a>
+  <h4 id="Kros_KORM_Migrations_Middleware_MigrationsMiddleware__ctor_Microsoft_AspNetCore_Http_RequestDelegate_Microsoft_Extensions_Caching_Memory_IMemoryCache_Kros_KORM_Migrations_Middleware_MigrationMiddlewareOptions_" data-uid="Kros.KORM.Migrations.Middleware.MigrationsMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Caching.Memory.IMemoryCache,Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions)">MigrationsMiddleware(RequestDelegate, IMemoryCache, MigrationMiddlewareOptions)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Kros.KORM.Migrations.Middleware.MigrationsMiddleware.html">MigrationsMiddleware</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MigrationsMiddleware(RequestDelegate next, IMemoryCache cache, MigrationMiddlewareOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Http.RequestDelegate</span></td>
+        <td><span class="parametername">next</span></td>
+        <td><p>The next delegate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.Caching.Memory.IMemoryCache</span></td>
+        <td><span class="parametername">cache</span></td>
+        <td><p>Memory cache.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.html">MigrationMiddlewareOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>Migration options.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Kros_KORM_Migrations_Middleware_MigrationsMiddleware_Invoke_" data-uid="Kros.KORM.Migrations.Middleware.MigrationsMiddleware.Invoke*"></a>
+  <h4 id="Kros_KORM_Migrations_Middleware_MigrationsMiddleware_Invoke_Microsoft_AspNetCore_Http_HttpContext_Kros_KORM_Migrations_IMigrationsRunner_" data-uid="Kros.KORM.Migrations.Middleware.MigrationsMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext,Kros.KORM.Migrations.IMigrationsRunner)">Invoke(HttpContext, IMigrationsRunner)</h4>
+  <div class="markdown level1 summary"><p>Invokes the specified context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task Invoke(HttpContext context, IMigrationsRunner migrationsRunner)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Http.HttpContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kros.KORM.Migrations.IMigrationsRunner</span></td>
+        <td><span class="parametername">migrationsRunner</span></td>
+        <td><p>Migrations runner.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            KROS a.s.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,212 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Kros.KORM.Extensions.Asp
+  name: Kros.KORM.Extensions.Asp
+  href: api/Kros.KORM.Extensions.Asp.html
+  commentId: N:Kros.KORM.Extensions.Asp
+  fullName: Kros.KORM.Extensions.Asp
+  nameWithType: Kros.KORM.Extensions.Asp
+- uid: Kros.KORM.Extensions.Asp.KormBuilder
+  name: KormBuilder
+  href: api/Kros.KORM.Extensions.Asp.KormBuilder.html
+  commentId: T:Kros.KORM.Extensions.Asp.KormBuilder
+  fullName: Kros.KORM.Extensions.Asp.KormBuilder
+  nameWithType: KormBuilder
+- uid: Kros.KORM.Extensions.Asp.KormBuilder.#ctor(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Configuration.ConnectionStringSettings)
+  name: KormBuilder(IServiceCollection, ConnectionStringSettings)
+  href: api/Kros.KORM.Extensions.Asp.KormBuilder.html#Kros_KORM_Extensions_Asp_KormBuilder__ctor_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Configuration_ConnectionStringSettings_
+  commentId: M:Kros.KORM.Extensions.Asp.KormBuilder.#ctor(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Configuration.ConnectionStringSettings)
+  fullName: Kros.KORM.Extensions.Asp.KormBuilder.KormBuilder(Microsoft.Extensions.DependencyInjection.IServiceCollection, System.Configuration.ConnectionStringSettings)
+  nameWithType: KormBuilder.KormBuilder(IServiceCollection, ConnectionStringSettings)
+- uid: Kros.KORM.Extensions.Asp.KormBuilder.#ctor*
+  name: KormBuilder
+  href: api/Kros.KORM.Extensions.Asp.KormBuilder.html#Kros_KORM_Extensions_Asp_KormBuilder__ctor_
+  commentId: Overload:Kros.KORM.Extensions.Asp.KormBuilder.#ctor
+  isSpec: "True"
+  fullName: Kros.KORM.Extensions.Asp.KormBuilder.KormBuilder
+  nameWithType: KormBuilder.KormBuilder
+- uid: Kros.KORM.Extensions.Asp.KormBuilder.AddKormMigrations(Microsoft.Extensions.Configuration.IConfiguration,System.Action{Kros.KORM.Migrations.MigrationOptions})
+  name: AddKormMigrations(IConfiguration, Action<MigrationOptions>)
+  href: api/Kros.KORM.Extensions.Asp.KormBuilder.html#Kros_KORM_Extensions_Asp_KormBuilder_AddKormMigrations_Microsoft_Extensions_Configuration_IConfiguration_System_Action_Kros_KORM_Migrations_MigrationOptions__
+  commentId: M:Kros.KORM.Extensions.Asp.KormBuilder.AddKormMigrations(Microsoft.Extensions.Configuration.IConfiguration,System.Action{Kros.KORM.Migrations.MigrationOptions})
+  name.vb: AddKormMigrations(IConfiguration, Action(Of MigrationOptions))
+  fullName: Kros.KORM.Extensions.Asp.KormBuilder.AddKormMigrations(Microsoft.Extensions.Configuration.IConfiguration, System.Action<Kros.KORM.Migrations.MigrationOptions>)
+  fullName.vb: Kros.KORM.Extensions.Asp.KormBuilder.AddKormMigrations(Microsoft.Extensions.Configuration.IConfiguration, System.Action(Of Kros.KORM.Migrations.MigrationOptions))
+  nameWithType: KormBuilder.AddKormMigrations(IConfiguration, Action<MigrationOptions>)
+  nameWithType.vb: KormBuilder.AddKormMigrations(IConfiguration, Action(Of MigrationOptions))
+- uid: Kros.KORM.Extensions.Asp.KormBuilder.AddKormMigrations*
+  name: AddKormMigrations
+  href: api/Kros.KORM.Extensions.Asp.KormBuilder.html#Kros_KORM_Extensions_Asp_KormBuilder_AddKormMigrations_
+  commentId: Overload:Kros.KORM.Extensions.Asp.KormBuilder.AddKormMigrations
+  isSpec: "True"
+  fullName: Kros.KORM.Extensions.Asp.KormBuilder.AddKormMigrations
+  nameWithType: KormBuilder.AddKormMigrations
+- uid: Kros.KORM.Extensions.Asp.KormBuilder.InitDatabaseForIdGenerator
+  name: InitDatabaseForIdGenerator()
+  href: api/Kros.KORM.Extensions.Asp.KormBuilder.html#Kros_KORM_Extensions_Asp_KormBuilder_InitDatabaseForIdGenerator
+  commentId: M:Kros.KORM.Extensions.Asp.KormBuilder.InitDatabaseForIdGenerator
+  fullName: Kros.KORM.Extensions.Asp.KormBuilder.InitDatabaseForIdGenerator()
+  nameWithType: KormBuilder.InitDatabaseForIdGenerator()
+- uid: Kros.KORM.Extensions.Asp.KormBuilder.InitDatabaseForIdGenerator*
+  name: InitDatabaseForIdGenerator
+  href: api/Kros.KORM.Extensions.Asp.KormBuilder.html#Kros_KORM_Extensions_Asp_KormBuilder_InitDatabaseForIdGenerator_
+  commentId: Overload:Kros.KORM.Extensions.Asp.KormBuilder.InitDatabaseForIdGenerator
+  isSpec: "True"
+  fullName: Kros.KORM.Extensions.Asp.KormBuilder.InitDatabaseForIdGenerator
+  nameWithType: KormBuilder.InitDatabaseForIdGenerator
+- uid: Kros.KORM.Extensions.Asp.KormBuilder.Migrate
+  name: Migrate()
+  href: api/Kros.KORM.Extensions.Asp.KormBuilder.html#Kros_KORM_Extensions_Asp_KormBuilder_Migrate
+  commentId: M:Kros.KORM.Extensions.Asp.KormBuilder.Migrate
+  fullName: Kros.KORM.Extensions.Asp.KormBuilder.Migrate()
+  nameWithType: KormBuilder.Migrate()
+- uid: Kros.KORM.Extensions.Asp.KormBuilder.Migrate*
+  name: Migrate
+  href: api/Kros.KORM.Extensions.Asp.KormBuilder.html#Kros_KORM_Extensions_Asp_KormBuilder_Migrate_
+  commentId: Overload:Kros.KORM.Extensions.Asp.KormBuilder.Migrate
+  isSpec: "True"
+  fullName: Kros.KORM.Extensions.Asp.KormBuilder.Migrate
+  nameWithType: KormBuilder.Migrate
+- uid: Kros.KORM.Extensions.Asp.KormBuilder.Services
+  name: Services
+  href: api/Kros.KORM.Extensions.Asp.KormBuilder.html#Kros_KORM_Extensions_Asp_KormBuilder_Services
+  commentId: P:Kros.KORM.Extensions.Asp.KormBuilder.Services
+  fullName: Kros.KORM.Extensions.Asp.KormBuilder.Services
+  nameWithType: KormBuilder.Services
+- uid: Kros.KORM.Extensions.Asp.KormBuilder.Services*
+  name: Services
+  href: api/Kros.KORM.Extensions.Asp.KormBuilder.html#Kros_KORM_Extensions_Asp_KormBuilder_Services_
+  commentId: Overload:Kros.KORM.Extensions.Asp.KormBuilder.Services
+  isSpec: "True"
+  fullName: Kros.KORM.Extensions.Asp.KormBuilder.Services
+  nameWithType: KormBuilder.Services
+- uid: Kros.KORM.Extensions.Asp.ServiceCollectionExtensions
+  name: ServiceCollectionExtensions
+  href: api/Kros.KORM.Extensions.Asp.ServiceCollectionExtensions.html
+  commentId: T:Kros.KORM.Extensions.Asp.ServiceCollectionExtensions
+  fullName: Kros.KORM.Extensions.Asp.ServiceCollectionExtensions
+  nameWithType: ServiceCollectionExtensions
+- uid: Kros.KORM.Extensions.Asp.ServiceCollectionExtensions.AddKorm(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
+  name: AddKorm(IServiceCollection, IConfiguration)
+  href: api/Kros.KORM.Extensions.Asp.ServiceCollectionExtensions.html#Kros_KORM_Extensions_Asp_ServiceCollectionExtensions_AddKorm_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfiguration_
+  commentId: M:Kros.KORM.Extensions.Asp.ServiceCollectionExtensions.AddKorm(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)
+  fullName: Kros.KORM.Extensions.Asp.ServiceCollectionExtensions.AddKorm(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfiguration)
+  nameWithType: ServiceCollectionExtensions.AddKorm(IServiceCollection, IConfiguration)
+- uid: Kros.KORM.Extensions.Asp.ServiceCollectionExtensions.AddKorm(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfigurationSection)
+  name: AddKorm(IServiceCollection, IConfigurationSection)
+  href: api/Kros.KORM.Extensions.Asp.ServiceCollectionExtensions.html#Kros_KORM_Extensions_Asp_ServiceCollectionExtensions_AddKorm_Microsoft_Extensions_DependencyInjection_IServiceCollection_Microsoft_Extensions_Configuration_IConfigurationSection_
+  commentId: M:Kros.KORM.Extensions.Asp.ServiceCollectionExtensions.AddKorm(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfigurationSection)
+  fullName: Kros.KORM.Extensions.Asp.ServiceCollectionExtensions.AddKorm(Microsoft.Extensions.DependencyInjection.IServiceCollection, Microsoft.Extensions.Configuration.IConfigurationSection)
+  nameWithType: ServiceCollectionExtensions.AddKorm(IServiceCollection, IConfigurationSection)
+- uid: Kros.KORM.Extensions.Asp.ServiceCollectionExtensions.AddKorm*
+  name: AddKorm
+  href: api/Kros.KORM.Extensions.Asp.ServiceCollectionExtensions.html#Kros_KORM_Extensions_Asp_ServiceCollectionExtensions_AddKorm_
+  commentId: Overload:Kros.KORM.Extensions.Asp.ServiceCollectionExtensions.AddKorm
+  isSpec: "True"
+  fullName: Kros.KORM.Extensions.Asp.ServiceCollectionExtensions.AddKorm
+  nameWithType: ServiceCollectionExtensions.AddKorm
+- uid: Kros.KORM.Migrations.Middleware
+  name: Kros.KORM.Migrations.Middleware
+  href: api/Kros.KORM.Migrations.Middleware.html
+  commentId: N:Kros.KORM.Migrations.Middleware
+  fullName: Kros.KORM.Migrations.Middleware
+  nameWithType: Kros.KORM.Migrations.Middleware
+- uid: Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions
+  name: MigrationMiddlewareOptions
+  href: api/Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.html
+  commentId: T:Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions
+  fullName: Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions
+  nameWithType: MigrationMiddlewareOptions
+- uid: Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.EndpointUrl
+  name: EndpointUrl
+  href: api/Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.html#Kros_KORM_Migrations_Middleware_MigrationMiddlewareOptions_EndpointUrl
+  commentId: P:Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.EndpointUrl
+  fullName: Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.EndpointUrl
+  nameWithType: MigrationMiddlewareOptions.EndpointUrl
+- uid: Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.EndpointUrl*
+  name: EndpointUrl
+  href: api/Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.html#Kros_KORM_Migrations_Middleware_MigrationMiddlewareOptions_EndpointUrl_
+  commentId: Overload:Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.EndpointUrl
+  isSpec: "True"
+  fullName: Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.EndpointUrl
+  nameWithType: MigrationMiddlewareOptions.EndpointUrl
+- uid: Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.SlidingExpirationBetweenMigrations
+  name: SlidingExpirationBetweenMigrations
+  href: api/Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.html#Kros_KORM_Migrations_Middleware_MigrationMiddlewareOptions_SlidingExpirationBetweenMigrations
+  commentId: P:Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.SlidingExpirationBetweenMigrations
+  fullName: Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.SlidingExpirationBetweenMigrations
+  nameWithType: MigrationMiddlewareOptions.SlidingExpirationBetweenMigrations
+- uid: Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.SlidingExpirationBetweenMigrations*
+  name: SlidingExpirationBetweenMigrations
+  href: api/Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.html#Kros_KORM_Migrations_Middleware_MigrationMiddlewareOptions_SlidingExpirationBetweenMigrations_
+  commentId: Overload:Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.SlidingExpirationBetweenMigrations
+  isSpec: "True"
+  fullName: Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.SlidingExpirationBetweenMigrations
+  nameWithType: MigrationMiddlewareOptions.SlidingExpirationBetweenMigrations
+- uid: Kros.KORM.Migrations.Middleware.MigrationsMiddleware
+  name: MigrationsMiddleware
+  href: api/Kros.KORM.Migrations.Middleware.MigrationsMiddleware.html
+  commentId: T:Kros.KORM.Migrations.Middleware.MigrationsMiddleware
+  fullName: Kros.KORM.Migrations.Middleware.MigrationsMiddleware
+  nameWithType: MigrationsMiddleware
+- uid: Kros.KORM.Migrations.Middleware.MigrationsMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Caching.Memory.IMemoryCache,Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions)
+  name: MigrationsMiddleware(RequestDelegate, IMemoryCache, MigrationMiddlewareOptions)
+  href: api/Kros.KORM.Migrations.Middleware.MigrationsMiddleware.html#Kros_KORM_Migrations_Middleware_MigrationsMiddleware__ctor_Microsoft_AspNetCore_Http_RequestDelegate_Microsoft_Extensions_Caching_Memory_IMemoryCache_Kros_KORM_Migrations_Middleware_MigrationMiddlewareOptions_
+  commentId: M:Kros.KORM.Migrations.Middleware.MigrationsMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Caching.Memory.IMemoryCache,Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions)
+  fullName: Kros.KORM.Migrations.Middleware.MigrationsMiddleware.MigrationsMiddleware(Microsoft.AspNetCore.Http.RequestDelegate, Microsoft.Extensions.Caching.Memory.IMemoryCache, Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions)
+  nameWithType: MigrationsMiddleware.MigrationsMiddleware(RequestDelegate, IMemoryCache, MigrationMiddlewareOptions)
+- uid: Kros.KORM.Migrations.Middleware.MigrationsMiddleware.#ctor*
+  name: MigrationsMiddleware
+  href: api/Kros.KORM.Migrations.Middleware.MigrationsMiddleware.html#Kros_KORM_Migrations_Middleware_MigrationsMiddleware__ctor_
+  commentId: Overload:Kros.KORM.Migrations.Middleware.MigrationsMiddleware.#ctor
+  isSpec: "True"
+  fullName: Kros.KORM.Migrations.Middleware.MigrationsMiddleware.MigrationsMiddleware
+  nameWithType: MigrationsMiddleware.MigrationsMiddleware
+- uid: Kros.KORM.Migrations.Middleware.MigrationsMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext,Kros.KORM.Migrations.IMigrationsRunner)
+  name: Invoke(HttpContext, IMigrationsRunner)
+  href: api/Kros.KORM.Migrations.Middleware.MigrationsMiddleware.html#Kros_KORM_Migrations_Middleware_MigrationsMiddleware_Invoke_Microsoft_AspNetCore_Http_HttpContext_Kros_KORM_Migrations_IMigrationsRunner_
+  commentId: M:Kros.KORM.Migrations.Middleware.MigrationsMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext,Kros.KORM.Migrations.IMigrationsRunner)
+  fullName: Kros.KORM.Migrations.Middleware.MigrationsMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext, Kros.KORM.Migrations.IMigrationsRunner)
+  nameWithType: MigrationsMiddleware.Invoke(HttpContext, IMigrationsRunner)
+- uid: Kros.KORM.Migrations.Middleware.MigrationsMiddleware.Invoke*
+  name: Invoke
+  href: api/Kros.KORM.Migrations.Middleware.MigrationsMiddleware.html#Kros_KORM_Migrations_Middleware_MigrationsMiddleware_Invoke_
+  commentId: Overload:Kros.KORM.Migrations.Middleware.MigrationsMiddleware.Invoke
+  isSpec: "True"
+  fullName: Kros.KORM.Migrations.Middleware.MigrationsMiddleware.Invoke
+  nameWithType: MigrationsMiddleware.Invoke
+- uid: Microsoft.AspNetCore.Builder
+  name: Microsoft.AspNetCore.Builder
+  href: api/Microsoft.AspNetCore.Builder.html
+  commentId: N:Microsoft.AspNetCore.Builder
+  fullName: Microsoft.AspNetCore.Builder
+  nameWithType: Microsoft.AspNetCore.Builder
+- uid: Microsoft.AspNetCore.Builder.BuilderExtensions
+  name: BuilderExtensions
+  href: api/Microsoft.AspNetCore.Builder.BuilderExtensions.html
+  commentId: T:Microsoft.AspNetCore.Builder.BuilderExtensions
+  fullName: Microsoft.AspNetCore.Builder.BuilderExtensions
+  nameWithType: BuilderExtensions
+- uid: Microsoft.AspNetCore.Builder.BuilderExtensions.UseKormMigrations(Microsoft.AspNetCore.Builder.IApplicationBuilder)
+  name: UseKormMigrations(IApplicationBuilder)
+  href: api/Microsoft.AspNetCore.Builder.BuilderExtensions.html#Microsoft_AspNetCore_Builder_BuilderExtensions_UseKormMigrations_Microsoft_AspNetCore_Builder_IApplicationBuilder_
+  commentId: M:Microsoft.AspNetCore.Builder.BuilderExtensions.UseKormMigrations(Microsoft.AspNetCore.Builder.IApplicationBuilder)
+  fullName: Microsoft.AspNetCore.Builder.BuilderExtensions.UseKormMigrations(Microsoft.AspNetCore.Builder.IApplicationBuilder)
+  nameWithType: BuilderExtensions.UseKormMigrations(IApplicationBuilder)
+- uid: Microsoft.AspNetCore.Builder.BuilderExtensions.UseKormMigrations(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.Action{Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions})
+  name: UseKormMigrations(IApplicationBuilder, Action<MigrationMiddlewareOptions>)
+  href: api/Microsoft.AspNetCore.Builder.BuilderExtensions.html#Microsoft_AspNetCore_Builder_BuilderExtensions_UseKormMigrations_Microsoft_AspNetCore_Builder_IApplicationBuilder_System_Action_Kros_KORM_Migrations_Middleware_MigrationMiddlewareOptions__
+  commentId: M:Microsoft.AspNetCore.Builder.BuilderExtensions.UseKormMigrations(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.Action{Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions})
+  name.vb: UseKormMigrations(IApplicationBuilder, Action(Of MigrationMiddlewareOptions))
+  fullName: Microsoft.AspNetCore.Builder.BuilderExtensions.UseKormMigrations(Microsoft.AspNetCore.Builder.IApplicationBuilder, System.Action<Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions>)
+  fullName.vb: Microsoft.AspNetCore.Builder.BuilderExtensions.UseKormMigrations(Microsoft.AspNetCore.Builder.IApplicationBuilder, System.Action(Of Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions))
+  nameWithType: BuilderExtensions.UseKormMigrations(IApplicationBuilder, Action<MigrationMiddlewareOptions>)
+  nameWithType.vb: BuilderExtensions.UseKormMigrations(IApplicationBuilder, Action(Of MigrationMiddlewareOptions))
+- uid: Microsoft.AspNetCore.Builder.BuilderExtensions.UseKormMigrations*
+  name: UseKormMigrations
+  href: api/Microsoft.AspNetCore.Builder.BuilderExtensions.html#Microsoft_AspNetCore_Builder_BuilderExtensions_UseKormMigrations_
+  commentId: Overload:Microsoft.AspNetCore.Builder.BuilderExtensions.UseKormMigrations
+  isSpec: "True"
+  fullName: Microsoft.AspNetCore.Builder.BuilderExtensions.UseKormMigrations
+  nameWithType: BuilderExtensions.UseKormMigrations
