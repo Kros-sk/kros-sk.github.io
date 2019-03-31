@@ -237,7 +237,8 @@
   </table>
   <a id="Kros_Data_Schema_SqlServer_SqlServerColumnSchema__ctor_" data-uid="Kros.Data.Schema.SqlServer.SqlServerColumnSchema.#ctor*"></a>
   <h4 id="Kros_Data_Schema_SqlServer_SqlServerColumnSchema__ctor_System_String_System_Boolean_System_Object_System_Int32_" data-uid="Kros.Data.Schema.SqlServer.SqlServerColumnSchema.#ctor(System.String,System.Boolean,System.Object,System.Int32)">SqlServerColumnSchema(String, Boolean, Object, Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates an instance of column schema with <code data-dev-comment-type="paramref" class="paramref">name</code> and specified parameters.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -256,22 +257,48 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">name</span></td>
-        <td></td>
+        <td><p>Column's name</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">allowNull</span></td>
-        <td></td>
+        <td><p>Specifies if column accepts <strong>NULL</strong> value.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">defaultValue</span></td>
-        <td></td>
+        <td><p>Column's default value.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">size</span></td>
-        <td></td>
+        <td><p>Maximum length of text columns. If value is <strong>0</strong>, maximum length is unlimited.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Value of <code data-dev-comment-type="paramref" class="paramref">name</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Value of <code data-dev-comment-type="paramref" class="paramref">name</code> is empty string, or string containing only
+whitespace characters.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -305,7 +332,8 @@
   </h3>
   <a id="Kros_Data_Schema_SqlServer_SqlServerColumnSchema_SetupParameter_" data-uid="Kros.Data.Schema.SqlServer.SqlServerColumnSchema.SetupParameter*"></a>
   <h4 id="Kros_Data_Schema_SqlServer_SqlServerColumnSchema_SetupParameter_System_Data_IDataParameter_" data-uid="Kros.Data.Schema.SqlServer.SqlServerColumnSchema.SetupParameter(System.Data.IDataParameter)">SetupParameter(IDataParameter)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sets-up command parameter <code data-dev-comment-type="paramref" class="paramref">param</code> according to the column schema.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -324,12 +352,17 @@
       <tr>
         <td><span class="xref">System.Data.IDataParameter</span></td>
         <td><span class="parametername">param</span></td>
-        <td></td>
+        <td><p>Parameter for <span class="xref">System.Data.IDbCommand</span> commands.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="Kros.Data.Schema.ColumnSchema.html#Kros_Data_Schema_ColumnSchema_SetupParameter_System_Data_IDataParameter_">ColumnSchema.SetupParameter(IDataParameter)</a></div>
+  <h5 id="Kros_Data_Schema_SqlServer_SqlServerColumnSchema_SetupParameter_System_Data_IDataParameter__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Method should set parameters data type, and other specific values (size for <code>VARCHAR</code>,
+precision and scale for float columns).</p>
+</div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
