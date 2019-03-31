@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "D:/_Projekty/GitHub/Kros.Utils/documentation",
+  "source_base_path": "D:/_Projekty/GitHub/kros.utils/documentation",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Kros.Data.BulkActions.BulkActionFactories.html",
-          "hash": "L1c4vjwtGLibKHYWKUTpRw=="
+          "hash": "zepuuWWwXTA/FDdlVp5cUg=="
         }
       },
       "is_incremental": false,
@@ -102,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Kros.Data.BulkActions.BulkUpdateBase.html",
-          "hash": "ozGmSLo65QYG4b9jVEcVrw=="
+          "hash": "WhmyDqgYl0sNa/hlshFtRQ=="
         }
       },
       "is_incremental": false,
@@ -186,7 +186,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Kros.Data.BulkActions.SqlServer.SqlServerBulkInsert.html",
-          "hash": "X5odC3tO0pcQQIS3WN/Q6Q=="
+          "hash": "58TuxeBfqfYG0pXKnpMNSQ=="
         }
       },
       "is_incremental": false,
@@ -198,7 +198,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Kros.Data.BulkActions.SqlServer.SqlServerBulkUpdate.html",
-          "hash": "RBUlh9bDw5LOTp4fDAdA+A=="
+          "hash": "29xkhLRoLN2cr//+K1TuMg=="
         }
       },
       "is_incremental": false,
@@ -282,7 +282,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Kros.Data.IdGeneratorBase.html",
-          "hash": "8UZg+DdO/0hq1kzYYNWP+w=="
+          "hash": "NDOdjCWxW/Njcbzcrj95aw=="
         }
       },
       "is_incremental": false,
@@ -294,7 +294,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Kros.Data.IdGeneratorFactories.html",
-          "hash": "ZWrz4CNyZwbF5rMsDwfbvA=="
+          "hash": "0epvfvTrqZstgNnrd6UcPg=="
         }
       },
       "is_incremental": false,
@@ -582,7 +582,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Kros.Data.Schema.SqlServer.SqlServerColumnSchema.html",
-          "hash": "y2VLSuWDm1p/+USF3uJQ6g=="
+          "hash": "AzqS+UyOCYBJku43AS4UJg=="
         }
       },
       "is_incremental": false,
@@ -870,7 +870,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Kros.Data.SqlServer.SqlServerIdGenerator.html",
-          "hash": "EB/4edGr7QeRdR1+rNM7CA=="
+          "hash": "TJNhUzP7NueOKIfCjOyiew=="
         }
       },
       "is_incremental": false,
@@ -882,7 +882,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Kros.Data.SqlServer.SqlServerIdGeneratorFactory.html",
-          "hash": "KYPsyz3BUf3LGJ5fpDNv9A=="
+          "hash": "L6QgIvHI1pB9IIoMwmnXrw=="
         }
       },
       "is_incremental": false,
@@ -1098,7 +1098,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Kros.Utils.Check.html",
-          "hash": "ECkoBCQBE7JFbakjpTi3FQ=="
+          "hash": "Ol91DyYlLUKUSpK3DN0ExA=="
         }
       },
       "is_incremental": false,
@@ -1122,7 +1122,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Kros.Utils.IDiContainer.html",
-          "hash": "b0VuqIwa/UxfJYfJ0LxwEA=="
+          "hash": "tuP2eokAhMSgIx2/qo4j/A=="
         }
       },
       "is_incremental": false,
@@ -1227,7 +1227,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "Ih6W0Nzae2n3QdM1AOgNCA=="
+          "hash": "QwtTQZkWNs7voWoHd7T9rg=="
         }
       },
       "is_incremental": false,
@@ -1255,13 +1255,6 @@
         "skipped_file_count": 0
       },
       "processors": {
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
-        },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
@@ -1273,13 +1266,20 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 95,
-          "skipped_file_count": 95
+          "skipped_file_count": 59
         },
         "ConceptualDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 2,
-          "skipped_file_count": 2
+          "skipped_file_count": 1
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
         }
       }
     },
