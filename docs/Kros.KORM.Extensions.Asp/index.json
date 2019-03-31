@@ -1,0 +1,52 @@
+{
+  "articles/intro.html": {
+    "href": "articles/intro.html",
+    "title": "Welcome to Kros.Libs | Kros.KORM.Extensions.Asp",
+    "keywords": "Welcome to Kros.Libs This is Kros.Utils, Kros.Utils.MsAccess, Kros.KORM and Kros.KORM.MsAccess libraries documentation. Kros.Utils Universal library of various tools to simplify the work of the programmer. It is platform-independent (also applicable to desktop applications and server services) and is independent of third-party libraries. Kros.Utils.MsAccess Kros.Utils library extension for MS Access support. Only applicable in the full .NET framework. Kros.KORM Simple and fast micro-ORM framework for .NET. Kros.KORM.MsAccess Kros.KORM library extension for MS Access support. Only applicable in the full .NET framework."
+  },
+  "index.html": {
+    "href": "index.html",
+    "title": "Welcome to Kros.KORM.Extensions.Asp | Kros.KORM.Extensions.Asp",
+    "keywords": "Welcome to Kros.KORM.Extensions.Asp Kros.KORM library extension for MS Access support. Only applicable in the full .NET framework. View in GitHub | Download Latest"
+  },
+  "api/Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.html": {
+    "href": "api/Kros.KORM.Migrations.Middleware.MigrationMiddlewareOptions.html",
+    "title": "Class MigrationMiddlewareOptions | Kros.KORM.Extensions.Asp",
+    "keywords": "Class MigrationMiddlewareOptions Migration middleware options. Inheritance System.Object MigrationMiddlewareOptions Namespace : Kros.KORM.Migrations.Middleware Assembly : Kros.KORM.Extensions.Asp.dll Syntax public class MigrationMiddlewareOptions Properties EndpointUrl Migrations endpoint URL. Declaration public string EndpointUrl { get; set; } Property Value Type Description System.String SlidingExpirationBetweenMigrations Minimum time between two migrations. Declaration public TimeSpan SlidingExpirationBetweenMigrations { get; set; } Property Value Type Description System.TimeSpan"
+  },
+  "api/Kros.KORM.Extensions.Asp.KormBuilder.html": {
+    "href": "api/Kros.KORM.Extensions.Asp.KormBuilder.html",
+    "title": "Class KormBuilder | Kros.KORM.Extensions.Asp",
+    "keywords": "Class KormBuilder Builder for initialization of Kros.KORM.IDatabase . Inheritance System.Object KormBuilder Namespace : Kros.KORM.Extensions.Asp Assembly : Kros.KORM.Extensions.Asp.dll Syntax public class KormBuilder Constructors KormBuilder(IServiceCollection, ConnectionStringSettings) Initializes a new instance of the KormBuilder class. Declaration public KormBuilder(IServiceCollection services, ConnectionStringSettings connectionString) Parameters Type Name Description Microsoft.Extensions.DependencyInjection.IServiceCollection services The service collection. System.Configuration.ConnectionStringSettings connectionString The connection string settings. Properties Services Gets the service collection. Declaration public IServiceCollection Services { get; } Property Value Type Description Microsoft.Extensions.DependencyInjection.IServiceCollection Methods AddKormMigrations(IConfiguration, Action<MigrationOptions>) Adds configuration for MigrationsMiddleware into Microsoft.Extensions.DependencyInjection.IServiceCollection . Declaration public KormBuilder AddKormMigrations(IConfiguration configuration, Action<MigrationOptions> setupAction = null) Parameters Type Name Description Microsoft.Extensions.Configuration.IConfiguration configuration The configuration. System.Action < Kros.KORM.Migrations.MigrationOptions > setupAction Setup migration options. Returns Type Description KormBuilder This instance of KormBuilder . InitDatabaseForIdGenerator() Initializes database for using Id generator. Declaration public KormBuilder InitDatabaseForIdGenerator() Returns Type Description KormBuilder This instance. Migrate() Execute database migration. Declaration public void Migrate()"
+  },
+  "api/Kros.KORM.Extensions.Asp.ServiceCollectionExtensions.html": {
+    "href": "api/Kros.KORM.Extensions.Asp.ServiceCollectionExtensions.html",
+    "title": "Class ServiceCollectionExtensions | Kros.KORM.Extensions.Asp",
+    "keywords": "Class ServiceCollectionExtensions Extensions for registering Kros.KORM.IDatabase into DI container. Inheritance System.Object ServiceCollectionExtensions Namespace : Kros.KORM.Extensions.Asp Assembly : Kros.KORM.Extensions.Asp.dll Syntax public static class ServiceCollectionExtensions Examples \"ConnectionString\": { \"ProviderName\": \"System.Data.SqlClient\", \"ConnectionString\": \"Server=servername\\instancename;Initial Catalog=database;Persist Security Info=False;\" } Methods AddKorm(IServiceCollection, IConfiguration) Register KORM into DI container. Declaration public static KormBuilder AddKorm(this IServiceCollection services, IConfiguration configuration) Parameters Type Name Description Microsoft.Extensions.DependencyInjection.IServiceCollection services The service collection. Microsoft.Extensions.Configuration.IConfiguration configuration The configuration. Returns Type Description KormBuilder KormBuilder for Kros.KORM.IDatabase initialization. Exceptions Type Condition System.InvalidOperationException System.ArgumentNullException If services or configuration is null ; AddKorm(IServiceCollection, IConfigurationSection) Register KORM into DI container. Declaration public static KormBuilder AddKorm(this IServiceCollection services, IConfigurationSection configurationSection) Parameters Type Name Description Microsoft.Extensions.DependencyInjection.IServiceCollection services The service collection. Microsoft.Extensions.Configuration.IConfigurationSection configurationSection The configuration section. Returns Type Description KormBuilder KormBuilder for Kros.KORM.IDatabase initialization. Exceptions Type Condition System.InvalidOperationException System.ArgumentNullException When services or configurationSection is null;"
+  },
+  "api/Microsoft.AspNetCore.Builder.BuilderExtensions.html": {
+    "href": "api/Microsoft.AspNetCore.Builder.BuilderExtensions.html",
+    "title": "Class BuilderExtensions | Kros.KORM.Extensions.Asp",
+    "keywords": "Class BuilderExtensions Extensions for adding MigrationsMiddleware into application pipeline. Inheritance System.Object BuilderExtensions Namespace : Microsoft.AspNetCore.Builder Assembly : Kros.KORM.Extensions.Asp.dll Syntax public static class BuilderExtensions Methods UseKormMigrations(IApplicationBuilder) Adds database migrations middleware into application pipeline. Declaration public static IApplicationBuilder UseKormMigrations(this IApplicationBuilder app) Parameters Type Name Description Microsoft.AspNetCore.Builder.IApplicationBuilder app The application builder. Returns Type Description Microsoft.AspNetCore.Builder.IApplicationBuilder Microsoft.AspNetCore.Builder.IApplicationBuilder . UseKormMigrations(IApplicationBuilder, Action<MigrationMiddlewareOptions>) Adds database migrations middlewre into application pipeline. Declaration public static IApplicationBuilder UseKormMigrations(this IApplicationBuilder app, Action<MigrationMiddlewareOptions> setupAction) Parameters Type Name Description Microsoft.AspNetCore.Builder.IApplicationBuilder app The application builder. System.Action < MigrationMiddlewareOptions > setupAction Configure middleware/ Returns Type Description Microsoft.AspNetCore.Builder.IApplicationBuilder Microsoft.AspNetCore.Builder.IApplicationBuilder ."
+  },
+  "api/Kros.KORM.Migrations.Middleware.MigrationsMiddleware.html": {
+    "href": "api/Kros.KORM.Migrations.Middleware.MigrationsMiddleware.html",
+    "title": "Class MigrationsMiddleware | Kros.KORM.Extensions.Asp",
+    "keywords": "Class MigrationsMiddleware Middleware for executing database migration. Inheritance System.Object MigrationsMiddleware Namespace : Kros.KORM.Migrations.Middleware Assembly : Kros.KORM.Extensions.Asp.dll Syntax public class MigrationsMiddleware Constructors MigrationsMiddleware(RequestDelegate, IMemoryCache, MigrationMiddlewareOptions) Initializes a new instance of the MigrationsMiddleware class. Declaration public MigrationsMiddleware(RequestDelegate next, IMemoryCache cache, MigrationMiddlewareOptions options) Parameters Type Name Description Microsoft.AspNetCore.Http.RequestDelegate next The next delegate. Microsoft.Extensions.Caching.Memory.IMemoryCache cache Memory cache. MigrationMiddlewareOptions options Migration options. Methods Invoke(HttpContext, IMigrationsRunner) Invokes the specified context. Declaration public Task Invoke(HttpContext context, IMigrationsRunner migrationsRunner) Parameters Type Name Description Microsoft.AspNetCore.Http.HttpContext context The context. Kros.KORM.Migrations.IMigrationsRunner migrationsRunner Migrations runner. Returns Type Description System.Threading.Tasks.Task"
+  },
+  "api/Microsoft.AspNetCore.Builder.html": {
+    "href": "api/Microsoft.AspNetCore.Builder.html",
+    "title": "Namespace Microsoft.AspNetCore.Builder | Kros.KORM.Extensions.Asp",
+    "keywords": "Namespace Microsoft.AspNetCore.Builder Classes BuilderExtensions Extensions for adding MigrationsMiddleware into application pipeline."
+  },
+  "api/Kros.KORM.Extensions.Asp.html": {
+    "href": "api/Kros.KORM.Extensions.Asp.html",
+    "title": "Namespace Kros.KORM.Extensions.Asp | Kros.KORM.Extensions.Asp",
+    "keywords": "Namespace Kros.KORM.Extensions.Asp Classes KormBuilder Builder for initialization of Kros.KORM.IDatabase . ServiceCollectionExtensions Extensions for registering Kros.KORM.IDatabase into DI container."
+  },
+  "api/Kros.KORM.Migrations.Middleware.html": {
+    "href": "api/Kros.KORM.Migrations.Middleware.html",
+    "title": "Namespace Kros.KORM.Migrations.Middleware | Kros.KORM.Extensions.Asp",
+    "keywords": "Namespace Kros.KORM.Migrations.Middleware Classes MigrationMiddlewareOptions Migration middleware options. MigrationsMiddleware Middleware for executing database migration."
+  }
+}
