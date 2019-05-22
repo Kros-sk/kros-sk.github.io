@@ -1,8 +1,8 @@
 # C# Coding Style
 
-Nevymýšľame koleso - coding style je prebratý z projektu [corefx](https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/coding-style.md).
+Nevymýšľame koleso - coding style je prebratý z projektu [corefx](https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/coding-style.md) (a väčšina pravidiel je "použi predvolený štýl Visual Studia").
 
-Základné pravidlo formátovanie je "použi predvolený štýl Visual Studia".
+Aby sme to mali jednoduchšie, je vytvorený [`.editorconfig`](files/.editorconfig), ktorý si dajte do projektu.
 
 1. Krútené zátvorky píšeme na samostatný riadok. Jednoriadkový príkaz môžeme napísať bez krútených zátvoriek, ale musí byť na samostatnom riadku a správne odsadený. V prípade že ide o skupinu `if ... [else if ... else if ...] else`, tak buď sú krútené zátvorky vo všetkých vetvách, alebo nikde -  tzn. nie je niektorá vetva so zátvorkami a iná bez nich. Pri definovaní tela `get`, `set` metód jednoduchých vlastností môžu byť krútené zátvorky aj s príkazom na jednom riadku (`get { return _value; }`).
 2. Na odsadenie sa používame 4 medzery (nie tabulátory).
