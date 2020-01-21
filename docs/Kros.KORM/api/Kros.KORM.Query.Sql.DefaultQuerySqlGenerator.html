@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class DefaultQuerySqlGenerator
    | Kros.KORM ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.48.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -133,6 +133,54 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="fields">Fields
+  </h3>
+  <h4 id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_SqlFalse" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.SqlFalse">SqlFalse</h4>
+  <div class="markdown level1 summary"><p>SQL Server boolean value <span class="xref">false</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected const string SqlFalse = &quot;0&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_SqlTrue" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.SqlTrue">SqlTrue</h4>
+  <div class="markdown level1 summary"><p>SQL Server boolean value <span class="xref">true</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected const string SqlTrue = &quot;1&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="properties">Properties
   </h3>
   <a id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_ColumnsPosition_" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.ColumnsPosition*"></a>
@@ -231,6 +279,30 @@
       </tr>
     </tbody>
   </table>
+  <a id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_MemberExpressionStack_" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.MemberExpressionStack*"></a>
+  <h4 id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_MemberExpressionStack" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.MemberExpressionStack">MemberExpressionStack</h4>
+  <div class="markdown level1 summary"><p>Stack for <span class="xref">System.Linq.Expressions.MemberExpression</span> nodes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Stack&lt;MemberExpression&gt; MemberExpressionStack { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.Stack</span>&lt;<span class="xref">System.Linq.Expressions.MemberExpression</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_Orders_" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.Orders*"></a>
   <h4 id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_Orders" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.Orders">Orders</h4>
   <div class="markdown level1 summary"><p>List of ORDER BY parts for the query.</p>
@@ -251,6 +323,31 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_PreviousMemberExpression_" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.PreviousMemberExpression*"></a>
+  <h4 id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_PreviousMemberExpression" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.PreviousMemberExpression">PreviousMemberExpression</h4>
+  <div class="markdown level1 summary"><p>Returns the last <span class="xref">System.Linq.Expressions.MemberExpression</span> node in the <a class="xref" href="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.html#Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_MemberExpressionStack">MemberExpressionStack</a> or
+<span class="xref">null</span> if the stack is empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected MemberExpression PreviousMemberExpression { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.MemberExpression</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -395,6 +492,33 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual void AddOrderBy()</code></pre>
   </div>
+  <a id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_AddParameterWithValue_" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.AddParameterWithValue*"></a>
+  <h4 id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_AddParameterWithValue_System_Object_" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.AddParameterWithValue(System.Object)">AddParameterWithValue(Object)</h4>
+  <div class="markdown level1 summary"><p>Adds new parameter to the SQL with specified <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void AddParameterWithValue(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of the SQL parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_BindAnyCondition_" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.BindAnyCondition*"></a>
   <h4 id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_BindAnyCondition_System_String_" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.BindAnyCondition(System.String)">BindAnyCondition(String)</h4>
   <div class="markdown level1 summary"><p>Adds any method to query.</p>
@@ -903,6 +1027,94 @@
       <tr>
         <td><a class="xref" href="Kros.KORM.Query.Sql.QueryInfo.html">QueryInfo</a></td>
         <td><p>SQL select command text.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_GenerateWhereCondition_" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.GenerateWhereCondition*"></a>
+  <h4 id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_GenerateWhereCondition_System_Linq_Expressions_Expression_System_String_" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.GenerateWhereCondition(System.Linq.Expressions.Expression,System.String)">GenerateWhereCondition(Expression, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WhereExpression GenerateWhereCondition(Expression whereExpression, string parameterNamePrefix = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span></td>
+        <td><span class="parametername">whereExpression</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">parameterNamePrefix</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Kros.KORM.Query.Expressions.WhereExpression.html">WhereExpression</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_GetConstantExpressionValue_" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.GetConstantExpressionValue*"></a>
+  <h4 id="Kros_KORM_Query_Sql_DefaultQuerySqlGenerator_GetConstantExpressionValue_System_Linq_Expressions_ConstantExpression_" data-uid="Kros.KORM.Query.Sql.DefaultQuerySqlGenerator.GetConstantExpressionValue(System.Linq.Expressions.ConstantExpression)">GetConstantExpressionValue(ConstantExpression)</h4>
+  <div class="markdown level1 summary"><p>Returns value of constant expression <code data-dev-comment-type="paramref" class="paramref">expression</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected object GetConstantExpressionValue(ConstantExpression expression)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.ConstantExpression</span></td>
+        <td><span class="parametername">expression</span></td>
+        <td><p>Expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><p>Value of the <code data-dev-comment-type="paramref" class="paramref">expression</code>.</p>
 </td>
       </tr>
     </tbody>
@@ -1533,7 +1745,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override Expression VisitMethodCall(MethodCallExpression m)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override Expression VisitMethodCall(MethodCallExpression exp)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1547,7 +1759,7 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Linq.Expressions.MethodCallExpression</span></td>
-        <td><span class="parametername">m</span></td>
+        <td><span class="parametername">exp</span></td>
         <td><p>The method call expression.</p>
 </td>
       </tr>

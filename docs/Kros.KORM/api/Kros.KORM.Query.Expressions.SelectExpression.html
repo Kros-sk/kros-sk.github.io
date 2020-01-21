@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SelectExpression
    | Kros.KORM ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.48.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -597,22 +597,9 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>'whereExpression' can be applied only once.;whereExpression</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+  <h5 id="Kros_KORM_Query_Expressions_SelectExpression_SetWhereExpression_Kros_KORM_Query_Expressions_WhereExpression__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If you call this method multiple times, the conditions are merged via AND.</p>
+</div>
   <a id="Kros_KORM_Query_Expressions_SelectExpression_VisitChildren_" data-uid="Kros.KORM.Query.Expressions.SelectExpression.VisitChildren*"></a>
   <h4 id="Kros_KORM_Query_Expressions_SelectExpression_VisitChildren_System_Linq_Expressions_ExpressionVisitor_" data-uid="Kros.KORM.Query.Expressions.SelectExpression.VisitChildren(System.Linq.Expressions.ExpressionVisitor)">VisitChildren(ExpressionVisitor)</h4>
   <div class="markdown level1 summary"><p>Reduces the node and then calls the visitor delegate on the reduced expression. The method throws an exception if the node is not reducible.</p>

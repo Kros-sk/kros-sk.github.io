@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface IQueryProvider
    | Kros.KORM ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.48.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -473,57 +473,13 @@
     </tbody>
   </table>
   <a id="Kros_KORM_Query_IQueryProvider_ExecuteNonQueryAsync_" data-uid="Kros.KORM.Query.IQueryProvider.ExecuteNonQueryAsync*"></a>
-  <h4 id="Kros_KORM_Query_IQueryProvider_ExecuteNonQueryAsync_System_String_" data-uid="Kros.KORM.Query.IQueryProvider.ExecuteNonQueryAsync(System.String)">ExecuteNonQueryAsync(String)</h4>
-  <div class="markdown level1 summary"><p>Asynchronously executes arbitrary query.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;int&gt; ExecuteNonQueryAsync(string query)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">query</span></td>
-        <td><p>Arbitrary SQL query. It should not be SELECT query.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-        <td><p>A task that represents the asynchronous operation. The task result contains the
-numbers of affected rows.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Kros_KORM_Query_IQueryProvider_ExecuteNonQueryAsync_" data-uid="Kros.KORM.Query.IQueryProvider.ExecuteNonQueryAsync*"></a>
-  <h4 id="Kros_KORM_Query_IQueryProvider_ExecuteNonQueryAsync_System_String_Kros_KORM_Query_CommandParameterCollection_" data-uid="Kros.KORM.Query.IQueryProvider.ExecuteNonQueryAsync(System.String,Kros.KORM.Query.CommandParameterCollection)">ExecuteNonQueryAsync(String, CommandParameterCollection)</h4>
+  <h4 id="Kros_KORM_Query_IQueryProvider_ExecuteNonQueryAsync_System_String_Kros_KORM_Query_CommandParameterCollection_System_Threading_CancellationToken_" data-uid="Kros.KORM.Query.IQueryProvider.ExecuteNonQueryAsync(System.String,Kros.KORM.Query.CommandParameterCollection,System.Threading.CancellationToken)">ExecuteNonQueryAsync(String, CommandParameterCollection, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Asynchronously executes arbitrary query with parameters.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;int&gt; ExecuteNonQueryAsync(string query, CommandParameterCollection parameters)</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; ExecuteNonQueryAsync(string query, CommandParameterCollection parameters, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -547,6 +503,12 @@ numbers of affected rows.</p>
         <td><p>The query parameters.</p>
 </td>
       </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The token to monitor for cancellation requests.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -562,6 +524,128 @@ numbers of affected rows.</p>
         <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
         <td><p>A task that represents the asynchronous operation. The task result contains the
 numbers of affected rows.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_KORM_Query_IQueryProvider_ExecuteNonQueryAsync_" data-uid="Kros.KORM.Query.IQueryProvider.ExecuteNonQueryAsync*"></a>
+  <h4 id="Kros_KORM_Query_IQueryProvider_ExecuteNonQueryAsync_System_String_System_Threading_CancellationToken_" data-uid="Kros.KORM.Query.IQueryProvider.ExecuteNonQueryAsync(System.String,System.Threading.CancellationToken)">ExecuteNonQueryAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously executes arbitrary query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; ExecuteNonQueryAsync(string query, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">query</span></td>
+        <td><p>Arbitrary SQL query. It should not be SELECT query.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The token to monitor for cancellation requests.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><p>A task that represents the asynchronous operation. The task result contains the
+numbers of affected rows.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_KORM_Query_IQueryProvider_ExecuteNonQueryAsync_" data-uid="Kros.KORM.Query.IQueryProvider.ExecuteNonQueryAsync*"></a>
+  <h4 id="Kros_KORM_Query_IQueryProvider_ExecuteNonQueryAsync_System_String_System_Threading_CancellationToken_System_Object___" data-uid="Kros.KORM.Query.IQueryProvider.ExecuteNonQueryAsync(System.String,System.Threading.CancellationToken,System.Object[])">ExecuteNonQueryAsync(String, CancellationToken, Object[])</h4>
+  <div class="markdown level1 summary"><p>Asynchronously executes arbitrary query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; ExecuteNonQueryAsync(string query, CancellationToken cancellationToken = default(CancellationToken), params object[] paramValues)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">query</span></td>
+        <td><p>Arbitrary SQL query. It should not be SELECT query.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The token to monitor for cancellation requests.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">paramValues</span></td>
+        <td><p>List of query parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><p>A task that represents the asynchronous operation. The task result contains the
+numbers of affected rows.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>Number of parameters does not match.</p>
 </td>
       </tr>
     </tbody>
@@ -610,13 +694,13 @@ numbers of affected rows.</p>
     </tbody>
   </table>
   <a id="Kros_KORM_Query_IQueryProvider_ExecuteNonQueryCommandAsync_" data-uid="Kros.KORM.Query.IQueryProvider.ExecuteNonQueryCommandAsync*"></a>
-  <h4 id="Kros_KORM_Query_IQueryProvider_ExecuteNonQueryCommandAsync_System_Data_Common_DbCommand_" data-uid="Kros.KORM.Query.IQueryProvider.ExecuteNonQueryCommandAsync(System.Data.Common.DbCommand)">ExecuteNonQueryCommandAsync(DbCommand)</h4>
+  <h4 id="Kros_KORM_Query_IQueryProvider_ExecuteNonQueryCommandAsync_System_Data_Common_DbCommand_System_Threading_CancellationToken_" data-uid="Kros.KORM.Query.IQueryProvider.ExecuteNonQueryCommandAsync(System.Data.Common.DbCommand,System.Threading.CancellationToken)">ExecuteNonQueryCommandAsync(DbCommand, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Asynchronously executes the command.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;int&gt; ExecuteNonQueryCommandAsync(DbCommand command)</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;int&gt; ExecuteNonQueryCommandAsync(DbCommand command, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -632,6 +716,12 @@ numbers of affected rows.</p>
         <td><span class="xref">System.Data.Common.DbCommand</span></td>
         <td><span class="parametername">command</span></td>
         <td><p>The command.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The token to monitor for cancellation requests.</p>
 </td>
       </tr>
     </tbody>
@@ -710,6 +800,102 @@ Returns a maximum of 2033 characters.</p>
       <tr>
         <td><span class="parametername">T</span></td>
         <td><p>Type of model.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_KORM_Query_IQueryProvider_ExecuteScalarCommand_" data-uid="Kros.KORM.Query.IQueryProvider.ExecuteScalarCommand*"></a>
+  <h4 id="Kros_KORM_Query_IQueryProvider_ExecuteScalarCommand_System_Data_IDbCommand_" data-uid="Kros.KORM.Query.IQueryProvider.ExecuteScalarCommand(System.Data.IDbCommand)">ExecuteScalarCommand(IDbCommand)</h4>
+  <div class="markdown level1 summary"><p>Executes the query, and returns the first column of the first row in the result
+set returned by the query. Additional columns or rows are ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object ExecuteScalarCommand(IDbCommand command)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.IDbCommand</span></td>
+        <td><span class="parametername">command</span></td>
+        <td><p>The command.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><p>The first column of the first row in the result set, or a null reference
+(Nothingin Visual Basic) if the result set is empty.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_KORM_Query_IQueryProvider_ExecuteScalarCommandAsync_" data-uid="Kros.KORM.Query.IQueryProvider.ExecuteScalarCommandAsync*"></a>
+  <h4 id="Kros_KORM_Query_IQueryProvider_ExecuteScalarCommandAsync_System_Data_Common_DbCommand_System_Threading_CancellationToken_" data-uid="Kros.KORM.Query.IQueryProvider.ExecuteScalarCommandAsync(System.Data.Common.DbCommand,System.Threading.CancellationToken)">ExecuteScalarCommandAsync(DbCommand, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Asynchronously executes the query, and returns the first column of the first row in the result
+set returned by the query. Additional columns or rows are ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;object&gt; ExecuteScalarCommandAsync(DbCommand command, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.Common.DbCommand</span></td>
+        <td><span class="parametername">command</span></td>
+        <td><p>The command.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The token to monitor for cancellation requests.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><p>The first column of the first row in the result set, or a null reference
+(Nothingin Visual Basic) if the result set is empty.</p>
 </td>
       </tr>
     </tbody>
@@ -936,6 +1122,31 @@ Používa sa iba v rámci volania <a class="xref" href="Kros.KORM.Query.IQueryPr
       </tr>
     </tbody>
   </table>
+  <a id="Kros_KORM_Query_IQueryProvider_GetExpressionVisitor_" data-uid="Kros.KORM.Query.IQueryProvider.GetExpressionVisitor*"></a>
+  <h4 id="Kros_KORM_Query_IQueryProvider_GetExpressionVisitor" data-uid="Kros.KORM.Query.IQueryProvider.GetExpressionVisitor">GetExpressionVisitor()</h4>
+  <div class="markdown level1 summary"><p>Get expression visitor for generating sql.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISqlExpressionVisitor GetExpressionVisitor()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Kros.KORM.Query.Sql.ISqlExpressionVisitor.html">ISqlExpressionVisitor</a></td>
+        <td><p><a class="xref" href="Kros.KORM.Query.Sql.ISqlExpressionVisitor.html">ISqlExpressionVisitor</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Kros_KORM_Query_IQueryProvider_SetParameterDbType_" data-uid="Kros.KORM.Query.IQueryProvider.SetParameterDbType*"></a>
   <h4 id="Kros_KORM_Query_IQueryProvider_SetParameterDbType_System_Data_Common_DbParameter_System_String_System_String_" data-uid="Kros.KORM.Query.IQueryProvider.SetParameterDbType(System.Data.Common.DbParameter,System.String,System.String)">SetParameterDbType(DbParameter, String, String)</h4>
   <div class="markdown level1 summary"><p>Sets correct data type to <code data-dev-comment-type="paramref" class="paramref">parameter</code>, according to column <code data-dev-comment-type="paramref" class="paramref">columnName</code>
@@ -977,6 +1188,31 @@ but specific for given database (<code>SqlParameter.SqlDbType</code>, <code>OleD
       </tr>
     </tbody>
   </table>
+  <a id="Kros_KORM_Query_IQueryProvider_SupportsIdentity_" data-uid="Kros.KORM.Query.IQueryProvider.SupportsIdentity*"></a>
+  <h4 id="Kros_KORM_Query_IQueryProvider_SupportsIdentity" data-uid="Kros.KORM.Query.IQueryProvider.SupportsIdentity">SupportsIdentity()</h4>
+  <div class="markdown level1 summary"><p>Returns, if provider support inserting into table, where primary key is set as Identity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool SupportsIdentity()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if provider supports inserting into table, where primary key is set as identity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Kros_KORM_Query_IQueryProvider_SupportsPrepareCommand_" data-uid="Kros.KORM.Query.IQueryProvider.SupportsPrepareCommand*"></a>
   <h4 id="Kros_KORM_Query_IQueryProvider_SupportsPrepareCommand" data-uid="Kros.KORM.Query.IQueryProvider.SupportsPrepareCommand">SupportsPrepareCommand()</h4>
   <div class="markdown level1 summary"><p>Returns, if provider supports peparing of command (<span class="xref">System.Data.Common.DbCommand.Prepare</span>).</p>
@@ -997,7 +1233,7 @@ but specific for given database (<code>SqlParameter.SqlDbType</code>, <code>OleD
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td><p><span class="xref">true</span> is provider supports preparing command, otherwise <span class="xref">false</span>.</p>
+        <td><p><span class="xref">true</span> if provider supports preparing command, otherwise <span class="xref">false</span>.</p>
 </td>
       </tr>
     </tbody>

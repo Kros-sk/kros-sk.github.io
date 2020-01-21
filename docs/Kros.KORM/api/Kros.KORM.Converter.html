@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Namespace Kros.KORM.Converter
    | Kros.KORM ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.48.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -85,6 +85,23 @@
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="Kros.KORM.Converter.NullAndTrimStringConverter.html">NullAndTrimStringConverter</a></h4>
+      <section><p>
+Converter for string values. Based on settings, it can convert <span class="xref">null</span> and <span class="xref">System.DBNull.Value</span>
+values to empty string and trim string value. Values are converted in boht directions - when saving to database
+and also when returning from database.
+</p>
+<p>
+The converter cannot be directly instantiated. Instead of that, there are predefined static instances
+<a class="xref" href="Kros.KORM.Converter.NullAndTrimStringConverter.html#Kros_KORM_Converter_NullAndTrimStringConverter_ConvertNull">ConvertNull</a>, <a class="xref" href="Kros.KORM.Converter.NullAndTrimStringConverter.html#Kros_KORM_Converter_NullAndTrimStringConverter_TrimString">TrimString</a> and <a class="xref" href="Kros.KORM.Converter.NullAndTrimStringConverter.html#Kros_KORM_Converter_NullAndTrimStringConverter_ConvertNullAndTrimString">ConvertNullAndTrimString</a>.
+</p>
+<p>
+Converter can be used for example to ensure, that value going into the database will be empty string if the column
+is set <code>NOT NULL</code>.
+</p>
+</section>
     <h3 id="interfaces">Interfaces
   </h3>
       <h4><a class="xref" href="Kros.KORM.Converter.IConverter.html">IConverter</a></h4>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class MigrationsRunner
    | Kros.KORM ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.48.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -105,7 +105,7 @@
   </h3>
   <a id="Kros_KORM_Migrations_MigrationsRunner__ctor_" data-uid="Kros.KORM.Migrations.MigrationsRunner.#ctor*"></a>
   <h4 id="Kros_KORM_Migrations_MigrationsRunner__ctor_Kros_KORM_IDatabase_Kros_KORM_Migrations_MigrationOptions_" data-uid="Kros.KORM.Migrations.MigrationsRunner.#ctor(Kros.KORM.IDatabase,Kros.KORM.Migrations.MigrationOptions)">MigrationsRunner(IDatabase, MigrationOptions)</h4>
-  <div class="markdown level1 summary"><p>Ctor.</p>
+  <div class="markdown level1 summary"><p>Initializes new instance of <a class="xref" href="Kros.KORM.Migrations.MigrationsRunner.html">MigrationsRunner</a> with specified settings.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -125,13 +125,47 @@
       <tr>
         <td><a class="xref" href="Kros.KORM.IDatabase.html">IDatabase</a></td>
         <td><span class="parametername">database</span></td>
-        <td><p>Database connection.</p>
+        <td><p>Database connection. As the database is passed from outside, it <strong>is not disposed of</strong>,
+when the runner is disposed. It is the caller's responsibility to dispose of the database.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="Kros.KORM.Migrations.MigrationOptions.html">MigrationOptions</a></td>
         <td><span class="parametername">migrationOptions</span></td>
         <td><p>Migration options</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_KORM_Migrations_MigrationsRunner__ctor_" data-uid="Kros.KORM.Migrations.MigrationsRunner.#ctor*"></a>
+  <h4 id="Kros_KORM_Migrations_MigrationsRunner__ctor_System_String_Kros_KORM_Migrations_MigrationOptions_" data-uid="Kros.KORM.Migrations.MigrationsRunner.#ctor(System.String,Kros.KORM.Migrations.MigrationOptions)">MigrationsRunner(String, MigrationOptions)</h4>
+  <div class="markdown level1 summary"><p>Initializes new instance of <a class="xref" href="Kros.KORM.Migrations.MigrationsRunner.html">MigrationsRunner</a> with specified settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MigrationsRunner(string connectionString, MigrationOptions migrationOptions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">connectionString</span></td>
+        <td><p>Database connection string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Kros.KORM.Migrations.MigrationOptions.html">MigrationOptions</a></td>
+        <td><span class="parametername">migrationOptions</span></td>
+        <td><p>Migration options.</p>
 </td>
       </tr>
     </tbody>
