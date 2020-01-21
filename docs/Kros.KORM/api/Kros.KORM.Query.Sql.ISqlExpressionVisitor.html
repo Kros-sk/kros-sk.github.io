@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface ISqlExpressionVisitor
    | Kros.KORM ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.48.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -137,6 +137,58 @@
       </tr>
     </tbody>
   </table>
+  <a id="Kros_KORM_Query_Sql_ISqlExpressionVisitor_GenerateWhereCondition_" data-uid="Kros.KORM.Query.Sql.ISqlExpressionVisitor.GenerateWhereCondition*"></a>
+  <h4 id="Kros_KORM_Query_Sql_ISqlExpressionVisitor_GenerateWhereCondition_System_Linq_Expressions_Expression_System_String_" data-uid="Kros.KORM.Query.Sql.ISqlExpressionVisitor.GenerateWhereCondition(System.Linq.Expressions.Expression,System.String)">GenerateWhereCondition(Expression, String)</h4>
+  <div class="markdown level1 summary"><p>Generate the SQL WHERE condition from <code data-dev-comment-type="paramref" class="paramref">whereExpression</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">WhereExpression GenerateWhereCondition(Expression whereExpression, string parameterNamePrefix = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Linq.Expressions.Expression</span></td>
+        <td><span class="parametername">whereExpression</span></td>
+        <td><p>Where condition written by LINQ expression.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">parameterNamePrefix</span></td>
+        <td><p>Prefix of parameter name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Kros.KORM.Query.Expressions.WhereExpression.html">WhereExpression</a></td>
+        <td><p><a class="xref" href="Kros.KORM.Query.Expressions.WhereExpression.html">WhereExpression</a> which contains generated SQL WHERE condition and parameters.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Kros_KORM_Query_Sql_ISqlExpressionVisitor_GenerateWhereCondition_System_Linq_Expressions_Expression_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>SQL WHERE condition is generated without WHERE keyword.</p>
+</div>
   <a id="Kros_KORM_Query_Sql_ISqlExpressionVisitor_VisitColumns_" data-uid="Kros.KORM.Query.Sql.ISqlExpressionVisitor.VisitColumns*"></a>
   <h4 id="Kros_KORM_Query_Sql_ISqlExpressionVisitor_VisitColumns_Kros_KORM_Query_Expressions_ColumnsExpression_" data-uid="Kros.KORM.Query.Sql.ISqlExpressionVisitor.VisitColumns(Kros.KORM.Query.Expressions.ColumnsExpression)">VisitColumns(ColumnsExpression)</h4>
   <div class="markdown level1 summary"><p>Visits the columns.</p>

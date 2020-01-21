@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class QueryProvider
    | Kros.KORM ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.48.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -105,13 +105,13 @@
   <h3 id="constructors">Constructors
   </h3>
   <a id="Kros_KORM_Query_QueryProvider__ctor_" data-uid="Kros.KORM.Query.QueryProvider.#ctor*"></a>
-  <h4 id="Kros_KORM_Query_QueryProvider__ctor_System_Configuration_ConnectionStringSettings_Kros_KORM_Query_Sql_ISqlExpressionVisitorFactory_Kros_KORM_Materializer_IModelBuilder_Kros_KORM_Helper_ILogger_" data-uid="Kros.KORM.Query.QueryProvider.#ctor(System.Configuration.ConnectionStringSettings,Kros.KORM.Query.Sql.ISqlExpressionVisitorFactory,Kros.KORM.Materializer.IModelBuilder,Kros.KORM.Helper.ILogger)">QueryProvider(ConnectionStringSettings, ISqlExpressionVisitorFactory, IModelBuilder, ILogger)</h4>
+  <h4 id="Kros_KORM_Query_QueryProvider__ctor_Kros_KORM_KormConnectionSettings_Kros_KORM_Query_Sql_ISqlExpressionVisitorFactory_Kros_KORM_Materializer_IModelBuilder_Kros_KORM_Helper_ILogger_Kros_KORM_Metadata_IDatabaseMapper_" data-uid="Kros.KORM.Query.QueryProvider.#ctor(Kros.KORM.KormConnectionSettings,Kros.KORM.Query.Sql.ISqlExpressionVisitorFactory,Kros.KORM.Materializer.IModelBuilder,Kros.KORM.Helper.ILogger,Kros.KORM.Metadata.IDatabaseMapper)">QueryProvider(KormConnectionSettings, ISqlExpressionVisitorFactory, IModelBuilder, ILogger, IDatabaseMapper)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Kros.KORM.Query.QueryProvider.html">QueryProvider</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public QueryProvider(ConnectionStringSettings connectionSettings, ISqlExpressionVisitorFactory sqlGeneratorFactory, IModelBuilder modelBuilder, ILogger logger)</code></pre>
+    <pre><code class="lang-csharp hljs">public QueryProvider(KormConnectionSettings connectionSettings, ISqlExpressionVisitorFactory sqlGeneratorFactory, IModelBuilder modelBuilder, ILogger logger, IDatabaseMapper databaseMapper)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -124,7 +124,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Configuration.ConnectionStringSettings</span></td>
+        <td><a class="xref" href="Kros.KORM.KormConnectionSettings.html">KormConnectionSettings</a></td>
         <td><span class="parametername">connectionSettings</span></td>
         <td><p>The connection string settings.</p>
 </td>
@@ -147,16 +147,22 @@
         <td><p>The logger.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="Kros.KORM.Metadata.IDatabaseMapper.html">IDatabaseMapper</a></td>
+        <td><span class="parametername">databaseMapper</span></td>
+        <td><p>The Database mapper.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <a id="Kros_KORM_Query_QueryProvider__ctor_" data-uid="Kros.KORM.Query.QueryProvider.#ctor*"></a>
-  <h4 id="Kros_KORM_Query_QueryProvider__ctor_System_Data_Common_DbConnection_Kros_KORM_Query_Sql_ISqlExpressionVisitorFactory_Kros_KORM_Materializer_IModelBuilder_Kros_KORM_Helper_ILogger_" data-uid="Kros.KORM.Query.QueryProvider.#ctor(System.Data.Common.DbConnection,Kros.KORM.Query.Sql.ISqlExpressionVisitorFactory,Kros.KORM.Materializer.IModelBuilder,Kros.KORM.Helper.ILogger)">QueryProvider(DbConnection, ISqlExpressionVisitorFactory, IModelBuilder, ILogger)</h4>
+  <h4 id="Kros_KORM_Query_QueryProvider__ctor_System_Data_Common_DbConnection_Kros_KORM_Query_Sql_ISqlExpressionVisitorFactory_Kros_KORM_Materializer_IModelBuilder_Kros_KORM_Helper_ILogger_Kros_KORM_Metadata_IDatabaseMapper_" data-uid="Kros.KORM.Query.QueryProvider.#ctor(System.Data.Common.DbConnection,Kros.KORM.Query.Sql.ISqlExpressionVisitorFactory,Kros.KORM.Materializer.IModelBuilder,Kros.KORM.Helper.ILogger,Kros.KORM.Metadata.IDatabaseMapper)">QueryProvider(DbConnection, ISqlExpressionVisitorFactory, IModelBuilder, ILogger, IDatabaseMapper)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Kros.KORM.Query.QueryProvider.html">QueryProvider</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public QueryProvider(DbConnection externalConnection, ISqlExpressionVisitorFactory sqlGeneratorFactory, IModelBuilder modelBuilder, ILogger logger)</code></pre>
+    <pre><code class="lang-csharp hljs">public QueryProvider(DbConnection externalConnection, ISqlExpressionVisitorFactory sqlGeneratorFactory, IModelBuilder modelBuilder, ILogger logger, IDatabaseMapper databaseMapper)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -192,6 +198,12 @@
         <td><p>The logger.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="Kros.KORM.Metadata.IDatabaseMapper.html">IDatabaseMapper</a></td>
+        <td><span class="parametername">databaseMapper</span></td>
+        <td><p>The Database mapper.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h3 id="properties">Properties
@@ -224,7 +236,7 @@ connection string-om, je vytvorené nové spojenie.</p>
   <a id="Kros_KORM_Query_QueryProvider_ConnectionString_" data-uid="Kros.KORM.Query.QueryProvider.ConnectionString*"></a>
   <h4 id="Kros_KORM_Query_QueryProvider_ConnectionString" data-uid="Kros.KORM.Query.QueryProvider.ConnectionString">ConnectionString</h4>
   <div class="markdown level1 summary"><p>Connection string na databázu, ktorý bol zadaný pri vytvorení inštancie triedy
-(<a class="xref" href="Kros.KORM.Query.QueryProvider.html#Kros_KORM_Query_QueryProvider__ctor_System_Configuration_ConnectionStringSettings_Kros_KORM_Query_Sql_ISqlExpressionVisitorFactory_Kros_KORM_Materializer_IModelBuilder_Kros_KORM_Helper_ILogger_">QueryProvider(ConnectionStringSettings, ISqlExpressionVisitorFactory, IModelBuilder, ILogger)</a>).
+(<a class="xref" href="Kros.KORM.Query.QueryProvider.html#Kros_KORM_Query_QueryProvider__ctor_Kros_KORM_KormConnectionSettings_Kros_KORM_Query_Sql_ISqlExpressionVisitorFactory_Kros_KORM_Materializer_IModelBuilder_Kros_KORM_Helper_ILogger_Kros_KORM_Metadata_IDatabaseMapper_">QueryProvider(KormConnectionSettings, ISqlExpressionVisitorFactory, IModelBuilder, ILogger, IDatabaseMapper)</a>).
 Ak bola trieda vytvorená konkrétnou inštanciou spojenia, vráti <span class="xref">null</span>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -647,7 +659,7 @@ string a spojenie je vytvorené interne, vráti <span class="xref">false</span>.
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;T&gt; Execute&lt;T&gt;(IQuery&lt;T&gt; query)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual IEnumerable&lt;T&gt; Execute&lt;T&gt;(IQuery&lt;T&gt; query)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -900,12 +912,12 @@ string a spojenie je vytvorené interne, vráti <span class="xref">false</span>.
     </tbody>
   </table>
   <a id="Kros_KORM_Query_QueryProvider_ExecuteNonQueryAsync_" data-uid="Kros.KORM.Query.QueryProvider.ExecuteNonQueryAsync*"></a>
-  <h4 id="Kros_KORM_Query_QueryProvider_ExecuteNonQueryAsync_System_String_" data-uid="Kros.KORM.Query.QueryProvider.ExecuteNonQueryAsync(System.String)">ExecuteNonQueryAsync(String)</h4>
+  <h4 id="Kros_KORM_Query_QueryProvider_ExecuteNonQueryAsync_System_String_Kros_KORM_Query_CommandParameterCollection_System_Threading_CancellationToken_" data-uid="Kros.KORM.Query.QueryProvider.ExecuteNonQueryAsync(System.String,Kros.KORM.Query.CommandParameterCollection,System.Threading.CancellationToken)">ExecuteNonQueryAsync(String, CommandParameterCollection, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; ExecuteNonQueryAsync(string query)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; ExecuteNonQueryAsync(string query, CommandParameterCollection parameters, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -920,6 +932,16 @@ string a spojenie je vytvorené interne, vráti <span class="xref">false</span>.
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Kros.KORM.Query.CommandParameterCollection.html">CommandParameterCollection</a></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -940,12 +962,12 @@ string a spojenie je vytvorené interne, vráti <span class="xref">false</span>.
     </tbody>
   </table>
   <a id="Kros_KORM_Query_QueryProvider_ExecuteNonQueryAsync_" data-uid="Kros.KORM.Query.QueryProvider.ExecuteNonQueryAsync*"></a>
-  <h4 id="Kros_KORM_Query_QueryProvider_ExecuteNonQueryAsync_System_String_Kros_KORM_Query_CommandParameterCollection_" data-uid="Kros.KORM.Query.QueryProvider.ExecuteNonQueryAsync(System.String,Kros.KORM.Query.CommandParameterCollection)">ExecuteNonQueryAsync(String, CommandParameterCollection)</h4>
+  <h4 id="Kros_KORM_Query_QueryProvider_ExecuteNonQueryAsync_System_String_System_Threading_CancellationToken_" data-uid="Kros.KORM.Query.QueryProvider.ExecuteNonQueryAsync(System.String,System.Threading.CancellationToken)">ExecuteNonQueryAsync(String, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; ExecuteNonQueryAsync(string query, CommandParameterCollection parameters)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; ExecuteNonQueryAsync(string query, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -963,8 +985,58 @@ string a spojenie je vytvorené interne, vráti <span class="xref">false</span>.
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="Kros.KORM.Query.CommandParameterCollection.html">CommandParameterCollection</a></td>
-        <td><span class="parametername">parameters</span></td>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_KORM_Query_QueryProvider_ExecuteNonQueryAsync_" data-uid="Kros.KORM.Query.QueryProvider.ExecuteNonQueryAsync*"></a>
+  <h4 id="Kros_KORM_Query_QueryProvider_ExecuteNonQueryAsync_System_String_System_Threading_CancellationToken_System_Object___" data-uid="Kros.KORM.Query.QueryProvider.ExecuteNonQueryAsync(System.String,System.Threading.CancellationToken,System.Object[])">ExecuteNonQueryAsync(String, CancellationToken, Object[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; ExecuteNonQueryAsync(string query, CancellationToken cancellationToken = default(CancellationToken), params object[] paramValues)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
+        <td><span class="parametername">paramValues</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -1042,12 +1114,12 @@ string a spojenie je vytvorené interne, vráti <span class="xref">false</span>.
     </tbody>
   </table>
   <a id="Kros_KORM_Query_QueryProvider_ExecuteNonQueryCommandAsync_" data-uid="Kros.KORM.Query.QueryProvider.ExecuteNonQueryCommandAsync*"></a>
-  <h4 id="Kros_KORM_Query_QueryProvider_ExecuteNonQueryCommandAsync_System_Data_Common_DbCommand_" data-uid="Kros.KORM.Query.QueryProvider.ExecuteNonQueryCommandAsync(System.Data.Common.DbCommand)">ExecuteNonQueryCommandAsync(DbCommand)</h4>
+  <h4 id="Kros_KORM_Query_QueryProvider_ExecuteNonQueryCommandAsync_System_Data_Common_DbCommand_System_Threading_CancellationToken_" data-uid="Kros.KORM.Query.QueryProvider.ExecuteNonQueryCommandAsync(System.Data.Common.DbCommand,System.Threading.CancellationToken)">ExecuteNonQueryCommandAsync(DbCommand, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; ExecuteNonQueryCommandAsync(DbCommand command)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; ExecuteNonQueryCommandAsync(DbCommand command, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1062,6 +1134,11 @@ string a spojenie je vytvorené interne, vráti <span class="xref">false</span>.
       <tr>
         <td><span class="xref">System.Data.Common.DbCommand</span></td>
         <td><span class="parametername">command</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -1155,6 +1232,91 @@ Returns a maximum of 2033 characters.</p>
         <td><span class="xref">System.ArgumentNullException</span></td>
         <td><p>If query is null.</p>
 </td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_KORM_Query_QueryProvider_ExecuteScalarCommand_" data-uid="Kros.KORM.Query.QueryProvider.ExecuteScalarCommand*"></a>
+  <h4 id="Kros_KORM_Query_QueryProvider_ExecuteScalarCommand_System_Data_IDbCommand_" data-uid="Kros.KORM.Query.QueryProvider.ExecuteScalarCommand(System.Data.IDbCommand)">ExecuteScalarCommand(IDbCommand)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object ExecuteScalarCommand(IDbCommand command)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.IDbCommand</span></td>
+        <td><span class="parametername">command</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_KORM_Query_QueryProvider_ExecuteScalarCommandAsync_" data-uid="Kros.KORM.Query.QueryProvider.ExecuteScalarCommandAsync*"></a>
+  <h4 id="Kros_KORM_Query_QueryProvider_ExecuteScalarCommandAsync_System_Data_Common_DbCommand_System_Threading_CancellationToken_" data-uid="Kros.KORM.Query.QueryProvider.ExecuteScalarCommandAsync(System.Data.Common.DbCommand,System.Threading.CancellationToken)">ExecuteScalarCommandAsync(DbCommand, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;object&gt; ExecuteScalarCommandAsync(DbCommand command, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.Common.DbCommand</span></td>
+        <td><span class="parametername">command</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -1324,6 +1486,29 @@ Používa sa iba v rámci volania <a class="xref" href="Kros.KORM.Query.QueryPro
       </tr>
     </tbody>
   </table>
+  <a id="Kros_KORM_Query_QueryProvider_GetExpressionVisitor_" data-uid="Kros.KORM.Query.QueryProvider.GetExpressionVisitor*"></a>
+  <h4 id="Kros_KORM_Query_QueryProvider_GetExpressionVisitor" data-uid="Kros.KORM.Query.QueryProvider.GetExpressionVisitor">GetExpressionVisitor()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISqlExpressionVisitor GetExpressionVisitor()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Kros.KORM.Query.Sql.ISqlExpressionVisitor.html">ISqlExpressionVisitor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Kros_KORM_Query_QueryProvider_GetSchemaLoader_" data-uid="Kros.KORM.Query.QueryProvider.GetSchemaLoader*"></a>
   <h4 id="Kros_KORM_Query_QueryProvider_GetSchemaLoader" data-uid="Kros.KORM.Query.QueryProvider.GetSchemaLoader">GetSchemaLoader()</h4>
   <div class="markdown level1 summary"><p>Creates <span class="xref">Kros.Data.Schema.IDatabaseSchemaLoader</span> for specific database.</p>
@@ -1380,6 +1565,80 @@ Používa sa iba v rámci volania <a class="xref" href="Kros.KORM.Query.QueryPro
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">columnName</span></td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_KORM_Query_QueryProvider_SetQueryFilter_" data-uid="Kros.KORM.Query.QueryProvider.SetQueryFilter*"></a>
+  <h4 id="Kros_KORM_Query_QueryProvider_SetQueryFilter__1_Kros_KORM_Query_IQuery___0__Kros_KORM_Query_Sql_ISqlExpressionVisitor_" data-uid="Kros.KORM.Query.QueryProvider.SetQueryFilter``1(Kros.KORM.Query.IQuery{``0},Kros.KORM.Query.Sql.ISqlExpressionVisitor)">SetQueryFilter&lt;T&gt;(IQuery&lt;T&gt;, ISqlExpressionVisitor)</h4>
+  <div class="markdown level1 summary"><p>Sets the default query filter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetQueryFilter&lt;T&gt;(IQuery&lt;T&gt; query, ISqlExpressionVisitor sqlVisitor)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Kros.KORM.Query.IQuery-1.html">IQuery</a>&lt;T&gt;</td>
+        <td><span class="parametername">query</span></td>
+        <td><p>The query.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Kros.KORM.Query.Sql.ISqlExpressionVisitor.html">ISqlExpressionVisitor</a></td>
+        <td><span class="parametername">sqlVisitor</span></td>
+        <td><p>The SQL visitor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Entity type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_KORM_Query_QueryProvider_SupportsIdentity_" data-uid="Kros.KORM.Query.QueryProvider.SupportsIdentity*"></a>
+  <h4 id="Kros_KORM_Query_QueryProvider_SupportsIdentity" data-uid="Kros.KORM.Query.QueryProvider.SupportsIdentity">SupportsIdentity()</h4>
+  <div class="markdown level1 summary"><p>Returns, if provider support inserting into table, where primary key is set as Identity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool SupportsIdentity()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Returns <span class="xref">true</span>.</p>
+</td>
       </tr>
     </tbody>
   </table>

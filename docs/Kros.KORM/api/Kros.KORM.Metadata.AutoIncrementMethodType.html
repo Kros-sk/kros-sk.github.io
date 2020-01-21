@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Enum AutoIncrementMethodType
    | Kros.KORM ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.48.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -105,6 +105,12 @@
       <tr>
         <td id="Kros_KORM_Metadata_AutoIncrementMethodType_Custom">Custom</td>
         <td><p>KORM generate primary key for entity.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Kros_KORM_Metadata_AutoIncrementMethodType_Identity">Identity</td>
+        <td><p>Sql server generates the primary key and KORM fills it into the entity.
+When calling <a class="xref" href="Kros.KORM.Query.IDbSet-1.html#Kros_KORM_Query_IDbSet_1_BulkInsert">BulkInsert()</a> keys are not fill back to the entities.</p>
 </td>
       </tr>
       <tr>

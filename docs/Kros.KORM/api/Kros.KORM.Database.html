@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Database
    | Kros.KORM ">
-    <meta name="generator" content="docfx 2.40.12.0">
+    <meta name="generator" content="docfx 2.48.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -113,13 +113,13 @@ For executing query and materializing models see:
   <h3 id="constructors">Constructors
   </h3>
   <a id="Kros_KORM_Database__ctor_" data-uid="Kros.KORM.Database.#ctor*"></a>
-  <h4 id="Kros_KORM_Database__ctor_System_Configuration_ConnectionStringSettings_" data-uid="Kros.KORM.Database.#ctor(System.Configuration.ConnectionStringSettings)">Database(ConnectionStringSettings)</h4>
+  <h4 id="Kros_KORM_Database__ctor_Kros_KORM_KormConnectionSettings_" data-uid="Kros.KORM.Database.#ctor(Kros.KORM.KormConnectionSettings)">Database(KormConnectionSettings)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Kros.KORM.Database.html">Database</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Database(ConnectionStringSettings connectionString)</code></pre>
+    <pre><code class="lang-csharp hljs">public Database(KormConnectionSettings connectionString)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -132,21 +132,21 @@ For executing query and materializing models see:
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Configuration.ConnectionStringSettings</span></td>
+        <td><a class="xref" href="Kros.KORM.KormConnectionSettings.html">KormConnectionSettings</a></td>
         <td><span class="parametername">connectionString</span></td>
-        <td><p>The active connection.</p>
+        <td><p>Connection string settings.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Kros_KORM_Database__ctor_" data-uid="Kros.KORM.Database.#ctor*"></a>
-  <h4 id="Kros_KORM_Database__ctor_System_Configuration_ConnectionStringSettings_Kros_KORM_Query_IQueryProviderFactory_" data-uid="Kros.KORM.Database.#ctor(System.Configuration.ConnectionStringSettings,Kros.KORM.Query.IQueryProviderFactory)">Database(ConnectionStringSettings, IQueryProviderFactory)</h4>
+  <h4 id="Kros_KORM_Database__ctor_Kros_KORM_KormConnectionSettings_Kros_KORM_Query_IQueryProviderFactory_" data-uid="Kros.KORM.Database.#ctor(Kros.KORM.KormConnectionSettings,Kros.KORM.Query.IQueryProviderFactory)">Database(KormConnectionSettings, IQueryProviderFactory)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Kros.KORM.Database.html">Database</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Database(ConnectionStringSettings connectionString, IQueryProviderFactory queryProviderFactory)</code></pre>
+    <pre><code class="lang-csharp hljs">public Database(KormConnectionSettings connectionString, IQueryProviderFactory queryProviderFactory)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -159,7 +159,7 @@ For executing query and materializing models see:
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Configuration.ConnectionStringSettings</span></td>
+        <td><a class="xref" href="Kros.KORM.KormConnectionSettings.html">KormConnectionSettings</a></td>
         <td><span class="parametername">connectionString</span></td>
         <td><p>The connection string settings.</p>
 </td>
@@ -266,13 +266,13 @@ For executing query and materializing models see:
     </tbody>
   </table>
   <a id="Kros_KORM_Database__ctor_" data-uid="Kros.KORM.Database.#ctor*"></a>
-  <h4 id="Kros_KORM_Database__ctor_System_String_System_String_" data-uid="Kros.KORM.Database.#ctor(System.String,System.String)">Database(String, String)</h4>
+  <h4 id="Kros_KORM_Database__ctor_System_String_" data-uid="Kros.KORM.Database.#ctor(System.String)">Database(String)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Kros.KORM.Database.html">Database</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Database(string connectionString, string adoClientName)</code></pre>
+    <pre><code class="lang-csharp hljs">public Database(string connectionString)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -290,16 +290,34 @@ For executing query and materializing models see:
         <td><p>Connection string.</p>
 </td>
       </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">adoClientName</span></td>
-        <td><p>Ado client name. (System.Data.SqlClient/System.Data.OleDb)</p>
-</td>
-      </tr>
     </tbody>
   </table>
   <h3 id="properties">Properties
   </h3>
+  <a id="Kros_KORM_Database_Builder_" data-uid="Kros.KORM.Database.Builder*"></a>
+  <h4 id="Kros_KORM_Database_Builder" data-uid="Kros.KORM.Database.Builder">Builder</h4>
+  <div class="markdown level1 summary"><p>Builder for creating <a class="xref" href="Kros.KORM.IDatabase.html">IDatabase</a> instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IDatabaseBuilder Builder { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Kros.KORM.IDatabaseBuilder.html">IDatabaseBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Kros_KORM_Database_DatabaseMapper_" data-uid="Kros.KORM.Database.DatabaseMapper*"></a>
   <h4 id="Kros_KORM_Database_DatabaseMapper" data-uid="Kros.KORM.Database.DatabaseMapper">DatabaseMapper</h4>
   <div class="markdown level1 summary"><p>Gets the database mapper, which has mapping information for all tables in database</p>
@@ -680,12 +698,12 @@ For executing query and materializing models see:
     </tbody>
   </table>
   <a id="Kros_KORM_Database_ExecuteNonQueryAsync_" data-uid="Kros.KORM.Database.ExecuteNonQueryAsync*"></a>
-  <h4 id="Kros_KORM_Database_ExecuteNonQueryAsync_System_String_" data-uid="Kros.KORM.Database.ExecuteNonQueryAsync(System.String)">ExecuteNonQueryAsync(String)</h4>
+  <h4 id="Kros_KORM_Database_ExecuteNonQueryAsync_System_String_Kros_KORM_Query_CommandParameterCollection_System_Threading_CancellationToken_" data-uid="Kros.KORM.Database.ExecuteNonQueryAsync(System.String,Kros.KORM.Query.CommandParameterCollection,System.Threading.CancellationToken)">ExecuteNonQueryAsync(String, CommandParameterCollection, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; ExecuteNonQueryAsync(string query)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; ExecuteNonQueryAsync(string query, CommandParameterCollection parameters, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -700,6 +718,16 @@ For executing query and materializing models see:
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Kros.KORM.Query.CommandParameterCollection.html">CommandParameterCollection</a></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -720,12 +748,12 @@ For executing query and materializing models see:
     </tbody>
   </table>
   <a id="Kros_KORM_Database_ExecuteNonQueryAsync_" data-uid="Kros.KORM.Database.ExecuteNonQueryAsync*"></a>
-  <h4 id="Kros_KORM_Database_ExecuteNonQueryAsync_System_String_Kros_KORM_Query_CommandParameterCollection_" data-uid="Kros.KORM.Database.ExecuteNonQueryAsync(System.String,Kros.KORM.Query.CommandParameterCollection)">ExecuteNonQueryAsync(String, CommandParameterCollection)</h4>
+  <h4 id="Kros_KORM_Database_ExecuteNonQueryAsync_System_String_System_Threading_CancellationToken_" data-uid="Kros.KORM.Database.ExecuteNonQueryAsync(System.String,System.Threading.CancellationToken)">ExecuteNonQueryAsync(String, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; ExecuteNonQueryAsync(string query, CommandParameterCollection parameters)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; ExecuteNonQueryAsync(string query, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -743,7 +771,57 @@ For executing query and materializing models see:
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="Kros.KORM.Query.CommandParameterCollection.html">CommandParameterCollection</a></td>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Kros_KORM_Database_ExecuteNonQueryAsync_" data-uid="Kros.KORM.Database.ExecuteNonQueryAsync*"></a>
+  <h4 id="Kros_KORM_Database_ExecuteNonQueryAsync_System_String_System_Threading_CancellationToken_System_Object___" data-uid="Kros.KORM.Database.ExecuteNonQueryAsync(System.String,System.Threading.CancellationToken,System.Object[])">ExecuteNonQueryAsync(String, CancellationToken, Object[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;int&gt; ExecuteNonQueryAsync(string query, CancellationToken cancellationToken = default(CancellationToken), params object[] parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">query</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span>[]</td>
         <td><span class="parametername">parameters</span></td>
         <td></td>
       </tr>
@@ -1156,6 +1234,43 @@ set is empty. Returns a maximum of 2033 characters.</p>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="Kros.KORM.IDatabase.html">IDatabase</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Kros.KORM.IDatabaseExtensions.html#Kros_KORM_IDatabaseExtensions_AddAsync__1_Kros_KORM_IDatabase___0_System_Threading_CancellationToken_">IDatabaseExtensions.AddAsync&lt;TEntity&gt;(IDatabase, TEntity, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="Kros.KORM.IDatabaseExtensions.html#Kros_KORM_IDatabaseExtensions_AddAsync__1_Kros_KORM_IDatabase_System_Collections_Generic_IEnumerable___0__">IDatabaseExtensions.AddAsync&lt;TEntity&gt;(IDatabase, IEnumerable&lt;TEntity&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Kros.KORM.IDatabaseExtensions.html#Kros_KORM_IDatabaseExtensions_BulkAddAsync__1_Kros_KORM_IDatabase_System_Collections_Generic_IEnumerable___0__">IDatabaseExtensions.BulkAddAsync&lt;TEntity&gt;(IDatabase, IEnumerable&lt;TEntity&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Kros.KORM.IDatabaseExtensions.html#Kros_KORM_IDatabaseExtensions_DeleteAsync__1_Kros_KORM_IDatabase___0_System_Threading_CancellationToken_">IDatabaseExtensions.DeleteAsync&lt;TEntity&gt;(IDatabase, TEntity, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="Kros.KORM.IDatabaseExtensions.html#Kros_KORM_IDatabaseExtensions_DeleteAsync__1_Kros_KORM_IDatabase_System_Collections_Generic_IEnumerable___0__">IDatabaseExtensions.DeleteAsync&lt;TEntity&gt;(IDatabase, IEnumerable&lt;TEntity&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Kros.KORM.IDatabaseExtensions.html#Kros_KORM_IDatabaseExtensions_DeleteAsync__1_Kros_KORM_IDatabase_System_Object_System_Threading_CancellationToken_">IDatabaseExtensions.DeleteAsync&lt;TEntity&gt;(IDatabase, Object, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="Kros.KORM.IDatabaseExtensions.html#Kros_KORM_IDatabaseExtensions_DeleteAsync__1_Kros_KORM_IDatabase_System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_">IDatabaseExtensions.DeleteAsync&lt;TEntity&gt;(IDatabase, Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="Kros.KORM.IDatabaseExtensions.html#Kros_KORM_IDatabaseExtensions_DeleteAsync__1_Kros_KORM_IDatabase_Kros_KORM_Query_Sql_RawSqlString_System_Threading_CancellationToken_System_Object___">IDatabaseExtensions.DeleteAsync&lt;TEntity&gt;(IDatabase, RawSqlString, CancellationToken, Object[])</a>
+  </div>
+  <div>
+      <a class="xref" href="Kros.KORM.IDatabaseExtensions.html#Kros_KORM_IDatabaseExtensions_EditAsync__1_Kros_KORM_IDatabase___0_System_Threading_CancellationToken_">IDatabaseExtensions.EditAsync&lt;TEntity&gt;(IDatabase, TEntity, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="Kros.KORM.IDatabaseExtensions.html#Kros_KORM_IDatabaseExtensions_EditAsync__1_Kros_KORM_IDatabase_System_Collections_Generic_IEnumerable___0__">IDatabaseExtensions.EditAsync&lt;TEntity&gt;(IDatabase, IEnumerable&lt;TEntity&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Kros.KORM.IDatabaseExtensions.html#Kros_KORM_IDatabaseExtensions_BulkEditAsync__1_Kros_KORM_IDatabase_System_Collections_Generic_IEnumerable___0__">IDatabaseExtensions.BulkEditAsync&lt;TEntity&gt;(IDatabase, IEnumerable&lt;TEntity&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Kros.KORM.IDatabaseExtensions.html#Kros_KORM_IDatabaseExtensions_EditAsync__1_Kros_KORM_IDatabase___0_System_Threading_CancellationToken_System_String___">IDatabaseExtensions.EditAsync&lt;TEntity&gt;(IDatabase, TEntity, CancellationToken, String[])</a>
   </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
