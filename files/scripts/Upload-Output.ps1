@@ -15,7 +15,8 @@ Write-Output "    `$SourceFolder = $SourceFolder"
 Write-Output "    `$TempFolder = $TempFolder"
 Write-Output "----------------------------------------------------------------------"
 
-$BlobName = $BlobName.ToLower()
+$ContainerName = $ContainerName.ToLower() -replace "[^a-z-]", "-"
+$BlobName = $BlobName.ToLower() -replace "[^a-z-]", "-"
 $ZipFileName = "$BlobName.zip"
 $SourceFolder = Join-Path -Path $SourceFolder -ChildPath "*"
 $TempZip = Join-Path -Path $TempFolder -ChildPath $ZipFileName
