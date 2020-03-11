@@ -62,3 +62,4 @@ if (-not $result) {
 Remove-Item -Path "$TempZip" -Force
 
 Write-Output "Data was successfully uploaded to storage."
+Write-Output "https://$StorageAccountName.blob.core.windows.net/$ContainerName/$BlobName"
