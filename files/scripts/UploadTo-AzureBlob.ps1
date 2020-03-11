@@ -6,6 +6,9 @@ param (
     [Parameter(Mandatory = $true)][String]$TempFolder
 )
 
+$ContainerName = $ContainerName.ToLower() -replace "[^a-z0-9-]", "-"
+$BlobName = $BlobName.ToLower() -replace "[^a-z0-9-]", "-"
+
 Write-Output "----------------------------------------------------------------------"
 Write-Output "Input parameters:"
 Write-Output "    `$StorageAccountName = $StorageAccountName"
@@ -13,16 +16,15 @@ Write-Output "    `$ContainerName = $ContainerName"
 Write-Output "    `$BlobName = $BlobName"
 Write-Output "    `$SourceFolder = $SourceFolder"
 Write-Output "    `$TempFolder = $TempFolder"
+Write-Output "The values of `$ContainerName and `$BlobName were sanitized. All characters except alphanumeric and hyphen were replaced with hyphen (-)."
 Write-Output "----------------------------------------------------------------------"
 
-$BlobName = $BlobName.ToLower()
-$ZipFileName = "$BlobName.zip"
 $SourceFolder = Join-Path -Path $SourceFolder -ChildPath "*"
-$TempZip = Join-Path -Path $TempFolder -ChildPath $ZipFileName
+$TempZip = Join-Path -Path $TempFolder -ChildPath ([guid]::NewGuid().ToString() + ".zip")
 
 $ContainerPublicAccess = "blob"
 $ContentType = "application/zip"
-$ContentDisposition = "attachment; filename=""$ZipFileName"""
+$ContentDisposition = "attachment; filename=""$BlobName.zip"""
 
 Write-Output "Checking if container exists."
 $result = az storage container exists --account-name "$StorageAccountName" --name "$ContainerName" | ConvertFrom-Json
@@ -59,3 +61,4 @@ if (-not $result) {
 Remove-Item -Path "$TempZip" -Force
 
 Write-Output "Data was successfully uploaded to storage."
+Write-Output "Download link: https://$StorageAccountName.blob.core.windows.net/$ContainerName/$BlobName"
