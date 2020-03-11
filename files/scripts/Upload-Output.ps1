@@ -6,6 +6,9 @@ param (
     [Parameter(Mandatory = $true)][String]$TempFolder
 )
 
+$ContainerName = $ContainerName.ToLower() -replace "[^a-z0-9-]", "-"
+$BlobName = $BlobName.ToLower() -replace "[^a-z0-9-]", "-"
+
 Write-Output "----------------------------------------------------------------------"
 Write-Output "Input parameters:"
 Write-Output "    `$StorageAccountName = $StorageAccountName"
@@ -13,10 +16,9 @@ Write-Output "    `$ContainerName = $ContainerName"
 Write-Output "    `$BlobName = $BlobName"
 Write-Output "    `$SourceFolder = $SourceFolder"
 Write-Output "    `$TempFolder = $TempFolder"
+Write-Output "The values of `$ContainerName and `$BlobName were sanitized. All characters except alphanumeric and hyphen were replaced with hyphen (-)."
 Write-Output "----------------------------------------------------------------------"
 
-$ContainerName = $ContainerName.ToLower() -replace "[^a-z-]", "-"
-$BlobName = $BlobName.ToLower() -replace "[^a-z-]", "-"
 $ZipFileName = "$BlobName.zip"
 $SourceFolder = Join-Path -Path $SourceFolder -ChildPath "*"
 $TempZip = Join-Path -Path $TempFolder -ChildPath $ZipFileName
