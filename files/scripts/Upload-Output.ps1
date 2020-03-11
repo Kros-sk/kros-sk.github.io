@@ -19,13 +19,12 @@ Write-Output "    `$TempFolder = $TempFolder"
 Write-Output "The values of `$ContainerName and `$BlobName were sanitized. All characters except alphanumeric and hyphen were replaced with hyphen (-)."
 Write-Output "----------------------------------------------------------------------"
 
-$ZipFileName = "$BlobName.zip"
 $SourceFolder = Join-Path -Path $SourceFolder -ChildPath "*"
-$TempZip = Join-Path -Path $TempFolder -ChildPath $ZipFileName
+$TempZip = Join-Path -Path $TempFolder -ChildPath ([guid]::NewGuid().ToString() + ".zip")
 
 $ContainerPublicAccess = "blob"
 $ContentType = "application/zip"
-$ContentDisposition = "attachment; filename=""$ZipFileName"""
+$ContentDisposition = "attachment; filename=""$BlobName.zip"""
 
 Write-Output "Checking if container exists."
 $result = az storage container exists --account-name "$StorageAccountName" --name "$ContainerName" | ConvertFrom-Json
