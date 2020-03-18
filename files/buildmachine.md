@@ -11,10 +11,10 @@ Jednoducho si tak v prípade potreby budeme vedieť spraviť ďalší build poč
 Ak bude potrebné pridať nejakú utilitku, čo sa neinštaluje štandardne, ale iba kopíruje, pridaj ju do zložky `C:\tools`,
 nech máme takéto veci na jednom mieste. Táto cesta je aj zapísaná v premennej `PATH`, takže všetko čo je v nej, je priamo spustiteľné.
 
-DevOps agentov treba konfigurovať, až keď je celé prostredie nastavené, aby si zistili info o všetkom čo je v počítači.
-V prípade, že sa nainštaluje niečo nové, čo má na agentov vplyv, je potrebné reštartovať ich služby.
+**DevOps agentov treba konfigurovať, až keď je nainštalované a nastavné všetko potrebné**, aby si zistili info o všetkom čo je v počítači.
+V prípade, že sa neskôr nainštaluje niečo nové, čo má na agentov vplyv, je potrebné reštartovať ich služby.
 
-## Prostredie
+## Systémové premenné
 
 Hodnota `{proxy}` je IP adresa nášho proxy servera aj s portom (http://a.b.c.d:port).
 
@@ -24,6 +24,26 @@ V systéme je nutné nastaviť niekoľko premenných (pre celý systém, nie iba
 - `HTTPS_PROXY` - `{proxy}`
 - `JAVA` - nastaviť na rovnakú hodnotu, ako má `JAVA_HOME`. Premennú `JAVA_HOME` automaticky vytvorí inštalácia Javy, ale Devops agent potrebuje premennú `JAVA`. Samotná Java je potrebná pre [SonarCloud](https://sonarcloud.io/).
 - `JAVA_FLAGS` = `-Dhttps.proxyHost={proxy adresa} -Dhttps.proxyPort={proxy port} -Dhttp.nonProxyHosts="localhost|127.0.0.1"`
+- `SONAR_SCANNER_OPTS` - nastaviť rovnako ako `JAVA_FLAGS`. Premenná je potrebná pre [SonarCloud](https://sonarcloud.io).
+
+## Web Deploy
+
+Niektoré release pipeline-y používajú *Web Deploy* spôsob nasadenia služby do Azure,
+[takže je potrebné ho nainštalovať](https://www.iis.net/downloads/microsoft/web-deploy).
+Po inštalácii je potrebné manuálne nastaviť proxy v súbore `msdeploy.exe.config`, na oboch miestach:
+
+- `C:\Program Files\IIS\Microsoft Web Deploy V3`
+- `C:\Program Files (x86)\IIS\Microsoft Web Deploy V3`
+
+Do súborov je potrebné doplniť nasledujúcu sekciu. *Adresu proxy servera je potrebné zadať aj so schémou `http://`.*
+
+``` xml
+<system.net>
+  <defaultProxy>
+    <proxy usesystemdefault="true" proxyaddress="http://{proxy}" bypassonlocal="true" />
+  </defaultProxy>
+</system.net>
+```
 
 ## PowerShell
 
@@ -33,7 +53,7 @@ Je potrebné povoliť spúšťanie skriptov: `Set-ExecutionPolicy -ExecutionPoli
 
 Nastavenie proxy:
 
-```
+``` bash
 npm config set proxy {proxy}
 npm config set https-proxy {proxy}
 ```
