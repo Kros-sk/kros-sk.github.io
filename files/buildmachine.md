@@ -60,4 +60,11 @@ npm config set https-proxy {proxy}
 
 ### Globálne NPM nástroje
 
-- **NewMan:** `npm install -g newman`
+⚠ Globálna inštalácia (`npm install -g`) v prípade NPM znamená, že sa daná vec nainštaluje
+*globálne pre aktuálneho používateľa*, do jeho profilu. Toto nechceme, my daný nástroj potrebujeme globálne
+pre celý systém. Neexistuje možnosť ako toto v NPM spraviť (aspoň o nej nevieme), takže jediné čo nám ostáva,
+je nainštalovať to takto a potom ručne skopírovať na nejaké všeobecné miesto. Po prekopírovaní je možné danú
+vec pokojne odinštalovať.
+
+**NewMan:** `npm install -g newman` Po nainštalovaní skopírovať do `C:\newman` (príkaz musí byť dostupný ako
+`C:\newman\newman.cmd`) a do systémovej premennej `PATH` pridať cestu `C:\newman`.
