@@ -11,8 +11,26 @@ Jednoducho si tak v prípade potreby budeme vedieť spraviť ďalší build poč
 Ak bude potrebné pridať nejakú utilitku, čo sa neinštaluje štandardne, ale iba kopíruje, pridaj ju do zložky `C:\tools`,
 nech máme takéto veci na jednom mieste. Táto cesta je aj zapísaná v premennej `PATH`, takže všetko čo je v nej, je priamo spustiteľné.
 
-**DevOps agentov treba konfigurovať, až keď je nainštalované a nastavné všetko potrebné**, aby si zistili info o všetkom čo je v počítači.
-V prípade, že sa neskôr nainštaluje niečo nové, čo má na agentov vplyv, je potrebné reštartovať ich služby.
+## DevOps build agenti
+
+**DevOps agentov treba konfigurovať nakoniec, až keď je nainštalované a nastavné všetko ostatné**, aby si zistili info o všetkom čo je v počítači.
+V prípade, že sa neskôr nainštaluje niečo nové, čo má na agentov vplyv, je potrebné reštartovať ich služby (prípadne počítač).
+
+Každý agent musí bežať pod svojim vlastným používateľom. Je to kvôli problémom, keď sa agenti bili o nejaké zdroje počas buildu, ak bežali po spoločným účtom. Viacero účtov sa pridá jednoduchým powershell skriptom (heslo používateľa je rovnaké ako jeho meno):
+
+``` ps1
+1..5 | ForEach-Object {
+  $userName = "agent-XXX-0$_"
+  $password = ConvertTo-SecureString -String $userName -AsPlainText
+  New-LocalUser -Name $userName -FullName $userName -Description "Account for DevOps build agent XXX." -Password $password -PasswordNeverExpires -UserMayNotChangePassword -AccountNeverExpires
+}
+```
+
+Samotný agent sa dá jednoducho nakonfigurovať nasledovným príkazom:
+
+``` sh
+.\config.cmd --unattended --url "https://dev.azure.com/krossk/" --auth pat --token {token} --runAsService --pool {pool-name} --agent {agent-name} --windowsLogonAccount {user-name} --windowsLogonPassword {user-password}
+```
 
 ## Systémové premenné
 
