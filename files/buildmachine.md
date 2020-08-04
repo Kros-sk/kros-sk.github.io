@@ -51,7 +51,7 @@ Je potrebné povoliť spúšťanie skriptov: `Set-ExecutionPolicy -ExecutionPoli
 
 ## NPM
 
-Nastavenie proxy:
+Nastavenie proxy (je potrebné ho zadať aj so schémou `http://`):
 
 ``` bash
 npm config set proxy {proxy}
