@@ -4,7 +4,7 @@ Počítač slúži na build našich projektov.
 
 Inštalácia potrebných programov sa robí pomocou [Chocolatey](https://chocolatey.org/).
 Takže ak je potrebné pridať nový program, prípadne niečo zmeniť, používajte `choco`. Zoznam nainštalovaných vecí je v súbore
-[`buildmachine-packages.config`](https://github.com/Kros-sk/kros-sk.github.io/blob/master/files/buildmachine-packages.config),
+[`buildmachine-packages.config`](https://github.com/Kros-sk/kros-sk.github.io/blob/master/buildmachine/buildmachine-packages.config),
 tu na na našom GitHub-e. Ak je potrebné niečo zmeniť/pridať, nainštaluj to z príkazovej riadky (ako admin) a pridaj do toho súboru.
 Jednoducho si tak v prípade potreby budeme vedieť spraviť ďalší build počítač.
 
@@ -13,18 +13,13 @@ nech máme takéto veci na jednom mieste. Táto cesta je aj zapísaná v premenn
 
 ## DevOps build agenti
 
-**DevOps agentov treba konfigurovať nakoniec, až keď je nainštalované a nastavné všetko ostatné**, aby si zistili info o všetkom čo je v počítači.
-V prípade, že sa neskôr nainštaluje niečo nové, čo má na agentov vplyv, je potrebné reštartovať ich služby (prípadne počítač).
+**DevOps agentov treba konfigurovať nakoniec, až keď je nainštalované a nastavné všetko ostatné**, aby si zistili info o všetkom
+čo je v počítači. V prípade, že sa neskôr nainštaluje niečo nové, čo má na agentov vplyv, je potrebné reštartovať ich služby
+(prípadne počítač).
 
-Každý agent musí bežať pod svojim vlastným používateľom. Je to kvôli problémom, keď sa agenti bili o nejaké zdroje počas buildu, ak bežali po spoločným účtom. Viacero účtov sa pridá jednoduchým powershell skriptom (heslo používateľa je rovnaké ako jeho meno):
-
-``` ps1
-1..5 | ForEach-Object {
-  $userName = "agent-XXX-0$_"
-  $password = ConvertTo-SecureString -String $userName -AsPlainText
-  New-LocalUser -Name $userName -FullName $userName -Description "Account for DevOps build agent XXX." -Password $password -PasswordNeverExpires -UserMayNotChangePassword -AccountNeverExpires
-}
-```
+Každý agent musí bežať pod svojim vlastným používateľom. Je to kvôli problémom, keď sa agenti bili o nejaké zdroje počas buildu,
+ak bežali po spoločným účtom. Na jednoduché pridanie viacerých používateľov naraz slúži skript
+[`create-users.ps1`](https://github.com/Kros-sk/kros-sk.github.io/blob/master/buildmachine/create-users.ps1).
 
 Samotný agent sa dá jednoducho nakonfigurovať nasledovným príkazom:
 
@@ -43,6 +38,8 @@ V systéme je nutné nastaviť niekoľko premenných (pre celý systém, nie iba
 - `JAVA` - nastaviť na rovnakú hodnotu, ako má `JAVA_HOME`. Premennú `JAVA_HOME` automaticky vytvorí inštalácia Javy, ale Devops agent potrebuje premennú `JAVA`. Samotná Java je potrebná pre [SonarCloud](https://sonarcloud.io/).
 - `JAVA_FLAGS` = `-Dhttps.proxyHost={proxy adresa} -Dhttps.proxyPort={proxy port} -Dhttp.nonProxyHosts="localhost|127.0.0.1"`
 - `SONAR_SCANNER_OPTS` - nastaviť rovnako ako `JAVA_FLAGS`. Premenná je potrebná pre [SonarCloud](https://sonarcloud.io).
+
+Na jednoduché nastavenie premenných slúži skript [`set-environment-vars.ps1`](https://github.com/Kros-sk/kros-sk.github.io/blob/master/buildmachine/set-environment-vars.ps1),
 
 ## Web Deploy
 
