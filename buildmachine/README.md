@@ -82,4 +82,4 @@ je nainštalovať to takto a potom ručne skopírovať na nejaké všeobecné mi
 vec pokojne odinštalovať.
 
 **NewMan:** `npm install -g newman` Po nainštalovaní skopírovať do `C:\newman` (príkaz musí byť dostupný ako
-`C:\newman\newman.cmd`) a do systémovej premennej `PATH` pridať cestu `C:\newman`.
+`C:\newman\newman.cmd`) a do systémovej premennej `PATH` pridať cestu `C:\newman`. Nainštalovaný nástroj sa nachádza v zložke `%APPDATA%\npm\`.
