@@ -29,7 +29,7 @@ Samotný agent sa dá jednoducho nakonfigurovať nasledovným príkazom:
 
 ## Systémové premenné
 
-Hodnota `{proxy}` je IP adresa nášho proxy servera aj s portom (http://a.b.c.d:port).
+Hodnota `{proxy}` je IP adresa nášho proxy servera aj so schémou a portom (http://a.b.c.d:port).
 
 V systéme je nutné nastaviť niekoľko premenných (pre celý systém, nie iba pre používateľa):
 
