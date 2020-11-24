@@ -83,3 +83,19 @@ vec pokojne odinštalovať.
 
 **NewMan:** `npm install -g newman` Po nainštalovaní skopírovať do `C:\newman` (príkaz musí byť dostupný ako
 `C:\newman\newman.cmd`) a do systémovej premennej `PATH` pridať cestu `C:\newman`. Nainštalovaný nástroj sa nachádza v zložke `%APPDATA%\npm\`.
+
+## Terraform
+
+[Terraform](https://www.terraform.io) pri svojej práci vytvára nejaké súbory v `Temp` zložke. Postupne veľkosť týchto súborov
+narasie na jednotky GB. Keďže každý agent beží pod vlastným používateľským účtom, má aj vlastnú `Temp` zložku a tak množstvo
+dát ktoré takto Terraform vytvára je celkom významné. Na prečistenie `Temp` zložiek všetkých používateľov od týchto súborov
+slúži skript [`clean-terraform-temp.ps1`](https://github.com/Kros-sk/kros-sk.github.io/blob/master/buildmachine/clean-terraform-temp.ps1).
+Ak sa spúšťa z príkazovej riadky, je potrebné ho spúšťať ako administrátor. Na *build* počítač ho treba pridať ako naplánovanú
+úlohu, ktorá sa spustí raz za deň a vymaže nepotrebné dáta. Skript je potrebné nakopírovať do zložky `C:\scripts` a naplánovanú
+úlohu vytvoriť nasledovným príkazom (spusteným ako administrátor):
+
+``` sh
+schtasks /create /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc daily /st 03:30 /tn "BuildAgents\CleanTerraformTemp" /tr "pwsh -File 'C:\scripts\clean-terraform-temp.ps1' -SaveTranscript"
+```
+
+Skript vytvorí záznam o svojom behu do súboru `clean-terraform-temp.log`.
