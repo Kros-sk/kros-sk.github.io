@@ -21,6 +21,7 @@ if ([string]::IsNullOrWhiteSpace($TempSubfolder)) {
 	$TempSubfolder = "AppData\Local\Temp"
 }
 
+$MB = 1024 * 1024
 $today = [DateTime]::Now.Date
 $nowDate = [DateTime]::Now.ToString("d.M.yyyy")
 $nowTime = [DateTime]::Now.ToString("H:mm")
@@ -35,8 +36,8 @@ Get-ChildItem -Path $BaseFolder -Directory | ForEach-Object {
 	$userFolder = $_
 	$tempFolder = [IO.Path]::Join($userFolder.FullName, $TempSubfolder)
 	Write-Output $tempFolder
-	$tempFolder = [IO.Path]::Join($tempFolder, "*")
 	if (Test-Path -Path $tempFolder) {
+		$tempFolder = [IO.Path]::Join($tempFolder, "*")
 		$count = 0
 		[double] $size = 0
 		Get-ChildItem -Path $tempFolder -File -Include "terraform-log*", "terraform-provider*" |
@@ -49,12 +50,12 @@ Get-ChildItem -Path $BaseFolder -Directory | ForEach-Object {
 		}
 		$totalCount	+= $count
 		$totalSize += $size
-		$size /= (1024 * 1024)
+		$size /= $MB
 		$msg = "  {0:n0} file(s) deleted, size {1:n2} MB" -f $count, $size
 		Write-Output $msg
 	}
 }
-$totalSize /= (1024 * 1024)
+$totalSize /= $MB
 $msg = "Total: {0:n0} file(s) deleted, size {1:n2} MB" -f $totalCount, $totalSize
 Write-Output ""
 Write-Output $msg

@@ -64,6 +64,23 @@ Do súborov je potrebné doplniť nasledujúcu sekciu. *Adresu proxy servera je 
 
 Je potrebné povoliť spúšťanie skriptov: `Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine`
 
+## Terraform
+
+[Terraform](https://www.terraform.io) pri svojej práci vytvára nejaké súbory v `Temp` zložke. Postupne veľkosť týchto súborov
+narasie na jednotky GB. Keďže každý agent beží pod vlastným používateľským účtom, má aj vlastnú `Temp` zložku a tak množstvo
+dát ktoré takto Terraform vytvára je celkom významné. Na prečistenie `Temp` zložiek všetkých používateľov od týchto súborov
+slúži skript [`clean-terraform-temp.ps1`](https://github.com/Kros-sk/kros-sk.github.io/blob/master/buildmachine/clean-terraform-temp.ps1).
+Ak sa spúšťa z príkazovej riadky, je potrebné ho spúšťať ako administrátor (inak vymaže len temp aktuálne prihlásenéh
+používateľa). Na *build* počítač ho treba pridať ako naplánovanú úlohu, ktorá sa spustí raz za deň a vymaže nepotrebné dáta.
+Skript je potrebné nakopírovať do zložky `C:\scripts` a naplánovanú úlohu vytvoriť nasledovným príkazom (spusteným ako
+administrátor):
+
+``` sh
+schtasks /create /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc daily /st 03:30 /tn "BuildAgents\CleanTerraformTemp" /tr "pwsh -File 'C:\scripts\clean-terraform-temp.ps1' -SaveTranscript"
+```
+
+Skript vytvorí záznam o svojom poslednom behu do súboru `clean-terraform-temp.log`.
+
 ## NPM
 
 Nastavenie proxy (je potrebné ho zadať aj so schémou `http://`):
@@ -72,6 +89,23 @@ Nastavenie proxy (je potrebné ho zadať aj so schémou `http://`):
 npm config set proxy {proxy}
 npm config set https-proxy {proxy}
 ```
+
+### NPM cache
+
+NPM si pri inštalácii balíčkov vytvára ich lokálnu keš, aby ich nemusel zakaždým sťahovať z internetu. Do tejto keše balíčky
+iba pridáva, tzn. jej veľkosť postupne narastá. Relatívne rýchlo narastie na desiatky GB dát. Keš je lokálna pre používateľa
+a keďže každý agent beží pod svojim vlastným používateľom, množstvo stiahnutých NPM dát je veľmi veľké. Na vyčistenie NPM keše
+slúži skript [`clean-npm-cache.ps1`](https://github.com/Kros-sk/kros-sk.github.io/blob/master/buildmachine/clean-npm-cache.ps1).
+Ak sa spúšťa z príkazovej riadky, je potrebné ho spúšťať ako administrátor (inak vymaže len keš aktuálne prihláseného
+používateľa). Na *build* počítač ho treba pridať ako naplánovanú úlohu, ktorá sa spustí raz za týždeň a vymaže NPM keš
+všetkých používateľov. Skript je potrebné nakopírovať do zložky `C:\scripts` a naplánovanú úlohu vytvoriť nasledovným príkazom
+(spusteným ako administrátor):
+
+``` sh
+schtasks /create /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc weekly /d sat /st 03:00 /tn "BuildAgents\CleanNpmCache" /tr "pwsh -File 'C:\scripts\clean-npm-cache.ps1' -SaveTranscript"
+```
+
+Skript vytvorí záznam o svojom poslednom behu do súboru `clean-npm-cache.log`.
 
 ### Globálne NPM nástroje
 
@@ -83,19 +117,3 @@ vec pokojne odinštalovať.
 
 **NewMan:** `npm install -g newman` Po nainštalovaní skopírovať do `C:\newman` (príkaz musí byť dostupný ako
 `C:\newman\newman.cmd`) a do systémovej premennej `PATH` pridať cestu `C:\newman`. Nainštalovaný nástroj sa nachádza v zložke `%APPDATA%\npm\`.
-
-## Terraform
-
-[Terraform](https://www.terraform.io) pri svojej práci vytvára nejaké súbory v `Temp` zložke. Postupne veľkosť týchto súborov
-narasie na jednotky GB. Keďže každý agent beží pod vlastným používateľským účtom, má aj vlastnú `Temp` zložku a tak množstvo
-dát ktoré takto Terraform vytvára je celkom významné. Na prečistenie `Temp` zložiek všetkých používateľov od týchto súborov
-slúži skript [`clean-terraform-temp.ps1`](https://github.com/Kros-sk/kros-sk.github.io/blob/master/buildmachine/clean-terraform-temp.ps1).
-Ak sa spúšťa z príkazovej riadky, je potrebné ho spúšťať ako administrátor. Na *build* počítač ho treba pridať ako naplánovanú
-úlohu, ktorá sa spustí raz za deň a vymaže nepotrebné dáta. Skript je potrebné nakopírovať do zložky `C:\scripts` a naplánovanú
-úlohu vytvoriť nasledovným príkazom (spusteným ako administrátor):
-
-``` sh
-schtasks /create /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc daily /st 03:30 /tn "BuildAgents\CleanTerraformTemp" /tr "pwsh -File 'C:\scripts\clean-terraform-temp.ps1' -SaveTranscript"
-```
-
-Skript vytvorí záznam o svojom behu do súboru `clean-terraform-temp.log`.
