@@ -117,3 +117,11 @@ vec pokojne odinštalovať.
 
 **NewMan:** `npm install -g newman` Po nainštalovaní skopírovať do `C:\newman` (príkaz musí byť dostupný ako
 `C:\newman\newman.cmd`) a do systémovej premennej `PATH` pridať cestu `C:\newman`. Nainštalovaný nástroj sa nachádza v zložke `%APPDATA%\npm\`.
+
+### DotNet Global Tools
+
+Je potrebné nainštalovať nasledovné dotnet tools:
+
+```properties
+dotnet tool install --global Kros.DummyData.Initializer
+```
