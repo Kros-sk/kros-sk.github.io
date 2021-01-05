@@ -48,6 +48,12 @@ Samotný agent sa dá jednoducho nakonfigurovať nasledovným príkazom:
 
 ## Systémové premenné (`configure.ps1`)
 
+### Všeobecné systémové premenné
+
+- `CYPRESS_CACHE_FOLDER` – štandardne nastavená na `C:\cache\cypress`. Cypress si tu ukladá stiahnuté binárky.
+
+### Proxy systémové premenné
+
 Hodnota `{proxy}` je IP adresa nášho proxy servera aj so schémou a portom (http://a.b.c.d:port).
 
 V systéme je nutné nastaviť niekoľko premenných (pre celý systém, nie iba pre používateľa):

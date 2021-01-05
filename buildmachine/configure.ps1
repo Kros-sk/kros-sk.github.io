@@ -5,7 +5,8 @@ param (
 	[Parameter()][string]$Proxy,
 	[Parameter()][string]$NewmanPath = "C:\newman",
 	[Parameter()][string]$ToolsPath = "C:\tools",
-	[Parameter()][string]$ScriptsPath = "C:\scripts"
+	[Parameter()][string]$ScriptsPath = "C:\scripts",
+	[Parameter()][string]$CachePath = "C:\cache"
 )
 
 function AddToPath([string]$path) {
@@ -43,11 +44,20 @@ if (-not (Test-Path $ToolsPath)) {
 AddToPath $ToolsPath
 
 
-# Proxy environment variables
+# Environment variables
+Write-Host "Set environment variables" -ForegroundColor Green
+if (-not (Test-Path $CachePath)) {
+	New-Item -Path $CachePath -ItemType Directory
+}
+$cypressCachePath = [System.IO.Path]::Join($CachePath, "cypress")
+if (-not (Test-Path $cypressCachePath)) {
+	New-Item -Path $cypressCachePath -ItemType Directory
+}
+SetEnvVariable "CYPRESS_CACHE_FOLDER" $cypressCachePath
+
 $proxyUri = $null
-Write-Host "Set proxy environment variables" -ForegroundColor Green
 if ([string]::IsNullOrWhiteSpace($Proxy)) {
-	Write-Host "  Proxy is empty. Nothing to do."
+	Write-Host "  Proxy is empty, so no proxy environment variables will be set."
 }
 else {
 	$proxyUri = New-Object -TypeName System.Uri $Proxy
