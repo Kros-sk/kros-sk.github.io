@@ -11,6 +11,25 @@ Jednoducho si tak v prípade potreby budeme vedieť spraviť ďalší build poč
 Ak bude potrebné pridať nejakú utilitku, čo sa neinštaluje štandardne, ale iba kopíruje, pridaj ju do zložky `C:\tools`,
 nech máme takéto veci na jednom mieste. Táto cesta je aj zapísaná v premennej `PATH`, takže všetko čo je v nej, je priamo spustiteľné.
 
+Na čo najjednoduchšie nakonfigurovanie počítača slúžia skripty `install.ps1` a `configure.ps1`. Oba skripty je potrebné spustiť
+v ako administrátor.
+
+## Skript `install.ps1`
+
+Skript nainštaluje samotné **chocolatey** a potom aj všetky ostatné porgramy v `buildmachine-packages.config`.
+Nie je potrebné nič inštalovať popredu, stačí spustiť Powershell ktorý aktuálne v systéme je. Chocolatey nainštaluje aj
+Powershell Core, či Windows Terminal.
+
+## Skript `configure.ps1`
+
+Skript nakonfiguruje všetko potrebné, čo je možné spraviť automaticky a to je takmer všetko, čo je popísané ďalej v tomto
+dokumente. Skriptu je potrebné zadať proxy (aj so schémou `http://`) cez parameter `-Proxy`.
+
+## PowerShell
+
+Je potrebné povoliť spúšťanie skriptov: `Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine`.
+Skript `install.ps1` to nastaví sám.
+
 ## DevOps build agenti
 
 **DevOps agentov treba konfigurovať nakoniec, až keď je nainštalované a nastavné všetko ostatné**, aby si zistili info o všetkom
@@ -27,7 +46,7 @@ Samotný agent sa dá jednoducho nakonfigurovať nasledovným príkazom:
 .\config.cmd --unattended --url "https://dev.azure.com/krossk/" --auth pat --token {token} --runAsService --pool {pool-name} --agent {agent-name} --windowsLogonAccount {user-name} --windowsLogonPassword {user-password}
 ```
 
-## Systémové premenné
+## Systémové premenné (`configure.ps1`)
 
 Hodnota `{proxy}` je IP adresa nášho proxy servera aj so schémou a portom (http://a.b.c.d:port).
 
@@ -41,7 +60,7 @@ V systéme je nutné nastaviť niekoľko premenných (pre celý systém, nie iba
 
 Na jednoduché nastavenie premenných slúži skript [`set-environment-vars.ps1`](https://github.com/Kros-sk/kros-sk.github.io/blob/master/buildmachine/set-environment-vars.ps1),
 
-## Web Deploy
+## Web Deploy (potrebné spraviť ručne)
 
 Niektoré release pipeline-y používajú *Web Deploy* spôsob nasadenia služby do Azure,
 [takže je potrebné ho nainštalovať](https://www.iis.net/downloads/microsoft/web-deploy).
@@ -60,11 +79,7 @@ Do súborov je potrebné doplniť nasledujúcu sekciu. *Adresu proxy servera je 
 </system.net>
 ```
 
-## PowerShell
-
-Je potrebné povoliť spúšťanie skriptov: `Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine`
-
-## Terraform
+## Terraform (`configure.ps1`)
 
 [Terraform](https://www.terraform.io) pri svojej práci vytvára nejaké súbory v `Temp` zložke. Postupne veľkosť týchto súborov
 narasie na jednotky GB. Keďže každý agent beží pod vlastným používateľským účtom, má aj vlastnú `Temp` zložku a tak množstvo
@@ -81,7 +96,7 @@ schtasks /create /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc daily /st 03:30 /tn "
 
 Skript vytvorí záznam o svojom poslednom behu do súboru `clean-terraform-temp.log`.
 
-## NPM
+## NPM (`configure.ps1`)
 
 Nastavenie proxy (je potrebné ho zadať aj so schémou `http://`):
 
@@ -90,7 +105,7 @@ npm config set proxy {proxy}
 npm config set https-proxy {proxy}
 ```
 
-### NPM cache
+### NPM cache (`configure.ps1`)
 
 NPM si pri inštalácii balíčkov vytvára ich lokálnu keš, aby ich nemusel zakaždým sťahovať z internetu. Do tejto keše balíčky
 iba pridáva, tzn. jej veľkosť postupne narastá. Relatívne rýchlo narastie na desiatky GB dát. Keš je lokálna pre používateľa
@@ -107,7 +122,7 @@ schtasks /create /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc weekly /d sat /st 03:
 
 Skript vytvorí záznam o svojom poslednom behu do súboru `clean-npm-cache.log`.
 
-### Globálne NPM nástroje
+### Globálne NPM nástroje (`configure.ps1`)
 
 ⚠ Globálna inštalácia (`npm install -g`) v prípade NPM znamená, že sa daná vec nainštaluje
 *globálne pre aktuálneho používateľa*, do jeho profilu. Toto nechceme, my daný nástroj potrebujeme globálne
@@ -118,7 +133,7 @@ vec pokojne odinštalovať.
 **NewMan:** `npm install -g newman` Po nainštalovaní skopírovať do `C:\newman` (príkaz musí byť dostupný ako
 `C:\newman\newman.cmd`) a do systémovej premennej `PATH` pridať cestu `C:\newman`. Nainštalovaný nástroj sa nachádza v zložke `%APPDATA%\npm\`.
 
-### DotNet Global Tools
+## DotNet Global Tools (`configure.ps1`)
 
 Je potrebné nainštalovať nasledovné dotnet tools:
 
