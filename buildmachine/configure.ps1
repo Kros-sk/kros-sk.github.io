@@ -35,25 +35,29 @@ function SetEnvVariable($name, $value) {
 	}
 }
 
-
-# 'tools' folder
-Write-Host "Create '$ToolsPath' folder"
-if (-not (Test-Path $ToolsPath)) {
-	New-Item -Path $ToolsPath -ItemType Directory
+function CreateFolder($folder, $envVar = "") {
+	Write-Host "Create folder '$folder'" -ForegroundColor Green
+	if (Test-Path $folder) {
+		Write-Host "  Folder already exists."
+	}
+	else {
+		New-Item -Path $folder -ItemType Directory
+	}
+	if (-not [string]::IsNullOrWhiteSpace($envVar)) {
+		SetEnvVariable $envVar $folder
+	}
 }
+
+# Tools folder
+CreateFolder $ToolsPath
 AddToPath $ToolsPath
 
-
-# Environment variables
-Write-Host "Set environment variables" -ForegroundColor Green
-if (-not (Test-Path $CachePath)) {
-	New-Item -Path $CachePath -ItemType Directory
-}
+# Cache folders
+CreateFolder $CachePath
 $cypressCachePath = [System.IO.Path]::Join($CachePath, "cypress")
-if (-not (Test-Path $cypressCachePath)) {
-	New-Item -Path $cypressCachePath -ItemType Directory
-}
-SetEnvVariable "CYPRESS_CACHE_FOLDER" $cypressCachePath
+CreateFolder $cypressCachePath "CYPRESS_CACHE_FOLDER"
+$npmCachePath = [System.IO.Path]::Join($CachePath, "npm")
+CreateFolder $npmCachePath "NPM_CONFIG_CACHE"
 
 $proxyUri = $null
 if ([string]::IsNullOrWhiteSpace($Proxy)) {

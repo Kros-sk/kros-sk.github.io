@@ -51,6 +51,7 @@ Samotný agent sa dá jednoducho nakonfigurovať nasledovným príkazom:
 ### Všeobecné systémové premenné
 
 - `CYPRESS_CACHE_FOLDER` – štandardne nastavená na `C:\cache\cypress`. Cypress si tu ukladá stiahnuté binárky.
+- `NPM_CONFIG_CACHE` – štandardne nastavená na `C:\cache\npm`. NPM si tu ukladá stiahnuté balíčky.
 
 ### Proxy systémové premenné
 
