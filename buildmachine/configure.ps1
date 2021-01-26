@@ -2,7 +2,7 @@
 
 [CmdletBinding()]
 param (
-	[Parameter()][string]$Proxy,
+	[Parameter()][string]$Proxy = "",
 	[Parameter()][string]$NewmanPath = "C:\newman",
 	[Parameter()][string]$ToolsPath = "C:\tools",
 	[Parameter()][string]$ScriptsPath = "C:\scripts",
@@ -131,12 +131,7 @@ if (-not (Test-Path $ScriptsPath)) {
 }
 
 Write-Host "  Copy scripts to '$ScriptsPath' folder"
-Copy-Item -Path "clean-npm-cache.ps1" -Destination $ScriptsPath -Force
 Copy-Item -Path "clean-terraform-temp.ps1" -Destination $ScriptsPath -Force
-
-Write-Host "  Create scheduled task 'BuildAgents\CleanNpmCache'"
-$script = [System.IO.Path]::Join($ScriptsPath, "clean-npm-cache.ps1")
-schtasks /create /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc weekly /d sat /st 03:00 /tn "BuildAgents\CleanNpmCache" /tr "pwsh -File '$script' -SaveTranscript"
 
 Write-Host "  Create scheduled task 'BuildAgents\CleanTerraformTemp'"
 $script = [System.IO.Path]::Join($ScriptsPath, "clean-terraform-temp.ps1")
