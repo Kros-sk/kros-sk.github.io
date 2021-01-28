@@ -11,4 +11,4 @@ Write-Host "Install software" -ForegroundColor Yellow
 choco install buildmachine-packages.config --yes
 
 Write-Host
-Write-Host "Everything is installed. Now run the 'configure.ps1' script." -ForegroundColor Green
+Write-Host "Everything is installed. If you want install software for load testing, then run the 'install-load-tests.ps1' otherwise  run the 'configure.ps1' script." -ForegroundColor Green

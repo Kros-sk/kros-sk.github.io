@@ -35,6 +35,16 @@ Skript má nasledovné parametre (všetky nepovinné):
 - `-ScriptsPath` – cesta, kde sa nakopírujú skripty pre údržbu systému. Predvolená hdonota je `C:\scripts`,
 - `-CachePath` – cesta, kde sa nastaví keš pre rôzne programy (NPM, Cypress…). Predvolená hodnota je `C:\cache`.
 
+## Script `install-load-tests.ps1`
+
+Skript nainštaluje / nakonfiguruje všetko potrebné pre load testy. Tento script je potrebné spúšťať len na build mašinách, ktoré budú spúšťať load testy. Nainštaluje software, ktorý je definovaný v `load-tests-buildmachine-packages.config`. Taktiež stiahne a rozbalí JMeter *(by default do `C:\tools\jmeter`)* a nainštaluje potrebné plugins.
+
+Skript má nasledovné parametre (všetky nepovinné):
+
+- `JMeterVersion` - Verzia JMeter-u, ktorá sa má nainštalovať. *(default je `5.4.1`)*
+- `ToolsPath` - Adresár, kde sa nachádzajú naše tools. Tam sa nainštaluje JMeter. *(default je `C:\tools`)*
+- `PluginsList` - Čiarkou oddelený zoznam pluginov *(Plugin Id)*, ktoré sa majú nainštalovať. *(default je `jpgc-graphs-basic,jpgc-casutg,jpgc-prmctl`)*
+
 ## PowerShell (`install.ps1`)
 
 Je potrebné povoliť spúšťanie skriptov: `Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine`.
