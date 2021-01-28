@@ -42,8 +42,7 @@ Skript nainštaluje / nakonfiguruje všetko potrebné pre load testy. Tento scri
 Skript má nasledovné parametre (všetky nepovinné):
 
 - `JMeterVersion` - Verzia JMeter-u, ktorá sa má nainštalovať. *(default je `5.4.1`)*
-- `DownloadFolder` - Adresár, do ktorého sa dočasne stiahne JMeter. *(default je `C:\download`)*
-- `JMeterPath` - Adresár, kam sa nakopíruje Jmeter. *(default je `C:\tools\jmeter`)*
+- `ToolsPath` - Adresár, kde sa nachádzajú naše tools. Tam sa nainštaluje JMeter. *(default je `C:\tools`)*
 - `PluginsList` - Čiarkou oddelený zoznam pluginov *(Plugin Id)*, ktoré sa majú nainštalovať. *(default je `jpgc-graphs-basic,jpgc-casutg,jpgc-prmctl`)*
 
 ## PowerShell (`install.ps1`)
