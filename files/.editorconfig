@@ -6,12 +6,17 @@ root = true
 indent_style = space
 tab_width = 4
 trim_trailing_whitespace = true
-
+insert_final_newline = true
 
 # Markdown files
 [*.md]
 trim_trailing_whitespace = false
 
+# YAML files
+[*.yml]
+indent_style = space
+tab_width = 2
+trim_trailing_whitespace = true
 
 # Code files
 [*.{cs,csx,vb,vbx}]
@@ -21,9 +26,20 @@ indent_style = space
 insert_final_newline = true
 charset = utf-8-bom
 
+# Project files
+[*.csproj]
+tab_width = 2
+indent_size = 2
+
+# JSON files
+[*.json]
+tab_width = 4
+indent_size = 4
+indent_style = space
+insert_final_newline = true
 
 # .NET Coding Conventions
-[*.{cs,vb}]
+[*.cs]
 
 #### Core EditorConfig Options ####
 
@@ -120,6 +136,7 @@ csharp_style_unused_value_expression_statement_preference = discard_variable:sil
 
 # 'using' directive preferences
 csharp_using_directive_placement = outside_namespace:warning
+
 
 #### C# Formatting Rules ####
 
@@ -236,3 +253,159 @@ dotnet_naming_symbols.private_or_internal_static_field.required_modifiers = stat
 dotnet_naming_rule.private_or_internal_static_field_should_be_field_name.severity = warning
 dotnet_naming_rule.private_or_internal_static_field_should_be_field_name.symbols = private_or_internal_static_field
 dotnet_naming_rule.private_or_internal_static_field_should_be_field_name.style = field_style
+
+# C#
+guidelines = 130
+# Named color format
+guidelines_style = 1px dashed gray
+
+
+#### C# Code Analyzers ####
+
+## Roslynator Analyzers
+
+# dotnet_diagnostic.<RULE_ID>.severity = <default|none|silent|suggestion|warning|error>
+
+# RCS1005: Simplify nested using statement (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1005.md)
+dotnet_diagnostic.RCS1005.severity = warning
+
+# RCS1006: Merge 'else' with nested 'if' (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1006.md)
+dotnet_diagnostic.RCS1006.severity = suggestion
+
+# RCS1007: Add braces (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1007.md)
+dotnet_diagnostic.RCS1007.severity = warning
+
+# RCS1008: Use explicit type instead of 'var' (when the type is not obvious) (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1008.md)
+dotnet_diagnostic.RCS1008.severity = silent
+dotnet_diagnostic.IDE0008.severity = silent
+
+# RCS1010: Use 'var' instead of explicit type (when the type is obvious) (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1010.md)
+dotnet_diagnostic.RCS1010.severity = suggestion
+
+# RCS1013: Use predefined type (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1013.md)
+dotnet_diagnostic.RCS1013.severity = warning
+
+# RCS1015: Use nameof operator (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1015.md)
+dotnet_diagnostic.RCS1015.severity = warning
+
+# RCS1016: Convert block body to expression-body (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1016.md)
+dotnet_diagnostic.RCS1016.severity = suggestion
+
+# RCS1019: Order modifiers (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1019.md)
+dotnet_diagnostic.RCS1019.severity = warning
+
+# RCS1020: Simplify Nullable<T> to T? (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1020.md)
+dotnet_diagnostic.RCS1020.severity = warning
+
+# RCS1021: Convert lambda expression body to expression-body (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1021.md)
+dotnet_diagnostic.RCS1021.severity = suggestion
+
+# RCS1031: Remove unnecessary braces (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1031.md)
+dotnet_diagnostic.RCS1031.severity = suggestion
+
+# RCS1032: Remove redundant parentheses (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1032.md)
+dotnet_diagnostic.RCS1032.severity = suggestion
+
+# RCS1035: Remove redundant comma in initializer (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1035.md)
+dotnet_diagnostic.RCS1035.severity = suggestion
+
+# RCS1036: Remove redundant empty line (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1036.md)
+dotnet_diagnostic.RCS1036.severity = warning
+
+# RCS1037: Remove trailing white-space (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1037.md)
+dotnet_diagnostic.RCS1037.severity = warning
+
+# RCS1038: Remove empty statement (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1038.md)
+dotnet_diagnostic.RCS1038.severity = warning
+
+# RCS1039: Remove argument list from attribute (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1039.md)
+dotnet_diagnostic.RCS1039.severity = suggestion
+
+# RCS1040: Remove empty 'else' clause (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1040.md)
+dotnet_diagnostic.RCS1040.severity = suggestion
+
+# RCS1045: Rename private field according to camel case with underscore (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1045.md)
+dotnet_diagnostic.RCS1045.severity = warning
+
+# RCS1052: Declare each attribute separately (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1052.md)
+dotnet_diagnostic.RCS1052.severity = suggestion
+
+# RCS1055: Avoid semicolon at the end of declaration (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1055.md)
+dotnet_diagnostic.RCS1055.severity = suggestion
+
+# RCS1066: Remove empty 'finally' clause (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1066.md)
+dotnet_diagnostic.RCS1066.severity = warning
+
+# RCS1069: Remove unnecessary case label (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1069.md)
+dotnet_diagnostic.RCS1069.severity = warning
+
+# RCS1074: Remove redundant constructor (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1074.md)
+dotnet_diagnostic.RCS1074.severity = warning
+
+# RCS1090: Add call to 'ConfigureAwait' (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1090.md)
+dotnet_diagnostic.RCS1090.severity = none
+
+# RCS1091: Remove empty region (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1091.md)
+dotnet_diagnostic.RCS1091.severity = warning
+
+# RCS1094: Declare using directive on top level (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1094.md)
+dotnet_diagnostic.RCS1094.severity = warning
+
+# RCS1110: Declare type inside namespace (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1110.md)
+dotnet_diagnostic.RCS1110.severity = warning
+
+# RCS1123: Add parentheses when necessary (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1123.md)
+dotnet_diagnostic.RCS1123.severity = none
+
+# RCS1126: Add braces to if-else (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1126.md)
+dotnet_diagnostic.RCS1126.severity = warning
+
+# RCS1130: Bitwise operation on enum without Flags attribute (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1130.md)
+dotnet_diagnostic.RCS1130.severity = warning
+
+# RCS1132: Remove redundant overriding member (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1132.md)
+dotnet_diagnostic.RCS1132.severity = warning
+
+# RCS1140: Add exception to documentation comment (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1140.md)
+dotnet_diagnostic.RCS1140.severity = suggestion
+
+# RCS1141: Add 'param' element to documentation comment (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1141.md)
+dotnet_diagnostic.RCS1141.severity = suggestion
+
+# RCS1142: Add 'typeparam' element to documentation comment (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1141.md)
+dotnet_diagnostic.RCS1142.severity = suggestion
+
+# RCS1182: Remove redundant base interface (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1182.md)
+dotnet_diagnostic.RCS1182.severity = suggestion
+
+# RCS1191: Declare enum value as combination of names (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1191.md)
+dotnet_diagnostic.RCS1191.severity = warning
+
+# RCS1198: Avoid unnecessary boxing of value type (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1198.md)
+dotnet_diagnostic.RCS1198.severity = suggestion
+
+# RCS1202: Avoid NullReferenceException (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1202.md)
+dotnet_diagnostic.RCS1202.severity = warning
+
+# RCS1213: Remove unused member declaration (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1213.md)
+dotnet_diagnostic.RCS1213.severity = warning
+
+# RCS1214: Unnecessary interpolated string (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1214.md)
+dotnet_diagnostic.RCS1214.severity = warning
+
+# RCS1225: Make class sealed (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1225.md)
+dotnet_diagnostic.RCS1225.severity = warning
+
+# RCS1228: Unused element in documentation comment (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1228.md)
+dotnet_diagnostic.RCS1228.severity = suggestion
+
+# RCS1241: Implement non-generic counterpart (https://github.com/JosefPihrt/Roslynator/blob/master/docs/analyzers/RCS1241.md)
+dotnet_diagnostic.RCS1241.severity = suggestion
+
+
+## Analyzers by file
+
+[*{Query,Command,Should,Test,Tests}.cs]
+
+# CA1034: Do not nest type. Alternatively, change its accessibility so that it is not externally visible.
+dotnet_diagnostic.CA1034.severity = none
