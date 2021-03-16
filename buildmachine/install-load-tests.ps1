@@ -4,7 +4,7 @@
 param (
     [Parameter()][string]$JMeterVersion = "5.4.1",
     [Parameter()][string]$ToolsPath = "C:\tools",
-    [Parameter()][string]$PluginsList = "jpgc-graphs-basic,jpgc-casutg,jpgc-prmctl"
+    [Parameter()][string]$PluginsList = "jpgc-graphs-basic,jpgc-casutg,jpgc-prmctl,websocket-samplers,jpgc-wsc"
 )
 
 function AddToPath([string]$path) {
