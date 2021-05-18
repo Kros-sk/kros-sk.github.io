@@ -3,7 +3,8 @@
 [CmdletBinding()]
 param (
 	[Parameter()][string]$UserName,
-	[Parameter()][int]$NumberOfUsers
+	[Parameter()][int]$NumberOfUsers,
+	[Parameter()][int]$StartUserNumber = 1
 )
 
 $userNameMaxLength = 15
@@ -22,8 +23,8 @@ if ($NumberOfUsers -lt 1) {
 else {
 	Write-Host "UserName = $UserName"
 	Write-Host "NumberOfUsers = $NumberOfUsers"
-	1..$NumberOfUsers | ForEach-Object {
-		$localUserName = "agent-$UserName-0$_"
+	$StartUserNumber..($StartUserNumber + $NumberOfUsers - 1) | ForEach-Object {
+		$localUserName = "a-{0}-{1:d2}" -f $UserName, $_
 		$password = ConvertTo-SecureString -String $localUserName -AsPlainText
 		Write-Host "Creating user: $localUserName"
 		New-LocalUser -Name $localUserName -FullName $localUserName -Description "Account for DevOps build agent." -Password $password -PasswordNeverExpires -UserMayNotChangePassword -AccountNeverExpires

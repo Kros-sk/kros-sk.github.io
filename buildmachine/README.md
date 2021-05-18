@@ -57,14 +57,32 @@ Skript `install.ps1` to nastaví sám.
 (prípadne počítač).
 
 Každý agent musí bežať pod svojim vlastným používateľom. Je to kvôli problémom, keď sa agenti bili o nejaké zdroje počas buildu,
-ak bežali po spoločným účtom. Na jednoduché pridanie viacerých používateľov naraz slúži skript
+ak bežali pod spoločným účtom. Na jednoduché pridanie viacerých používateľov naraz slúži skript
 [`create-users.ps1`](https://github.com/Kros-sk/kros-sk.github.io/blob/master/buildmachine/create-users.ps1).
 
-Samotný agent sa dá jednoducho nakonfigurovať nasledovným príkazom:
+Agentovi je potrebné nastaviť proxy server. V adresári agenta je potrebné vytvoriť súbor `.proxy` (pozor, súbor naozaj začína
+bodkou), v ktorom je zapísaná adresa proxy servera aj s protokolom a portom (napr. `http://123.112.1.9:1234`).
+
+Niekedy sú po rozbalení ZIP-u agenta zblbnuté práva na jeho adresári a súboroch, čo sa prejavuje chybovou hláškou:
+
+> This access control list is not in canonical form and therefore cannot be modified.
+
+Vtedy treba spustiť nasladovný príkaz: `icacls.exe {agent-folder} /reset /T /C /L /Q`. Parameter `{agent-folder}` je cesta
+k zložke s agentom.
+
+Samotný agent sa potom nakonfiguruje jednoducho nasledovným príkazom:
 
 ``` sh
 .\config.cmd --unattended --url "https://dev.azure.com/krossk/" --auth pat --token {token} --runAsService --pool {pool-name} --agent {agent-name} --windowsLogonAccount {user-name} --windowsLogonPassword {user-password}
 ```
+
+- `{token}`: PAT (personal access token) v DevOps, ktorý musí mať nastavený scope **Read & manage** pre **Agent Pools**.
+Tento token môže mať krátku platnosť a je potrebný iba na zaregistrovanie agenta v DevOps agent pool-e.
+Pre samotný beh agenta potrebný nie je.
+- `{pool-name}`: Meno pool-u, do ktorého bude agent pridaný.
+- `{agent-name}`: Meno agenta.
+- `{user-name}`: Meno používateľa, pod ktorým agent beží.
+- `{user-password}`: Heslo používateľa, pod ktorým agent beží.
 
 ## Systémové premenné (`configure.ps1`)
 
