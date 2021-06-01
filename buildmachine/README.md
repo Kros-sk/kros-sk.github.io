@@ -3,16 +3,54 @@
 Počítač slúži na build našich projektov.
 
 Inštalácia potrebných programov sa robí pomocou [Chocolatey](https://chocolatey.org/).
-Takže ak je potrebné pridať nový program, prípadne niečo zmeniť, používajte `choco`. Zoznam nainštalovaných vecí je v súbore
+
+Na čo najjednoduchšie nakonfigurovanie počítača slúžia skripty `install.ps1` a `configure.ps1`. Oba skripty je potrebné spustiť
+ako administrátor.
+
+## Chocolatey
+
+Ak je potrebné pridať nový program, prípadne niečo zmeniť, používajte `choco`. _Ručne_ inštalujeme iba to, na čo Choco nemá
+balíček, prípadne sú na to nejkaé iné vážne dôvody. Zoznam základných vecí čo sa inštauljú je v súbore
 [`buildmachine-packages.config`](https://github.com/Kros-sk/kros-sk.github.io/blob/master/buildmachine/buildmachine-packages.config),
 tu na na našom GitHub-e. Ak je potrebné niečo zmeniť/pridať, nainštaluj to z príkazovej riadky (ako admin) a pridaj do toho súboru.
-Jednoducho si tak v prípade potreby budeme vedieť spraviť ďalší build počítač.
+Jednoducho si tak v prípade potreby budeme vedieť spraviť ďalší build počítač. Prvé nainštalovanie z tohto zoznamu sa spraví príkazom:
+
+``` sh
+choco install ./buildmachine-packages.config --yes
+```
+
+`choco` spúšťaj v administrátorskom režime obyčajného _command prompt-u_ (`cmd`). Je možné to spustiť aj vo Windows Terminále,
+prípadne v PowerShelli, ale tieto veci sa tiež aktualizujú cez `choco`, takže ich aktualizácia by neprešla, ak by boli spustené.
 
 Ak bude potrebné pridať nejakú utilitku, čo sa neinštaluje štandardne, ale iba kopíruje, pridaj ju do zložky `C:\tools`,
 nech máme takéto veci na jednom mieste. Táto cesta je aj zapísaná v premennej `PATH`, takže všetko čo je v nej, je priamo spustiteľné.
 
-Na čo najjednoduchšie nakonfigurovanie počítača slúžia skripty `install.ps1` a `configure.ps1`. Oba skripty je potrebné spustiť
-v ako administrátor.
+### Základné príkazy
+
+Zoznam aktuálne nainštalovaných vecí:
+
+``` sh
+choco list --local
+```
+
+Zoznam neaktuálnych vecí, tzn. programov, ktoré už majú novšiu verziu, než je nainštalovaná:
+
+``` sh
+choco outdated
+```
+
+Aktualizácia všetkých neaktuálnych programov:
+
+``` sh
+choco upgrade all --yes
+```
+
+Niekedy nechceme aktualizovať úplne všetko. Štandardne napríklad Terraform neaktualizujeme okamžite. Vtedy je potrebné napísať
+ meno programu, ktorý sa má aktualizovať namiesto `all`. Takto je možné zadať aj viacero programov naraz, oddelených medzerou:
+
+``` sh
+choco upgrade program-1 program-2 program-3 --yes
+```
 
 ## Skript `install.ps1`
 
