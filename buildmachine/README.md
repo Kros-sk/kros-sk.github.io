@@ -33,6 +33,12 @@ Zoznam aktuálne nainštalovaných vecí:
 choco list --local
 ```
 
+Nainštalovanie nového balíčka:
+
+``` sh
+choco install program-name --yes
+```
+
 Zoznam neaktuálnych vecí, tzn. programov, ktoré už majú novšiu verziu, než je nainštalovaná:
 
 ``` sh
