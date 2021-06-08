@@ -88,9 +88,9 @@ else {
 
 # .NET global tools
 Write-Host "Install .NET tool Kros.DummyData.Initializer" -ForegroundColor Green
-dotnet tool install --global Kros.DummyData.Initializer
+dotnet tool install Kros.DummyData.Initializer --tool-path $ToolsPath
 Write-Host "Install .NET tool Kros.VariableSubstitution" -ForegroundColor Green
-dotnet tool install --global Kros.VariableSubstitution
+dotnet tool install Kros.VariableSubstitution --tool-path $ToolsPath
 
 # NPM proxy
 if (-not $proxyUri -eq $null) {
