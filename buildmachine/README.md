@@ -197,6 +197,12 @@ npm config set proxy {proxy}
 npm config set https-proxy {proxy}
 ```
 
+Po nakonfigurovaní nového servera sa môže stať, že projekt si nevie stiahnuť npm balíčky (konkrétne sa to stalo pre projekt s Cypress testami). Vtedy treba spustiť príkaz:
+
+``` bash
+npm config set registry https://registry.npmjs.org/
+```
+
 ### Globálne NPM nástroje (`configure.ps1`)
 
 ⚠ Globálna inštalácia (`npm install -g`) v prípade NPM znamená, že sa daná vec nainštaluje
