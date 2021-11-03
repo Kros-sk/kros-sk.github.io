@@ -128,6 +128,8 @@ Pre samotný beh agenta potrebný nie je.
 - `{user-name}`: Meno používateľa, pod ktorým agent beží.
 - `{user-password}`: Heslo používateľa, pod ktorým agent beží.
 
+⚠ **Dôležité nastavenie pre Agent Pools** - v Devopse v jeho nastaveniach (prístupné bez `Organization settings`), treba nastaviť `Maintenance job`, ktorý bude pravidelne prečisťovať miesto. Nastaviť ho podľa iných pools tak, aby sa ideálne vykonávanie robilo v iných časoch.
+
 ## Systémové premenné (`configure.ps1`)
 
 ### Všeobecné systémové premenné
