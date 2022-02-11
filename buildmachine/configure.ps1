@@ -58,6 +58,8 @@ $cypressCachePath = [System.IO.Path]::Join($CachePath, "cypress")
 CreateFolder $cypressCachePath "CYPRESS_CACHE_FOLDER"
 $npmCachePath = [System.IO.Path]::Join($CachePath, "npm")
 CreateFolder $npmCachePath "NPM_CONFIG_CACHE"
+$nugetCachePath = [System.IO.Path]::Join($CachePath, "nuget")
+CreateFolder $nugetCachePath "NUGET_PACKAGES"
 
 $proxyUri = $null
 if ([string]::IsNullOrWhiteSpace($Proxy)) {
@@ -67,22 +69,9 @@ else {
 	$proxyUri = New-Object -TypeName System.Uri $Proxy
 	Write-Host "  Proxy is $proxyUri"
 	$proxyValue = $proxyUri.ToString().TrimEnd("/")
-	$proxyHost = $proxyUri.Host
-	$proxyPort = $proxyUri.Port
 
 	SetEnvVariable "HTTP_PROXY" $proxyValue
 	SetEnvVariable "HTTPS_PROXY" $proxyValue
-
-	$javaHomeValue = [System.Environment]::GetEnvironmentVariable("JAVA_HOME", [System.EnvironmentVariableTarget]::Machine)
-	if ([string]::IsNullOrEmpty($javaHomeValue)) {
-		Write-Host "  'JAVA_HOME' is not set, so Java variables will not be set ('JAVA', 'JAVA_FLAGS', 'SONAR_SCANNER_OPTS')."
-	}
-	else {
-		SetEnvVariable "JAVA" $javaHomeValue
-		$javaFlags = "-Dhttps.proxyHost=$proxyHost -Dhttps.proxyPort=$proxyPort -Dhttp.nonProxyHosts=""localhost|127.0.0.1"""
-		SetEnvVariable "JAVA_FLAGS" $javaFlags
-		SetEnvVariable "SONAR_SCANNER_OPTS" $javaFlags
-	}
 }
 
 
@@ -132,8 +121,8 @@ if (-not (Test-Path $ScriptsPath)) {
 }
 
 Write-Host "  Copy scripts to '$ScriptsPath' folder"
-Copy-Item -Path "clean-terraform-temp.ps1" -Destination $ScriptsPath -Force
+Copy-Item -Path "clean-temp.ps1" -Destination $ScriptsPath -Force
 
-Write-Host "  Create scheduled task 'BuildAgents\CleanTerraformTemp'"
-$script = [System.IO.Path]::Join($ScriptsPath, "clean-terraform-temp.ps1")
-schtasks /create /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc daily /st 03:30 /tn "BuildAgents\CleanTerraformTemp" /tr "pwsh -File '$script' -SaveTranscript"
+Write-Host "  Create scheduled task 'BuildAgents\CleanTemp'"
+$script = [System.IO.Path]::Join($ScriptsPath, "clean-temp.ps1")
+schtasks /create /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc daily /st 03:30 /tn "BuildAgents\CleanTemp" /tr "pwsh -File '$script' -SaveTranscript"

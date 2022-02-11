@@ -1,8 +1,11 @@
 <#
 .SYNOPSIS
-Delete Terraform files from Temp folders of all users.
-#>
+Delete various files from Temp folders of all users. Deleted files are:
 
+- Microsoft.NET.Workload_*
+- terraform-log*
+- terraform-provider*
+#>
 param (
 	[Parameter(Mandatory = $false)][string]$BaseFolder,
 	[Parameter(Mandatory = $false)][string]$TempSubfolder,
@@ -28,6 +31,7 @@ $nowTime = [DateTime]::Now.ToString("H:mm")
 $totalCount = 0
 [double] $totalSize = 0
 
+$fileMasks = @("terraform-log*", "terraform-provider*", "Microsoft.NET.Workload_*")
 Write-Output "Script started $nowDate at $nowTime"
 Write-Output "Using base folder '$BaseFolder'"
 Write-Output "Using temp subfolder '$TempSubfolder'"
@@ -40,14 +44,14 @@ Get-ChildItem -Path $BaseFolder -Directory | ForEach-Object {
 		$tempFolder = [IO.Path]::Join($tempFolder, "*")
 		$count = 0
 		[double] $size = 0
-		Get-ChildItem -Path $tempFolder -File -Include "terraform-log*", "terraform-provider*" |
-		Where-Object -Property LastWriteTimeUtc -lt $today |
-		ForEach-Object {
-			$file = $_
-			$count++
-			$size += $file.Length
-			Remove-Item $_ -ErrorAction Continue
-		}
+		Get-ChildItem -Path $tempFolder -File -Include $fileMasks |
+			Where-Object -Property LastWriteTimeUtc -lt $today |
+			ForEach-Object {
+				$file = $_
+				$count++
+				$size += $file.Length
+				Remove-Item $_ -ErrorAction Continue
+			}
 		$totalCount	+= $count
 		$totalSize += $size
 		$size /= $MB

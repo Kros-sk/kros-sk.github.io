@@ -60,7 +60,7 @@ choco upgrade program-1 program-2 program-3 --yes
 
 ## Skript `install.ps1`
 
-Skript nainštaluje samotné **chocolatey** a potom aj všetky ostatné porgramy v `buildmachine-packages.config`.
+Skript nainštaluje samotné **chocolatey** a potom aj všetky ostatné programy v `buildmachine-packages.config`.
 Nie je potrebné nič inštalovať popredu, stačí spustiť Powershell ktorý aktuálne v systéme je. Chocolatey nainštaluje aj
 Powershell Core, či Windows Terminal.
 
@@ -81,13 +81,15 @@ Skript má nasledovné parametre (všetky nepovinné):
 
 ## Script `install-load-tests.ps1`
 
-Skript nainštaluje / nakonfiguruje všetko potrebné pre load testy. Tento script je potrebné spúšťať len na build mašinách, ktoré budú spúšťať load testy. Nainštaluje software, ktorý je definovaný v `load-tests-buildmachine-packages.config`. Taktiež stiahne a rozbalí JMeter *(by default do `C:\tools\jmeter`)* a nainštaluje potrebné plugins.
+Skript nainštaluje / nakonfiguruje všetko potrebné pre load testy. Tento script je potrebné spúšťať len na build mašinách,
+ktoré budú spúšťať load testy. Nainštaluje software, ktorý je definovaný v `load-tests-buildmachine-packages.config`.
+Taktiež stiahne a rozbalí JMeter _(by default do `C:\tools\jmeter`)_ a nainštaluje potrebné pluginy.
 
 Skript má nasledovné parametre (všetky nepovinné):
 
-- `JMeterVersion` - Verzia JMeter-u, ktorá sa má nainštalovať. *(default je `5.4.1`)*
-- `ToolsPath` - Adresár, kde sa nachádzajú naše tools. Tam sa nainštaluje JMeter. *(default je `C:\tools`)*
-- `PluginsList` - Čiarkou oddelený zoznam pluginov *(Plugin Id)*, ktoré sa majú nainštalovať. *(default je `jpgc-graphs-basic,jpgc-casutg,jpgc-prmctl`)*
+- `JMeterVersion` - Verzia JMeter-u, ktorá sa má nainštalovať _(default je `5.4.1`)_.
+- `ToolsPath` - Adresár, kde sa nachádzajú naše tools. Tam sa nainštaluje JMeter _(default je `C:\tools`)_.
+- `PluginsList` - Čiarkou oddelený zoznam pluginov _(Plugin Id)_, ktoré sa majú nainštalovať _(default je `jpgc-graphs-basic,jpgc-casutg,jpgc-prmctl`)_.
 
 ## PowerShell (`install.ps1`)
 
@@ -128,7 +130,9 @@ Pre samotný beh agenta potrebný nie je.
 - `{user-name}`: Meno používateľa, pod ktorým agent beží.
 - `{user-password}`: Heslo používateľa, pod ktorým agent beží.
 
-⚠ **Dôležité nastavenie pre Agent Pools** - v Devopse v jeho nastaveniach (prístupné cez `Organization settings`), treba nastaviť `Maintenance job`, ktorý bude pravidelne prečisťovať miesto. Nastaviť ho podľa iných pools tak, aby sa ideálne vykonávanie robilo v iných časoch.
+⚠ **Dôležité nastavenie pre Agent Pools** - v Devopse v jeho nastaveniach (prístupné cez `Organization settings`),
+treba nastaviť `Maintenance job`, ktorý bude pravidelne prečisťovať miesto. Nastaviť ho podľa iných pools tak,
+aby sa ideálne vykonávanie robilo v iných časoch (nie je to nutná podmienka).
 
 ## Systémové premenné (`configure.ps1`)
 
@@ -136,6 +140,7 @@ Pre samotný beh agenta potrebný nie je.
 
 - `CYPRESS_CACHE_FOLDER` – štandardne nastavená na `C:\cache\cypress`. Cypress si tu ukladá stiahnuté binárky.
 - `NPM_CONFIG_CACHE` – štandardne nastavená na `C:\cache\npm`. NPM si tu ukladá stiahnuté balíčky.
+- `NUGET_PACKAGES` – štandardne nastavená na `C:\cache\nuget`. NuGet si tu ukaldá stiahnuté balíčky.
 
 ### Proxy systémové premenné
 
@@ -145,25 +150,21 @@ V systéme je nutné nastaviť niekoľko premenných (pre celý systém, nie iba
 
 - `HTTP_PROXY` - `{proxy}`
 - `HTTPS_PROXY` - `{proxy}`
-- ~~`JAVA` - nastaviť na rovnakú hodnotu, ako má `JAVA_HOME`. Premennú `JAVA_HOME` automaticky vytvorí inštalácia Javy, ale Devops agent potrebuje premennú `JAVA`. Samotná Java je potrebná pre [SonarCloud](https://sonarcloud.io/).~~
-- ~~`JAVA_FLAGS` = `-Dhttps.proxyHost={proxy adresa} -Dhttps.proxyPort={proxy port} -Dhttp.nonProxyHosts="localhost|127.0.0.1"`~~
-- ~~`SONAR_SCANNER_OPTS` - nastaviť rovnako ako `JAVA_FLAGS`. Premenná je potrebná pre [SonarCloud](https://sonarcloud.io).~~
 
-_Všetky `JAVA` systémové premenné sme potrebovali kvôli službe [SonarCloud](https://sonarcloud.io), ktorú už nepoužívame.
-Ak je však v systéme existuje premenná `JAVA_HOME`, skript `configure.ps1` stále tieto ostatné premenné automaticky nastaví._
-
-Na jednoduché nastavenie premenných slúži skript [`set-environment-vars.ps1`](https://github.com/Kros-sk/kros-sk.github.io/blob/master/buildmachine/set-environment-vars.ps1),
+Všetky systémové premenné automaticky nastaví skript `configure.ps1`.
 
 ## Web Deploy (potrebné spraviť ručne)
 
-Niektoré release pipeline-y používajú *Web Deploy* spôsob nasadenia služby do Azure,
+> Web deploy služieb používajú iba na SSW, takže ak nie je potrebné, netreba sa s ním zaoberať.
+
+Niektoré release pipeline-y používajú _Web Deploy_ spôsob nasadenia služby do Azure,
 [takže je potrebné ho nainštalovať](https://www.iis.net/downloads/microsoft/web-deploy).
 Po inštalácii je potrebné manuálne nastaviť proxy v súbore `msdeploy.exe.config`, na oboch miestach:
 
 - `C:\Program Files\IIS\Microsoft Web Deploy V3`
 - `C:\Program Files (x86)\IIS\Microsoft Web Deploy V3`
 
-Do súborov je potrebné doplniť nasledujúcu sekciu. *Adresu proxy servera je potrebné zadať aj so schémou `http://`.*
+Do súborov je potrebné doplniť nasledujúcu sekciu. _Adresu proxy servera je potrebné zadať aj so schémou `http://`._
 
 ``` xml
 <system.net>
@@ -173,53 +174,57 @@ Do súborov je potrebné doplniť nasledujúcu sekciu. *Adresu proxy servera je 
 </system.net>
 ```
 
-## Terraform (`configure.ps1`)
-
-[Terraform](https://www.terraform.io) pri svojej práci vytvára nejaké súbory v `Temp` zložke. Postupne veľkosť týchto súborov
-narasie na jednotky GB. Keďže každý agent beží pod vlastným používateľským účtom, má aj vlastnú `Temp` zložku a tak množstvo
-dát ktoré takto Terraform vytvára je celkom významné. Na prečistenie `Temp` zložiek všetkých používateľov od týchto súborov
-slúži skript [`clean-terraform-temp.ps1`](https://github.com/Kros-sk/kros-sk.github.io/blob/master/buildmachine/clean-terraform-temp.ps1).
-Ak sa spúšťa z príkazovej riadky, je potrebné ho spúšťať ako administrátor (inak vymaže len temp aktuálne prihlásenéh
-používateľa). Na *build* počítač ho treba pridať ako naplánovanú úlohu, ktorá sa spustí raz za deň a vymaže nepotrebné dáta.
-Skript je potrebné nakopírovať do zložky `C:\scripts` a naplánovanú úlohu vytvoriť nasledovným príkazom (spusteným ako
-administrátor):
-
-``` sh
-schtasks /create /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc daily /st 03:30 /tn "BuildAgents\CleanTerraformTemp" /tr "pwsh -File 'C:\scripts\clean-terraform-temp.ps1' -SaveTranscript"
-```
-
-Skript vytvorí záznam o svojom poslednom behu do súboru `clean-terraform-temp.log`.
-
 ## NPM (`configure.ps1`)
 
 Nastavenie proxy (je potrebné ho zadať aj so schémou `http://`):
 
-``` bash
+``` sh
 npm config set proxy {proxy}
 npm config set https-proxy {proxy}
 ```
 
-Po nakonfigurovaní nového servera sa môže stať, že projekt si nevie stiahnuť npm balíčky (konkrétne sa to stalo pre projekt s Cypress testami). Vtedy treba spustiť príkaz:
+Po nakonfigurovaní nového servera sa môže stať, že projekt si nevie stiahnuť npm balíčky
+(konkrétne sa to stalo pre projekt s Cypress testami). Vtedy treba spustiť príkaz:
 
-``` bash
+``` sh
 npm config set registry https://registry.npmjs.org/
 ```
 
 ### Globálne NPM nástroje (`configure.ps1`)
 
 ⚠ Globálna inštalácia (`npm install -g`) v prípade NPM znamená, že sa daná vec nainštaluje
-*globálne pre aktuálneho používateľa*, do jeho profilu. Toto nechceme, my daný nástroj potrebujeme globálne
+_globálne pre aktuálneho používateľa_, do jeho profilu. Toto nechceme, my daný nástroj potrebujeme globálne
 pre celý systém. Neexistuje možnosť ako toto v NPM spraviť (aspoň o nej nevieme), takže jediné čo nám ostáva,
 je nainštalovať to takto a potom ručne skopírovať na nejaké všeobecné miesto. Po prekopírovaní je možné danú
 vec pokojne odinštalovať.
 
 **NewMan:** `npm install -g newman` Po nainštalovaní skopírovať do `C:\newman` (príkaz musí byť dostupný ako
-`C:\newman\newman.cmd`) a do systémovej premennej `PATH` pridať cestu `C:\newman`. Nainštalovaný nástroj sa nachádza v zložke `%APPDATA%\npm\`.
+`C:\newman\newman.cmd`) a do systémovej premennej `PATH` pridať cestu `C:\newman`.
+Nainštalovaný nástroj sa nachádza v zložke `%APPDATA%\npm\`.
 
 ## DotNet Global Tools (`configure.ps1`)
 
 Je potrebné nainštalovať nasledovné dotnet tools:
 
-```properties
-dotnet tool install --global Kros.DummyData.Initializer
+- Kros.DummyData.Initializer
+- Kros.VariableSubstitution
+
+Nástroje sa inštalujú príkazom `dotnet tool install --global {toolName} --tool-path {toolPath}`.
+
+## Čistenie dočasných (temp) súborov (`configure.ps1`)
+
+[Terraform](https://www.terraform.io) a v niektorých prípadoch aj .NET pri svojej práci vytvárajú súbory v `Temp` zložke.
+Postupne veľkosť týchto súborov narastie na vyššie jednotky GB. Keďže každý agent beží pod vlastným používateľským účtom
+má aj vlastnú `Temp` zložku a tak množstvo takto vytvorených dát je celkom významné.
+
+Na prečistenie `Temp` zložiek všetkých používateľov slúži skript [`clean-temp.ps1`](https://github.com/Kros-sk/kros-sk.github.io/blob/master/buildmachine/clean-temp.ps1).
+Ak sa spúšťa z príkazovej riadky, je potrebné ho spúšťať ako administrátor (inak vymaže len temp aktuálne prihláseného
+používateľa). Na _build_ počítač ho treba pridať ako naplánovanú úlohu, ktorá sa spustí raz za deň a `Temp` prečistí.
+Skript je potrebné nakopírovať do zložky `C:\scripts` a naplánovanú úlohu vytvoriť nasledovným príkazom,
+spusteným ako administrátor:
+
+``` sh
+schtasks /create /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc daily /st 03:30 /tn "BuildAgents\CleanTemp" /tr "pwsh -File 'C:\scripts\clean-temp.ps1' -SaveTranscript"
 ```
+
+Skript vytvorí záznam o svojom poslednom behu do súboru `clean-temp.log`.
