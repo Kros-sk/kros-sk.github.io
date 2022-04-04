@@ -211,6 +211,15 @@ Je potrebné nainštalovať nasledovné dotnet tools:
 
 Nástroje sa inštalujú príkazom `dotnet tool install --global {toolName} --tool-path {toolPath}`.
 
+## Inštalácia Docker 🐳
+
+Docker je potrebné nainštalovať "ručne". Najskôr je v programoch a súčastiach potrebné zapnúť `Hyper-V` ![hyper-v](https://i.ibb.co/Yk6hQh3/stiahnu.png).
+> Ak by bola časť možností disablovaná, tak je potrebné zapnúť virtualizáciu na úrovni BIOSu.
+
+Ďalej [nainštalovať linux subsystem](https://docs.microsoft.com/en-us/windows/wsl/install) `wsl --install`.
+
+A nakoniec samotný [Docker](https://docs.docker.com/desktop/windows/install/).
+
 ## Čistenie dočasných (temp) súborov (`configure.ps1`)
 
 [Terraform](https://www.terraform.io) a v niektorých prípadoch aj .NET pri svojej práci vytvárajú súbory v `Temp` zložke.
