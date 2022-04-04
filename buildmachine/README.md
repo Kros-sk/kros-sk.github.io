@@ -213,7 +213,7 @@ Nástroje sa inštalujú príkazom `dotnet tool install --global {toolName} --to
 
 ## Inštalácia Docker 🐳
 
-Docker je potrebné nainštalovať "ručne". Najskôr je v programoch a súčastiach potrebné zapnúť `Hyper-V` ![hyper-v](https://i.ibb.co/Yk6hQh3/stiahnu.png).
+Docker je potrebné nainštalovať "ručne". Najskôr je v programoch a súčastiach potrebné zapnúť `Hyper-V` ![hyper-v](hyper-v.png).
 > Ak by bola časť možností disablovaná, tak je potrebné zapnúť virtualizáciu na úrovni BIOSu.
 
 Ďalej [nainštalovať linux subsystem](https://docs.microsoft.com/en-us/windows/wsl/install) `wsl --install`.
