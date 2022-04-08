@@ -218,7 +218,15 @@ Docker je potrebné nainštalovať "ručne". Najskôr je v programoch a súčast
 
 Ďalej [nainštalovať linux subsystem](https://docs.microsoft.com/en-us/windows/wsl/install) `wsl --install`.
 
-A nakoniec samotný [Docker](https://docs.docker.com/desktop/windows/install/).
+Následne samotný [Docker](https://docs.docker.com/desktop/windows/install/).
+
+### Nastavenie spúšťania
+
+`Docker desktop.exe` sa spúšťa až s prihlásením používateľa *(po odhlásení sa vypne)*. Je potrebné naplánovať udalosť po štarte mašiny, ktorá ho spustí.
+Je na to vytvorený script `.\register-docker-start-schedule.ps1 "username" "password"`. Je potrebné zadať používateľa pod ktorým sa to bude spúšťať.
+
+Taktiež je potrebné pridať všetkých používateľov _(pod ktorými bežia agenti)_ do skupiny `docker-users` _(aby mali prístup k docker daemon-u)_.
+Na to je tiež vytvorený script `.\add-users-to-docker-group.ps1 "esw" 15 1`.
 
 ## Čistenie dočasných (temp) súborov (`configure.ps1`)
 
