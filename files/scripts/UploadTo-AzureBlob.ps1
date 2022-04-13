@@ -53,7 +53,7 @@ Write-Output "Uploading archive to storage:"
 Write-Output "    File: $TempZip"
 Write-Output "    ContainerName: $ContainerName"
 Write-Output "    BlobName: $BlobName"
-$result = az storage blob upload --file "$TempZip" --container-name "$ContainerName" --name "$BlobName" --account-name "$StorageAccountName" --content-type "$ContentType" --content-disposition "$ContentDisposition" --no-progress
+$result = az storage blob upload --file "$TempZip" --container-name "$ContainerName" --name "$BlobName" --account-name "$StorageAccountName" --content-type "$ContentType" --content-disposition "$ContentDisposition" --no-progress --overwrite
 if (-not $result) {
     throw "Error while uploading file."
 }
