@@ -1,4 +1,4 @@
-## Základný zoznam používaných technológií
+## ASP.NET + Angular + Azure + DevOps
 
 ### Všeobecné knižnice
 - [Kros.KORM](https://github.com/Kros-sk/Kros.KORM) je ORM knižnica pre prístup k MS SQL databázam
