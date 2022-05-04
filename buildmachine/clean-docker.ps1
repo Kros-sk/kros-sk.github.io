@@ -5,8 +5,7 @@ Write-Output "Shut down wsl"
 wsl --shutdown
 Stop-Process -Name "Docker desktop"
 
-$userName = [System.Environment]::UserName
-$path = "c:\Users\" + $userName + "\AppData\Local\Docker\wsl\data\ext4.vhdx"
+$path = [System.IO.Path]::Join($env:LOCALAPPDATA, "Docker\wsl\data\ext4.vhdx")
 
 Write-Output "Optimize vhdx file"
 optimize-vhd -Path $path -Mode full
