@@ -228,6 +228,10 @@ Je na to vytvorený script `.\register-docker-start-schedule.ps1 "username" "pas
 Taktiež je potrebné pridať všetkých používateľov _(pod ktorými bežia agenti)_ do skupiny `docker-users` _(aby mali prístup k docker daemon-u)_.
 Na to je tiež vytvorený script `.\add-users-to-docker-group.ps1 "esw" 15 1`.
 
+### Čistenie dát po docker príkazoch
+
+Docker pri svojej práci vytvára rôzne dáta. Jednotlivé images, cache, ... Keďže to beží pod `WSL` tak všetky dáta sú v `C:\Users\{userName}\AppData\Local\Docker\wsl\data\ext4.vhdx`. Z času na čas je to potrebné prečistiť. Robíme to tak, že odstránime jednotlivé images a "shrinkneme" daný súbor. Na to sa používa script `clean-docker.ps1`. Jeho automatické spúšťani je možné naplánovať pomocou scriptu `.\register-docker-clean-schedule.ps1 "username" "password"`. *(nateraz je to naplánované na každú nedeľu 20:00)*
+
 ## Čistenie dočasných (temp) súborov (`configure.ps1`)
 
 [Terraform](https://www.terraform.io) a v niektorých prípadoch aj .NET pri svojej práci vytvárajú súbory v `Temp` zložke.
