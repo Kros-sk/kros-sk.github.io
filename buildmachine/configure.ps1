@@ -80,6 +80,8 @@ Write-Host "Install .NET tool Kros.DummyData.Initializer" -ForegroundColor Green
 dotnet tool install Kros.DummyData.Initializer --tool-path $ToolsPath
 Write-Host "Install .NET tool Kros.VariableSubstitution" -ForegroundColor Green
 dotnet tool install Kros.VariableSubstitution --tool-path $ToolsPath
+Write-Host ".NET WebAssembly build tools for .NET 6 projects" -ForegroundColor Green
+dotnet workload install wasm-tools-net6
 
 # NPM proxy
 if (-not $proxyUri -eq $null) {
