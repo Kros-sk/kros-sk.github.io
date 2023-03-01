@@ -76,7 +76,6 @@ Skript má nasledovné parametre (všetky nepovinné):
 - `-Proxy` – adresa proxy servera, zadaná aj so schémou (napr. `http://`). Predvolená hodnota je prázdny reťazec (bez proxy).
 - `-NewmanPath` – cesta, kde bude nainštalovaný Newman. Predvolená hodnota je `C:\newman`.
 - `-ToolsPath` – cesta k rôznym nástrojom. Táto cesta je pridaná do systémovej premennej `PATH`, aby nástroje boli globálne dostupné. Predvolená hodnota je `C:\tools`,
-- `-ScriptsPath` – cesta, kde sa nakopírujú skripty pre údržbu systému. Predvolená hdonota je `C:\scripts`,
 - `-CachePath` – cesta, kde sa nastaví keš pre rôzne programy (NPM, Cypress…). Predvolená hodnota je `C:\cache`.
 
 ## Script `install-load-tests.ps1`
@@ -234,18 +233,20 @@ Docker pri svojej práci vytvára rôzne dáta. Jednotlivé images, cache, ... K
 
 ## Čistenie dočasných (temp) súborov (`configure.ps1`)
 
-[Terraform](https://www.terraform.io) a v niektorých prípadoch aj .NET pri svojej práci vytvárajú súbory v `Temp` zložke.
-Postupne veľkosť týchto súborov narastie na vyššie jednotky GB. Keďže každý agent beží pod vlastným používateľským účtom
-má aj vlastnú `Temp` zložku a tak množstvo takto vytvorených dát je celkom významné.
+Mnoho vecí vytvára v `Temp` adresári používateľa svoje súbory a neupravuje si po sebe. Keďže každý agent beží pod vlastným
+používateľským účtom má aj vlastnú `Temp` zložku a tak množstvo takto vytvorených dát je celkom významné. Z dlhodobého hľadiska
+s tým je problém, pretože nám pravidelne dochádza miesto na disku.
 
 Na prečistenie `Temp` zložiek všetkých používateľov slúži skript [`clean-temp.ps1`](https://github.com/Kros-sk/kros-sk.github.io/blob/master/buildmachine/clean-temp.ps1).
+Tento skript vymaže všetky súbory v `Temp` adresároch všetkých používateľov, ktoré sú staršie ako 4 dni.
+Túto hodnotu je možné zmeniť parametrom `-OlderThanDays`.
 Ak sa spúšťa z príkazovej riadky, je potrebné ho spúšťať ako administrátor (inak vymaže len temp aktuálne prihláseného
 používateľa). Na _build_ počítač ho treba pridať ako naplánovanú úlohu, ktorá sa spustí raz za deň a `Temp` prečistí.
-Skript je potrebné nakopírovať do zložky `C:\scripts` a naplánovanú úlohu vytvoriť nasledovným príkazom,
+Skript je potrebné nakopírovať do zložky `C:\tools` a naplánovanú úlohu vytvoriť nasledovným príkazom,
 spusteným ako administrátor:
 
 ``` sh
-schtasks /create /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc daily /st 03:30 /tn "BuildAgents\CleanTemp" /tr "pwsh -File 'C:\scripts\clean-temp.ps1' -SaveTranscript"
+schtasks /create /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc daily /st 03:30 /tn "BuildAgents\CleanTemp" /tr "pwsh -File 'C:\tools\clean-temp.ps1' -SaveTranscript"
 ```
 
 Skript vytvorí záznam o svojom poslednom behu do súboru `clean-temp.log`.

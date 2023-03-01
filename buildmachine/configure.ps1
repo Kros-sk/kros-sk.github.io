@@ -5,7 +5,6 @@ param (
 	[Parameter()][string]$Proxy = "",
 	[Parameter()][string]$NewmanPath = "C:\newman",
 	[Parameter()][string]$ToolsPath = "C:\tools",
-	[Parameter()][string]$ScriptsPath = "C:\scripts",
 	[Parameter()][string]$CachePath = "C:\cache"
 )
 
@@ -117,14 +116,9 @@ AddToPath $NewmanPath
 # Scheduled tasks
 Write-Host "Create scheduled tasks" -ForegroundColor Green
 
-if (-not (Test-Path $ScriptsPath)) {
-	Write-Host "  Create '$ScriptsPath' folder"
-	New-Item -Path $ScriptsPath -ItemType Directory
-}
-
-Write-Host "  Copy scripts to '$ScriptsPath' folder"
-Copy-Item -Path "clean-temp.ps1" -Destination $ScriptsPath -Force
+Write-Host "  Copy scripts to '$ToolsPath' folder"
+Copy-Item -Path "clean-temp.ps1" -Destination $ToolsPath -Force
 
 Write-Host "  Create scheduled task 'BuildAgents\CleanTemp'"
-$script = [System.IO.Path]::Join($ScriptsPath, "clean-temp.ps1")
+$script = [System.IO.Path]::Join($ToolsPath, "clean-temp.ps1")
 schtasks /create /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc daily /st 03:30 /tn "BuildAgents\CleanTemp" /tr "pwsh -File '$script' -SaveTranscript"
