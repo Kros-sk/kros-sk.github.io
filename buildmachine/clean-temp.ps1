@@ -6,12 +6,19 @@ param (
 	[Parameter(Mandatory = $false)][string]$BaseFolder = "C:\Users",
 	[Parameter(Mandatory = $false)][string]$TempSubfolder = "AppData\Local\Temp",
 	[Parameter(Mandatory = $false)][int]$OlderThanDays = 4,
-	[Parameter(Mandatory = $false)][switch]$SaveTranscript
+	[Parameter(Mandatory = $false)][switch]$SaveTranscript,
+	[Parameter(Mandatory = $false)][string]$TranscriptFile = "",
+	[Parameter(Mandatory = $false)][switch]$DryRun
 )
 
 if ($SaveTranscript) {
-	$transcriptFile = [IO.Path]::ChangeExtension($PSCommandPath, "log")
-	Start-Transcript -Path $transcriptFile -UseMinimalHeader
+	if ($TranscriptFile -eq "") {
+		$TranscriptFile = [IO.Path]::ChangeExtension($PSCommandPath, "log")
+	} else {
+		$scriptFolder = [IO.Path]::GetDirectoryName($PSCommandPath)
+		$TranscriptFile = [IO.Path]::Join($scriptFolder, "clean-temp-$TranscriptFile.log")
+	}
+	Start-Transcript -Path $TranscriptFile -UseMinimalHeader
 }
 
 $nowDate = [DateTime]::Now.ToString("d.M.yyyy")
@@ -21,6 +28,9 @@ Write-Output "Script started $nowDate at $nowTime"
 Write-Output "Using base folder '$BaseFolder'"
 Write-Output "Using temp subfolder '$TempSubfolder'"
 Write-Output "Cleaning folders from files and folders older than $OlderThanDays days:"
+if ($DryRun) {
+	Write-Output "  Dry run only, nothing will be really deleted."
+}
 
 Get-ChildItem -Path $BaseFolder -Directory | ForEach-Object {
 	$userFolder = $_
@@ -33,7 +43,9 @@ Get-ChildItem -Path $BaseFolder -Directory | ForEach-Object {
 		}
 		| ForEach-Object {
 			Write-Output "  $_"
-			Remove-Item $_ -Recurse -ErrorAction Continue
+			if (-not $DryRun) {
+				Remove-Item $_ -Recurse -ErrorAction Continue
+			}
 		}
 	}
 }
