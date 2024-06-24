@@ -45,7 +45,7 @@ Get-ChildItem -Path $BaseFolder -Directory | ForEach-Object {
 	if (Test-Path -Path $tempFolder) {
 		Get-ChildItem -Path $tempFolder
 		| Where-Object {
-			$_.CreationTime -lt (Get-Date).Date.AddDays(-$OlderThanDays))
+			$_.CreationTime -lt (Get-Date).Date.AddDays(-$OlderThanDays)
 		}
 		| ForEach-Object {
 			Write-Host "  $_"
