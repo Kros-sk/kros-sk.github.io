@@ -4,7 +4,7 @@ Delete old files and directories from NX cache folder.
 #>
 param (
 	[Parameter(Mandatory = $false)][string]$CacheFolder = "e:\cache\nx\",
-	[Parameter(Mandatory = $false)][int]$OlderThanDays = 20,
+	[Parameter(Mandatory = $false)][int]$OlderThanDays = 10,
 	[Parameter(Mandatory = $false)][switch]$SaveTranscript,
 	[Parameter(Mandatory = $false)][string]$TranscriptFile = "",
 	[Parameter(Mandatory = $false)][switch]$DryRun

@@ -3,7 +3,6 @@
 [CmdletBinding()]
 param (
 	[Parameter()][string]$Proxy = "",
-	[Parameter()][string]$NewmanPath = "C:\newman",
 	[Parameter()][string]$ToolsPath = "C:\tools",
 	[Parameter()][string]$CachePath = "C:\cache"
 )
@@ -53,48 +52,64 @@ AddToPath $ToolsPath
 
 # Cache folders
 CreateFolder $CachePath
+Write-Host "Set rights for 'Users' group for cache folder."
+$acl = Get-Acl -Path $CachePath
+$usersRule = New-Object Security.AccessControl.FileSystemAccessRule 'BUILTIN\Users', 'FullControl', 'ContainerInherit, ObjectInherit', 'None', 'Allow'
+$acl.SetAccessRule($usersRule)
+Set-Acl -Path $CachePath -AclObject $acl
+
 $cypressCachePath = [System.IO.Path]::Join($CachePath, "cypress")
 CreateFolder $cypressCachePath "CYPRESS_CACHE_FOLDER"
 $npmCachePath = [System.IO.Path]::Join($CachePath, "npm")
 CreateFolder $npmCachePath "NPM_CONFIG_CACHE"
 $nugetCachePath = [System.IO.Path]::Join($CachePath, "nuget")
 CreateFolder $nugetCachePath "NUGET_PACKAGES"
+$nugetCachePath = [System.IO.Path]::Join($CachePath, "nx")
+CreateFolder $nugetCachePath
 
+Write-Host "Set proxy" -ForegroundColor Green
 $proxyUri = $null
+$proxyValue = ""
 if ([string]::IsNullOrWhiteSpace($Proxy)) {
 	Write-Host "  Proxy is empty, so no proxy environment variables will be set."
 }
 else {
 	$proxyUri = New-Object -TypeName System.Uri $Proxy
-	Write-Host "  Proxy is $proxyUri"
 	$proxyValue = $proxyUri.ToString().TrimEnd("/")
+	Write-Host "  Proxy is $proxyValue"
 
+	Write-Host "  Set environment variables HTTP_PROXY and HTTPS_PROXY."
 	SetEnvVariable "HTTP_PROXY" $proxyValue
 	SetEnvVariable "HTTPS_PROXY" $proxyValue
+
+	Write-Host "  Set proxy for NPM"
+	npm config set proxy $proxyValue
+	npm config set https-proxy $proxyValue
 }
 
+# Azure Artifacts Credential Provider
+Write-Host "Install Azure Artifacts Credential Provider" -ForegroundColor Green
+Invoke-Expression "& { $(Invoke-RestMethod https://aka.ms/install-artifacts-credprovider.ps1) }"
 
 # .NET global tools
+Write-Host "Add NuGet source nuget.org" -ForegroundColor Green
+dotnet nuget add source "https://api.nuget.org/v3/index.json" --name "nuget.org"
+
 Write-Host "Install .NET tool Kros.DummyData.Initializer" -ForegroundColor Green
 dotnet tool install Kros.DummyData.Initializer --tool-path $ToolsPath
 Write-Host "Install .NET tool Kros.VariableSubstitution" -ForegroundColor Green
 dotnet tool install Kros.VariableSubstitution --tool-path $ToolsPath
-Write-Host ".NET WebAssembly build tools for .NET 6 projects" -ForegroundColor Green
-dotnet workload install wasm-tools-net6
+Write-Host "Install .NET tool dotnet-affected" -ForegroundColor Green
+dotnet tool install dotnet-affected --tool-path $ToolsPath
 
-# NPM proxy
-if (-not $proxyUri -eq $null) {
-	Write-Host "Set proxy for NPM: $proxyUri" -ForegroundColor Green
-	npm config set proxy $proxyUri
-	npm config set https-proxy $proxyUri
-}
-
+# Write-Host ".NET WebAssembly build tools for .NET 6 projects" -ForegroundColor Green
+# dotnet workload install wasm-tools-net6
 
 # Newman
+$NewmanPath = [System.IO.Path]::Join($ToolsPath, "newman")
 Write-Host "Install 'newman' to '$NewmanPath'" -ForegroundColor Green
 Write-Host "  Install 'newman' globally"
 npm install -g newman
-
 if (Test-Path $NewmanPath) {
 	Write-Host "  Delete existing folder '$NewmanPath'"
 	Remove-Item $NewmanPath -Recurse
@@ -107,18 +122,28 @@ New-Item -Path $NewmanNodeModulesPath -ItemType Directory
 Write-Host "  Copy 'newman' files to '$NewmanPath'"
 Copy-Item -Path "$env:APPDATA\npm\newman*" -Destination $NewmanPath
 Copy-Item -Path "$env:APPDATA\npm\node_modules\newman" -Destination $NewmanNodeModulesPath -Recurse
-
 Write-Host "  Uninstall 'newman' globally"
 npm uninstall -g newman
 AddToPath $NewmanPath
-
 
 # Scheduled tasks
 Write-Host "Create scheduled tasks" -ForegroundColor Green
 
 Write-Host "  Copy scripts to '$ToolsPath' folder"
 Copy-Item -Path "clean-temp.ps1" -Destination $ToolsPath -Force
+Copy-Item -Path "clean-nx-cache.ps1" -Destination $ToolsPath -Force
 
-Write-Host "  Create scheduled task 'BuildAgents\CleanTemp'"
+$scheduledTask = "BuildAgents\Clean Temp"
+Write-Host "  Create scheduled task '{$scheduledTask}'"
 $script = [System.IO.Path]::Join($ToolsPath, "clean-temp.ps1")
-schtasks /create /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc daily /st 03:30 /tn "BuildAgents\CleanTemp" /tr "pwsh -File '$script' -SaveTranscript"
+schtasks /create /f /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc daily /st 02:00 /tn $scheduledTask /tr "pwsh -File '$script' -SaveTranscript"
+
+$scheduledTask = "BuildAgents\Clean Cypress artifacts"
+Write-Host "  Create scheduled task '{$scheduledTask}'"
+$script = [System.IO.Path]::Join($ToolsPath, "clean-temp.ps1")
+schtasks /create /f /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc weekly /d SUN /st 22:00 /tn $scheduledTask /tr "pwsh -File '$script' -TempSubfolder 'AppData\Roaming\Cypress\cy\production\projects' -OlderThanDays 5 -SaveTranscript -TranscriptFile 'cypress'"
+
+$scheduledTask = "BuildAgents\Clean NX cache"
+Write-Host "  Create scheduled task '{$scheduledTask}'"
+$script = [System.IO.Path]::Join($ToolsPath, "clean-nx-cache.ps1")
+schtasks /create /f /ru "NT AUTHORITY\SYSTEM" /rl HIGHEST /sc daily /st 02:30 /tn $scheduledTask /tr "pwsh -File '$script' -SaveTranscript"

@@ -1,14 +1,37 @@
 #Requires -RunAsAdministrator
 
-Write-Host "Set execution policy to 'ByPass'" -ForegroundColor Yellow
-Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope LocalMachine
+param (
+	[Parameter()][string]$WingetJsonPath = ""
+)
 
-Write-Host "Install chocolatey" -ForegroundColor Yellow
-[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
-Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+if ([string]::IsNullOrWhiteSpace($WingetJsonPath)) {
+	$WingetJsonPath = [IO.Path]::ChangeExtension($PSCommandPath, "json")
+}
+Write-Host "JSON file with packages to install is '$WingetJsonPath'."
+if (-not (Test-Path $WingetJsonPath)) {
+	Write-Host "JSON file with packages to install not found. Exiting." -ForegroundColor Red
+	exit 1
+}
 
-Write-Host "Install software" -ForegroundColor Yellow
-choco install buildmachine-packages.config --yes
+Write-Host "Installing packages from JSON file." -ForegroundColor Green
+$json = Get-Content -Raw -Path $WingetJsonPath | ConvertFrom-Json
+$json.Sources | ForEach-Object {
+	$source = $_
+	$source.Packages | ForEach-Object {
+		$packageId = $_.PackageIdentifier
+		Write-Host "Installing package '$packageId'" -ForegroundColor Yellow
+		winget install --id $packageId --exact --scope machine
+		Write-Host
+	}
+}
 
+# Azure CLI can also be installed using WinGet, but it was very unreliable – the installation often failed.
+Write-Host "Installing Azure CLI" -ForegroundColor Green
+$ProgressPreference = 'SilentlyContinue'
+Write-Host "Download Azure CLI installer."
+Invoke-WebRequest -Uri https://aka.ms/installazurecliwindowsx64 -OutFile .\AzureCLI.msi
+Write-Host "Execute Azure CLI installer."
+Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
+Write-Host "Remove Azure CLI installer."
+Remove-Item .\AzureCLI.msi
 Write-Host
-Write-Host "Everything is installed. If you want install software for load testing, then run the 'install-load-tests.ps1' otherwise  run the 'configure.ps1' script." -ForegroundColor Green

@@ -1,0 +1,19 @@
+{
+    "pools": [
+        {
+            "name": "Esw",
+            "agents": [
+                "test-esw-01",
+                "test-esw-02",
+                "test-esw-03"
+            ]
+        },
+        {
+            "name": "Cypress",
+            "agents": [
+                "test-cypress-01",
+                "test-cypress-02"
+            ]
+        }
+    ]
+}

@@ -5,7 +5,7 @@ Delete old files and directories from Temp folders of all users.
 param (
 	[Parameter(Mandatory = $false)][string]$BaseFolder = "C:\Users",
 	[Parameter(Mandatory = $false)][string]$TempSubfolder = "AppData\Local\Temp",
-	[Parameter(Mandatory = $false)][int]$OlderThanDays = 2,
+	[Parameter(Mandatory = $false)][int]$OlderThanDays = 1,
 	[Parameter(Mandatory = $false)][switch]$SaveTranscript,
 	[Parameter(Mandatory = $false)][string]$TranscriptFile = "",
 	[Parameter(Mandatory = $false)][switch]$DryRun
@@ -21,8 +21,8 @@ if ($SaveTranscript) {
 	Start-Transcript -Path $TranscriptFile -UseMinimalHeader
 }
 
-if ($OlderThanDays -lt 1) {
-	$OlderThanDays = 1
+if ($OlderThanDays -lt 0) {
+	$OlderThanDays = 0
 }
 
 $nowDate = [DateTime]::Now.ToString("d.M.yyyy")
