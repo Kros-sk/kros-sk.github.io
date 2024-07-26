@@ -61,6 +61,12 @@ $agents.pools | ForEach-Object {
 		}
 		else {
 			New-Item -Path $agentFolder -ItemType Directory
+
+			$envFilePath = [IO.Path]::Combine($agentFolder, ".env")
+			$envContent = "KUBECONFIG=$agentFolder/kubeconfig"
+			Write-Host "Creating .env file at '$envFilePath' with content '$envContent'."
+			Set-Content -Path $envFilePath -Value $envContent
+
 			Write-Host "Unzipping agent to folder."
 			Expand-Archive -LiteralPath $agentZip -DestinationPath $agentFolder
 			$proxyFile = [IO.Path]::Combine($scriptFolder, ".proxy")
