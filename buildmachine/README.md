@@ -2,7 +2,8 @@
 
 > Staré informácie pre build počítače, ktoré používajú Chocolatey, sú v [README-OLD.md](README-OLD.md)
 
-Na nainštalovanie potrebných vecí a konfiguráciu build počítača slúžia skripty:
+Ak je to možné, je dobré mať pre agentov samostatný disk v počítači. Pototm je potrebné zadať správnu cestu k agentom
+v parametri jednotlivých skriptov. Na nainštalovanie potrebných vecí a konfiguráciu build počítača slúžia skripty:
 
 - `install.ps1`
 - `configure.ps1`
@@ -11,7 +12,7 @@ Na nainštalovanie potrebných vecí a konfiguráciu build počítača slúžia 
 ## Skript `install.ps1`
 
 Na inštaláciu bežných vecí sa používa **WinGet**. Je to nástroj priamo vo Windows, ktorý umožňuje inštalovať, aktualizovať
-a odinštalovávať programy. Zoznam vecí šo sa na build počítač inštalujú je v súbore [`install.json`](install.json).
+a odinštalovávať programy. Zoznam vecí čo sa na build počítač inštalujú je v súbore [`install.json`](install.json).
 Zoznam programov je možné mať aj v inom súbore, ktorý sa špecifikuje pomocou parametra `-WingetJsonPath`.
 
 Pri spustení súboru `install.ps1` sa nainštalujú/aktualizujú iba programy, definované v `install.json`. WinGet však umožňuje
@@ -44,9 +45,9 @@ Skript nakonfiguruje na build počítači všetko potrebné a nainštaluje veci,
 
 Skrip sa postará o nasledovné veci:
 
-- Vytvorí zložku `$ToolsPath`.
-- Vytvorí zložku `$CachePath` a v nej všetky ďalšie potrebné. Zároveň nastaví potrebné práva pre túto zložku.
-- Aj bolo zadané `Proxy`, tak nastaví premenné prostredia `HTTP_PROXY` a `HTTPS_PROXY` a nastaví aj proxy pre NPM.
+- Vytvorí zložku `ToolsPath`.
+- Vytvorí zložku `CachePath` a v nej všetky ďalšie potrebné. Zároveň nastaví potrebné práva pre túto zložku.
+- Ak bolo zadané `Proxy`, tak nastaví premenné prostredia `HTTP_PROXY` a `HTTPS_PROXY` a nastaví aj proxy pre NPM.
 - Pridá štandardný `nuget.org` ako zdroj pre NuGet.
 - Nainštaluje potrebné `dotnet` nástroje.
 - Do zložky `$ToolsPath/newman` nainštaluje `newman`, potrebný pre Postman testy.
@@ -63,20 +64,26 @@ Skript vytvorí a nakonfiguruje potrebných build agentov. Má nasledovné param
 - `AgentsBaseFolder`: adresár, do ktorého sa agenti nakpírujú. Predvolaná hodnota je `C:/agents`.
 - `AgentZipFile`: názov ZIP súboru s agentom. Súbor musí byť v rovnakom adresári ako `configure-agents.ps1`. Predvolená hodnota ja `vsts-agent-win-x64.zip`.
 - `WindowsUser`: meno Windows používateľa, pod ktorým budú služby agentov spustené. Predvolaná hdodnota je `buildAgent`.
-- `WindowsPassword`: = heslo Windows používateľa, pod ktorým budú služby agentov spustené. Predvolaná hdodnota je `buildAgent`.
+- `WindowsPassword`: heslo Windows používateľa, pod ktorým budú služby agentov spustené. Predvolaná hdodnota je `buildAgent`.
+- `Proxy`: adresa proxy servera, ak je potrebný, napríklad `http://1.2.3.4:5678`.
 
 Zoznam agentov ktorí sa nakonfigurujú je v súbore `configure-agents.json`. Je potrebné stiahnuť si ZIP s aktuálnym agentom
-(v časti _Agent pools_ v Devops). Všetci agenti sú registrovaní ako Windows služba a spustený sú pod jedným používateľom
-(`$WindowsUser`). Ak tento používateľ vo Windows neexistuje, automaticky sa vytvorí.
+(v časti _Agent pools_ v Devops). Všetci agenti sú registrovaní ako Windows služba a spustení sú pod jedným používateľom
+(parameter `WindowsUser`). Ak tento používateľ vo Windows neexistuje, automaticky sa vytvorí.
 
-Ak je agent za proxy serverom, je potrebné pri skripte `configure-agents.ps1` vytvoriť súbory `.proxy` a `.proxybypass`.
-Skript ich nakopíruje ku každému agentovi čo vytvorí. V súbore `.proxy` je potrebné uviesť adresu proxy.
+Ak je agent za proxy serverom, je potrebné spustiť skript s parametrom `Proxy`. Pre každého agenta sú potom vytvorené
+súbory `.proxy` a `.proxybypass`. Je možné tieto súbory vytvoriť aj ručne. Ak sa tieto súbory nachádzajú pri skripte
+`configure-agents.ps1`, tak sa hodnota parametra `Proxy` (ak bola zadaná) nepoužije a k agentom sa skopírujú súbory,
+ktoré už existujú.V súbory `.proxy` je uvedená adresa proxy servera, v súbore `.proxybypass` adresy, ktoré idú mimo proxy
+server (napríklad `localhost`, `127.0.0.1`…). Každá adresa je na samostatnom riadku. Príklady:
+
+Súbor `.proxy`:
 
 ``` text
 http://1.2.3.4:5678
 ```
 
-V súbore `.proxybypass` je potrebné uviesť adresy, ktoré sa majú obísť proxy serverom, napríklad:
+Súbor `.proxybypass`:
 
 ``` text
 localhost
@@ -86,7 +93,7 @@ build5
 
 ## Script `install-load-tests.ps1`
 
-Skript nainštaluje / nakonfiguruje všetko potrebné pre load testy. Tento skript je potrebné spúšťať len na build mašinách,
+Skript nainštaluje/nakonfiguruje všetko potrebné pre load testy. Tento skript je potrebné spúšťať len na build mašinách,
 ktoré budú spúšťať load testy. Nainštaluje software, ktorý je definovaný v `load-tests-buildmachine-packages.config`.
 Taktiež stiahne a rozbalí JMeter _(by default do `C:\tools\jmeter`)_ a nainštaluje potrebné pluginy.
 
@@ -94,4 +101,4 @@ Skript má nasledovné parametre (všetky nepovinné):
 
 - `JMeterVersion` - Verzia JMeter-u, ktorá sa má nainštalovať _(default je `5.4.1`)_.
 - `ToolsPath` - Adresár, kde sa nachádzajú naše tools. Tam sa nainštaluje JMeter _(default je `C:\tools`)_.
-- `PluginsList` - Čiarkou oddelený zoznam pluginov _(Plugin Id)_, ktoré sa majú nainštalovať _(default je `jpgc-graphs-basic,jpgc-casutg,jpgc-prmctl`)_.
+- `PluginsList` - Čiarkou oddelený zoznam pluginov _(Plugin Id)_, ktoré sa majú nainštalovať _(default je `jpgc-graphs-basic,jpgc-casutg,jpgc-prmctl,websocket-samplers,jpgc-wsc`)_.

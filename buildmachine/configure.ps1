@@ -102,9 +102,6 @@ dotnet tool install Kros.VariableSubstitution --tool-path $ToolsPath
 Write-Host "Install .NET tool dotnet-affected" -ForegroundColor Green
 dotnet tool install dotnet-affected --tool-path $ToolsPath
 
-# Write-Host ".NET WebAssembly build tools for .NET 6 projects" -ForegroundColor Green
-# dotnet workload install wasm-tools-net6
-
 # Newman
 $NewmanPath = [System.IO.Path]::Join($ToolsPath, "newman")
 Write-Host "Install 'newman' to '$NewmanPath'" -ForegroundColor Green
