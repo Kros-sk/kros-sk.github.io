@@ -28,7 +28,6 @@ Invoke-WebRequest -Uri https://www.nuget.org/api/v2/package/Microsoft.UI.Xaml/2.
 Expand-Archive -Path $env:TEMP\Microsoft.UI.Xaml.zip -DestinationPath $env:TEMP\Microsoft.UI.Xaml -force
 Add-AppxPackage -Path $env:TEMP\Microsoft.UI.Xaml\tools\AppX\x64\Release\Microsoft.UI.Xaml.2.8.appx
 
-
 Write-Host "Running url: https://github.com/microsoft/winget-cli/releases/download/v$WinGetVer/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle "
 Invoke-WebRequest -Uri "https://github.com/microsoft/winget-cli/releases/download/v$WinGetVer/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle" -OutFile $env:TEMP\Microsoft.DesktopAppInstaller.WinGet.appx
 Write-Host "Running url: https://github.com/microsoft/winget-cli/releases/download/v$WinGetVer/$WinGetLicenseFile"
