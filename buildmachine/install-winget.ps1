@@ -32,11 +32,7 @@ Write-Host "Adding permissions to $windowsAppsPath for $env:USERNAME..."
 icacls $windowsAppsPath /grant "$env:USERNAME:F" /t /c /q
 
 Write-Host "Looking for winget executable..."
-$possiblePaths = @(
-    "$env:LOCALAPPDATA\Microsoft\WindowsApps",
-    "C:\Program Files\WindowsApps"
-)
-$wingetExe = $possiblePaths | ForEach-Object { Get-ChildItem -Path $_ -Filter "winget.exe" -Recurse -ErrorAction SilentlyContinue } | Select-Object -First 1 -ExpandProperty FullName
+$wingetExe = Get-ChildItem -Path $windowsAppsPath -Filter "winget.exe" -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1 -ExpandProperty FullName
 
 if ($wingetExe) {
     Write-Host "Winget executable found at $wingetExe."
