@@ -6,21 +6,14 @@ Install winget on the machine.
 This script installs winget on the machine. 
 On Windows servers, winget is not installed by default. 
 This script downloads and installs Microsoft.UI.Xaml and Microsoft.DesktopAppInstaller.WinGet.
-Choose the version of winget to install by providing the version number as a parameter and its license file name.
-https://github.com/microsoft/winget-cli/releases
-
-.PARAMETER wingetVersion
-Version of winget to install. Default is "1.8.1911".
-.PARAMETER winGetLicenseFileName
-Name of the license file for the winget version. Default is "76fba573f02545629706ab99170237bc_License1.xml" for version "1.8.1911".
 #>
-param (
-	[Parameter(Mandatory = $false)][string]$wingetVersion = "1.8.1911",
-    [Parameter(Mandatory = $false)][string]$winGetLicenseFileName = "76fba573f02545629706ab99170237bc_License1.xml"
-)
 
-$WinGetVer=$wingetVersion
-$WinGetLicenseFile=$winGetLicenseFileName
+$latestRelease = Invoke-RestMethod -Uri "https://api.github.com/repos/microsoft/winget-cli/releases/latest"
+$wingetVersion = $latestRelease.tag_name
+$wingetLicenseFile = $latestRelease.assets | Where-Object { $_.name -like "*License*" } | Select-Object -ExpandProperty name
+
+Write-Host "Found latest winget version: $wingetVersion"
+Write-Host "Found latest winget license file: $wingetLicenseFile"
 
 $ProgressPreference = 'SilentlyContinue'
 
@@ -28,10 +21,10 @@ Invoke-WebRequest -Uri https://www.nuget.org/api/v2/package/Microsoft.UI.Xaml/2.
 Expand-Archive -Path $env:TEMP\Microsoft.UI.Xaml.zip -DestinationPath $env:TEMP\Microsoft.UI.Xaml -force
 Add-AppxPackage -Path $env:TEMP\Microsoft.UI.Xaml\tools\AppX\x64\Release\Microsoft.UI.Xaml.2.8.appx
 
-Write-Host "Running url: https://github.com/microsoft/winget-cli/releases/download/v$WinGetVer/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle "
-Invoke-WebRequest -Uri "https://github.com/microsoft/winget-cli/releases/download/v$WinGetVer/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle" -OutFile $env:TEMP\Microsoft.DesktopAppInstaller.WinGet.appx
-Write-Host "Running url: https://github.com/microsoft/winget-cli/releases/download/v$WinGetVer/$WinGetLicenseFile"
-Invoke-WebRequest -Uri "https://github.com/microsoft/winget-cli/releases/download/v$WinGetVer/$WinGetLicenseFile" -OutFile $env:TEMP\license.xml
+Write-Host "Running url: https://github.com/microsoft/winget-cli/releases/download/$wingetVersion/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle "
+Invoke-WebRequest -Uri "https://github.com/microsoft/winget-cli/releases/download/$wingetVersion/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle" -OutFile $env:TEMP\Microsoft.DesktopAppInstaller.WinGet.appx
+Write-Host "Running url: https://github.com/microsoft/winget-cli/releases/download/$wingetVersion/$WinGetLicenseFile"
+Invoke-WebRequest -Uri "https://github.com/microsoft/winget-cli/releases/download/$wingetVersion/$WinGetLicenseFile" -OutFile $env:TEMP\license.xml
 Add-AppxProvisionedPackage -Online -PackagePath $env:TEMP\Microsoft.DesktopAppInstaller.WinGet.appx -LicensePath $env:TEMP\license.xml
 
 $windowsAppsPath = "C:\Program Files\WindowsApps"
