@@ -9,6 +9,10 @@ v parametri jednotlivých skriptov. Na nainštalovanie potrebných vecí a konfi
 - `configure.ps1`
 - `configure-agents.ps1`
 
+## Script `install-winget.ps1`
+
+Ak je na rozbehávanej mašine Windows Server, tak Winget(použitý v ďalšom skripte na inštalácie) nie je defaultne nainštalovaný a pre jeho nainštalovanie je potrebné vykonať viacero krokov. Tento skript sa postará o všetko potrebné pre inštaláciu.
+
 ## Skript `install.ps1`
 
 Na inštaláciu bežných vecí sa používa **WinGet**. Je to nástroj priamo vo Windows, ktorý umožňuje inštalovať, aktualizovať
